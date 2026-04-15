@@ -1,6 +1,5 @@
 "use client";
 import Link from "next/link";
-import Image from "next/image";
 import { FaLinkedin, FaInstagram, FaWhatsapp } from "react-icons/fa6";
 
 export default function Footer() {
@@ -11,7 +10,7 @@ export default function Footer() {
   ];
 
   const navLinks = [
-    { name: "Quem Somos", href: "#sobre" },
+    { name: "Quem Somos", href: "/sobre" },
     { name: "Nossos Serviços", href: "#servicos" },
     { name: "Portfólio", href: "#portfolio" },
     { name: "Blog", href: "/conteudos/blog" },

@@ -40,7 +40,7 @@ export default function Navbar() {
         { name: "Prototipagem e Validação", href: "/servicos/prototipagemevalidacao" },
       ]
     },
-    { name: "Sobre Nós", href: "#sobre" },
+    { name: "Sobre Nós", href: "/sobre" },
     { name: "Cases", href: "/portfolio" },
     {
       name: "Conteúdos",
