@@ -3,7 +3,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import Image from "next/image"; // IMPORTANTE: Adicionado o Image do Next.js
+import Image from "next/image"; 
 import { motion, AnimatePresence } from "framer-motion";
 import { X } from "lucide-react";
 import dynamic from 'next/dynamic';
@@ -17,7 +17,6 @@ const PhoneInput = dynamic(() => import('react-phone-number-input').then(mod => 
   ),
 });
 
-// Adicionada a propriedade coverImage
 const ebooks = [
   { 
     title: "Gestão de Projetos", 
@@ -74,8 +73,10 @@ export default function EbooksPage() {
     setIsPhoneValid(true);
     setIsSubmitting(true);
 
-    const formData = new FormData(e.currentTarget);
-    const data = {
+    const formElement = e.currentTarget;
+    const formData = new FormData(formElement);
+
+    const sheetsData = {
       nome: formData.get("nome"),
       email: formData.get("email"),
       telefone: phoneValue,
@@ -83,16 +84,27 @@ export default function EbooksPage() {
       data_hora: new Date().toLocaleString("pt-BR")
     };
 
+    formData.append("Telefone_Validado", phoneValue);
+    formData.append("Ebook_Solicitado", selectedEbook?.title || "Desconhecido");
+
     try {
       const GOOGLE_SHEETS_WEBHOOK_URL = "https://script.google.com/macros/s/AKfycbwznD5-TRiXq5B0oHB-xoB0GN6pRfYjW8tNYyksqepx13gkwGET77ZYZNoCuE1qqdRniQ/exec";
+      const FORMSPREE_URL = "https://formspree.io/f/xkokoqdg";
 
-      await fetch(GOOGLE_SHEETS_WEBHOOK_URL, {
-        method: "POST",
-        mode: "no-cors", 
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(data),
-      });
+      await Promise.allSettled([
+      fetch(GOOGLE_SHEETS_WEBHOOK_URL, {
+          method: "POST",
+          mode: "no-cors", 
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(sheetsData),
+      }),
 
+        fetch(FORMSPREE_URL, {
+          method: "POST",
+          headers: { 'Accept': 'application/json' },
+          body: formData,
+        })
+      ]);
       if (selectedEbook?.driveUrl) {
         window.open(selectedEbook.driveUrl, "_blank");
       }
@@ -122,10 +134,7 @@ export default function EbooksPage() {
           {ebooks.map((ebook, i) => (
             <div key={i} className="bg-zinc-900 border border-zinc-800 p-8 rounded-2xl flex flex-col items-center text-center group hover:border-cromo transition-all">
               
-              {/* SUBSTUIÇÃO AQUI: De div "COVER" para o componente Image */}
               <div className="relative w-32 h-44 rounded-md shadow-2xl mb-6 overflow-hidden group-hover:scale-105 transition-transform border border-zinc-700">
-                 {/* Se a imagem falhar (ex: caminho errado), o Next mostra um alt descritivo. 
-                     Use object-cover para a imagem preencher a div perfeitamente. */}
                  <Image 
                    src={ebook.coverImage} 
                    alt={`Capa do E-book: ${ebook.title}`}
