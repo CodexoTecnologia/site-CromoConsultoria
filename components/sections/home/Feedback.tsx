@@ -28,16 +28,20 @@ const feedbacks = [
 
 export default function Feedback() {
   return (
-    <section id="depoimentos" className="py-20 md:py-32 bg-[#111111] relative overflow-hidden">
-      <div className="absolute top-0 right-0 w-96 h-96 bg-cromo/5 rounded-full blur-[100px] pointer-events-none" />
+    <section id="depoimentos" className="py-16 md:py-24 bg-zinc-950 relative overflow-hidden">
+      
+      {/* Detalhe luminoso no fundo */}
+      <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-cromo/5 rounded-full blur-[120px] pointer-events-none" />
 
       <div className="container mx-auto px-4 sm:px-6 relative z-10">
         
-        <header className="mb-16 md:mb-20 text-center">
-          <div className="inline-flex items-center justify-center gap-3 mb-4">
-            <span className="text-cromo font-bold tracking-widest text-xs uppercase">Depoimentos</span>
+        <header className="mb-12 md:mb-16 text-center">
+          <div className="inline-flex items-center justify-center gap-3 mb-3">
+            <span className="text-cromo font-bold tracking-widest text-[10px] uppercase">
+              Depoimentos
+            </span>
           </div>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-tight">
+          <h2 className="text-3xl md:text-4xl font-black text-white leading-tight">
             O que dizem os nossos <span className="text-transparent bg-clip-text bg-gradient-to-r from-cromo to-yellow-600">Parceiros</span>
           </h2>
         </header>
@@ -45,10 +49,11 @@ export default function Feedback() {
         <Carousel 
           data={feedbacks}
           renderItem={(item) => (
-            <div className="h-full bg-zinc-900/80 border border-zinc-800 rounded-2xl p-8 hover:border-cromo/50 transition-colors flex flex-col relative group backdrop-blur-sm">
+            <div className="h-full bg-zinc-900/80 border border-zinc-800 rounded-2xl p-6 sm:p-8 hover:border-cromo/50 transition-colors flex flex-col relative group backdrop-blur-sm">
 
+              {/* Ícone de aspas */}
               <div className="absolute top-6 right-8 text-cromo opacity-20 group-hover:opacity-100 transition-opacity">
-                <svg className="w-12 h-12" fill="currentColor" viewBox="0 0 24 24">
+                <svg className="w-10 h-10 sm:w-12 sm:h-12" fill="currentColor" viewBox="0 0 24 24">
                   <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
                 </svg>
               </div>
@@ -58,12 +63,14 @@ export default function Feedback() {
               </p>
               
               <div className="mt-auto flex items-center gap-4">
-                <div className="w-12 h-12 rounded-full bg-zinc-800 flex items-center justify-center text-zinc-500 font-bold border border-zinc-700">
+                <div className="w-10 h-10 sm:w-12 sm:h-12 shrink-0 rounded-full bg-zinc-800 flex items-center justify-center text-zinc-400 font-bold border border-zinc-700">
                   {item.name.charAt(0)}
                 </div>
                 <div>
-                  <h4 className="text-white font-bold text-sm md:text-base">{item.name}</h4>
-                  <p className="text-cromo text-[10px] md:text-xs uppercase tracking-wider font-bold mt-1">
+                  <h4 className="text-white font-bold text-sm md:text-base leading-tight">
+                    {item.name}
+                  </h4>
+                  <p className="text-cromo text-[9px] sm:text-[10px] uppercase tracking-widest font-bold mt-1">
                     {item.role}
                   </p>
                 </div>
