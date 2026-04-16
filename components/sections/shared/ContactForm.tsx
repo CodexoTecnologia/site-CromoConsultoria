@@ -45,7 +45,7 @@ export default function Contact() {
 
     try {
       const { isValidPhoneNumber } = await import('react-phone-number-input');
-       
+        
       valid = isValidPhoneNumber(phoneValue);
 
       if (valid && phoneValue.startsWith('+55')) {
@@ -98,153 +98,163 @@ export default function Contact() {
   };
 
   return (
-    <section id="contato" className="relative py-12 sm:py-16 md:py-20 lg:py-24 xl:py-28 px-4 sm:px-6 md:px-8 bg-[#111111] overflow-hidden">
-      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[#FFC700]/5 rounded-full blur-[120px] pointer-events-none" />
+    <section id="contato" className="relative py-16 md:py-24 bg-zinc-950 overflow-hidden border-t border-zinc-800/50">
+      
+      <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-cromo/5 rounded-full blur-[150px] pointer-events-none" />
+      <div className="absolute bottom-0 left-0 w-[300px] h-[300px] bg-cromo/5 rounded-full blur-[120px] pointer-events-none -translate-x-1/3" />
 
-      <div className="container mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-10 md:gap-12 lg:gap-16 xl:gap-20 relative z-10">
-        
-        <div className="space-y-5 sm:space-y-6 md:space-y-8 lg:space-y-10">
-          <motion.div 
-            initial={{ opacity: 0, x: -20 }} 
-            whileInView={{ opacity: 1, x: 0 }} 
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-          >
-            <span className="text-[#FFC700] font-bold text-[10px] sm:text-xs md:text-sm tracking-[0.4em] uppercase">
-              Contato Cromo
-            </span>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-white leading-[1.1] mt-3 sm:mt-4">
-              VAMOS<br /> 
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#FFC700] to-yellow-600">
-                INOVAR JUNTOS?
-              </span>
-            </h2>
-          </motion.div>
+      <div className="container mx-auto px-4 sm:px-6 relative z-10">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
           
-          <div className="space-y-4 sm:space-y-5 md:space-y-6 lg:space-y-8">
-            <p className="text-zinc-300 text-sm sm:text-base md:text-lg lg:text-xl leading-relaxed max-w-[280px] sm:max-w-xs md:max-w-sm lg:max-w-md border-l-2 border-[#FFC700] pl-4 sm:pl-5">
-              Pronto para transformar sua ideia em realidade com engenharia de elite? Fale com nossos consultores.
-            </p>
+          <div className="lg:col-span-5 space-y-6 md:space-y-8 lg:sticky lg:top-28">
+            <motion.div 
+              initial={{ opacity: 0, x: -20 }} 
+              whileInView={{ opacity: 1, x: 0 }} 
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
+            >
+              <div className="inline-flex items-center gap-3 mb-4">
+                <div className="w-8 h-[2px] bg-cromo" />
+                <span className="text-cromo font-bold tracking-widest text-[10px] uppercase">
+                  Contato Cromo
+                </span>
+              </div>
+              
+              <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-white leading-[1.1]">
+                VAMOS<br /> 
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-cromo to-yellow-600">
+                  INOVAR JUNTOS?
+                </span>
+              </h2>
+            </motion.div>
             
-            <div className="p-6 sm:p-8 bg-zinc-900/80 border border-zinc-800 rounded-2xl space-y-4 shadow-xl relative overflow-hidden group backdrop-blur-sm">
-              <div className="absolute top-0 right-0 w-24 h-24 bg-[#FFC700]/10 blur-[40px] group-hover:bg-[#FFC700]/20 transition-colors" />
-              <p className="text-[10px] font-bold tracking-[0.2em] text-zinc-500 uppercase">Canais Oficiais:</p>
-              <div className="space-y-2 text-sm sm:text-base md:text-lg font-medium">
-                <p className="text-white hover:text-[#FFC700] transition-colors cursor-pointer break-all">contato@cromoconsultoria.com.br</p>
-                <p className="text-zinc-400 font-mono">(41) 8728-8213</p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <motion.div 
-          initial={{ opacity: 0, y: 20 }} 
-          whileInView={{ opacity: 1, y: 0 }} 
-          viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.2 }}
-          className="h-full"
-        >
-          <form 
-            onSubmit={handleSubmit}
-            method="POST"
-            className="flex flex-col h-full space-y-4 md:space-y-6 p-6 sm:p-8 bg-zinc-900/50 border border-zinc-800 rounded-2xl md:rounded-3xl backdrop-blur-md shadow-2xl"
-          >
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              <div className="space-y-2">
-                <label htmlFor="contact-name" className="text-[10px] font-bold text-zinc-400 uppercase tracking-widest ml-1">Nome *</label>
-                <input 
-                  type="text" 
-                  id="contact-name"
-                  name="name" 
-                  placeholder="Seu nome" 
-                  required 
-                  className="w-full bg-black/50 border border-zinc-700 p-3.5 text-xs sm:text-sm text-white outline-none focus:border-[#FFC700] transition-all rounded-xl placeholder:text-zinc-600" 
-                />
-              </div>
-
-              <div className="space-y-2">
-                <label htmlFor="contact-phone" className="text-[10px] font-bold text-zinc-400 uppercase tracking-widest ml-1">
-                  Telefone * {!isPhoneValid && <span className="text-red-500 ml-2 animate-pulse text-[10px]"> {phoneValue ? 'INVÁLIDO' : 'OBRIGATÓRIO'}</span>}
-                </label>
-                <div className={`codexo-phone-wrapper transition-colors rounded-xl overflow-hidden border ${!isPhoneValid ? 'border-red-500/50' : 'border-zinc-700 focus-within:border-[#FFC700]'}`}>
-                  <PhoneInput
-                    international
-                    defaultCountry="BR"
-                    limitMaxLength={true} 
-                    value={phoneValue}
-                    onChange={(val) => {
-                      setPhoneValue(val);
-                      if (!isPhoneValid && val) setIsPhoneValid(true);
-                    }}
-                    countrySelectProps={{ className: "bg-transparent text-white border-none outline-none pl-3" }}
-                    className="w-full bg-black/50 p-3.5 text-xs sm:text-sm text-white outline-none"
-                    placeholder="Número de telefone"
-                  />
-                  <input type="hidden" id="contact-phone" name="phone" value={phoneValue} />
+            <div className="space-y-6">
+              <p className="text-zinc-400 text-sm md:text-base leading-relaxed max-w-sm border-l-2 border-cromo pl-4 md:pl-5">
+                Pronto para transformar sua ideia em realidade com engenharia de elite? Fale com nossos consultores.
+              </p>
+              
+              <div className="p-6 md:p-8 bg-zinc-900/60 backdrop-blur-sm border border-zinc-800 rounded-2xl space-y-4 shadow-xl relative overflow-hidden group max-w-sm">
+                <div className="absolute top-0 right-0 w-24 h-24 bg-cromo/5 blur-[30px] group-hover:bg-cromo/10 transition-colors pointer-events-none" />
+                <p className="text-[10px] font-bold tracking-[0.2em] text-zinc-500 uppercase">Canais Oficiais:</p>
+                <div className="space-y-2 text-sm sm:text-base font-medium">
+                  <p className="text-zinc-300 hover:text-cromo transition-colors cursor-pointer break-all">contato@cromoconsultoria.com.br</p>
+                  <p className="text-zinc-400 font-mono">(41) 8728-8213</p>
                 </div>
               </div>
             </div>
+          </div>
 
-            <div className="space-y-2">
-              <label htmlFor="contact-email" className="text-[10px] font-bold text-zinc-400 uppercase tracking-widest ml-1">E-mail</label>
-              <input 
-                type="email"
-                id="contact-email"
-                name="email" 
-                placeholder="exemplo@empresa.com.br" 
-                className="w-full bg-black/50 border border-zinc-700 p-3.5 text-xs sm:text-sm text-white outline-none focus:border-[#FFC700] transition-all rounded-xl placeholder:text-zinc-600" 
-              />
-            </div>
-            
-            <div className="space-y-2 flex-grow">
-              <label htmlFor="contact-message" className="text-[10px] font-bold text-zinc-400 uppercase tracking-widest ml-1">
-                Descrição do Projeto *
-              </label>
-              <textarea 
-                id="contact-message"
-                name="message" 
-                placeholder="Descreva seu desafio técnico..." 
-                required 
-                className="w-full h-full min-h-[120px] md:min-h-[150px] bg-black/50 border border-zinc-700 p-3.5 text-xs sm:text-sm text-white outline-none focus:border-[#FFC700] transition-all resize-none rounded-xl placeholder:text-zinc-600" 
-              />
-            </div>
-
-            <button 
-              type="submit"
-              disabled={isValidating || isSubmitting}
-              aria-label="Enviar mensagem de contato"
-              className="group relative w-full h-14 sm:h-16 bg-[#FFC700] hover:bg-yellow-400 overflow-hidden transition-all rounded-xl shadow-lg shadow-[#FFC700]/20 mt-6 active:scale-[0.98] disabled:opacity-70 disabled:cursor-not-allowed"
+          <div className="lg:col-span-7 w-full max-w-2xl mx-auto lg:mx-0 lg:ml-auto">
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }} 
+              whileInView={{ opacity: 1, y: 0 }} 
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.2 }}
             >
-              <div className="relative z-10 flex items-center justify-center gap-3">
-                <span className="text-xs sm:text-sm font-bold tracking-[0.2em] text-black uppercase">
-                  {isValidating ? 'Validando...' : isSubmitting ? 'Enviando...' : 'Enviar Mensagem'}
-                </span>
-                {!isValidating && !isSubmitting && (
-                  <div className="w-2 h-2 bg-black rounded-full animate-pulse opacity-50" />
-                )}
-              </div>
-            </button>
-
-            {submitStatus !== 'idle' && (
-              <motion.div
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0 }}
-                className={`p-4 rounded-xl border ${
-                  submitStatus === 'success' 
-                    ? 'bg-green-500/10 border-green-500/30 text-green-400' 
-                    : 'bg-red-500/10 border-red-500/30 text-red-400'
-                }`}
+              <form 
+                onSubmit={handleSubmit}
+                method="POST"
+                className="flex flex-col space-y-4 md:space-y-6 p-6 sm:p-8 bg-zinc-900/80 border border-zinc-800 rounded-2xl md:rounded-3xl backdrop-blur-md shadow-2xl"
               >
-                <p className="text-xs font-bold text-center">
-                  {submitStatus === 'success' 
-                    ? 'Mensagem enviada com sucesso! Nossa equipe entrará em contato.' 
-                    : 'Erro ao enviar mensagem. Tente novamente ou chame no WhatsApp.'}
-                </p>
-              </motion.div>
-            )}
-          </form>
-        </motion.div>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div className="space-y-2">
+                    <label htmlFor="contact-name" className="text-[10px] font-bold text-zinc-400 uppercase tracking-widest ml-1">Nome *</label>
+                    <input 
+                      type="text" 
+                      id="contact-name"
+                      name="name" 
+                      placeholder="Seu nome" 
+                      required 
+                      className="w-full bg-black/50 border border-zinc-700 p-3.5 text-xs sm:text-sm text-white outline-none focus:border-cromo transition-all rounded-xl placeholder:text-zinc-600" 
+                    />
+                  </div>
+
+                  <div className="space-y-2">
+                    <label htmlFor="contact-phone" className="text-[10px] font-bold text-zinc-400 uppercase tracking-widest ml-1">
+                      Telefone * {!isPhoneValid && <span className="text-red-500 ml-2 animate-pulse text-[10px]"> {phoneValue ? 'INVÁLIDO' : 'OBRIGATÓRIO'}</span>}
+                    </label>
+                    <div className={`codexo-phone-wrapper transition-colors rounded-xl overflow-hidden border ${!isPhoneValid ? 'border-red-500/50' : 'border-zinc-700 focus-within:border-cromo'}`}>
+                      <PhoneInput
+                        international
+                        defaultCountry="BR"
+                        limitMaxLength={true} 
+                        value={phoneValue}
+                        onChange={(val) => {
+                          setPhoneValue(val);
+                          if (!isPhoneValid && val) setIsPhoneValid(true);
+                        }}
+                        countrySelectProps={{ className: "bg-transparent text-white border-none outline-none pl-3" }}
+                        className="w-full bg-black/50 p-3.5 text-xs sm:text-sm text-white outline-none"
+                        placeholder="Número de telefone"
+                      />
+                      <input type="hidden" id="contact-phone" name="phone" value={phoneValue} />
+                    </div>
+                  </div>
+                </div>
+
+                <div className="space-y-2">
+                  <label htmlFor="contact-email" className="text-[10px] font-bold text-zinc-400 uppercase tracking-widest ml-1">E-mail</label>
+                  <input 
+                    type="email"
+                    id="contact-email"
+                    name="email" 
+                    placeholder="exemplo@empresa.com.br" 
+                    className="w-full bg-black/50 border border-zinc-700 p-3.5 text-xs sm:text-sm text-white outline-none focus:border-cromo transition-all rounded-xl placeholder:text-zinc-600" 
+                  />
+                </div>
+                
+                <div className="space-y-2 flex-grow">
+                  <label htmlFor="contact-message" className="text-[10px] font-bold text-zinc-400 uppercase tracking-widest ml-1">
+                    Descrição do Projeto *
+                  </label>
+                  <textarea 
+                    id="contact-message"
+                    name="message" 
+                    placeholder="Descreva seu desafio técnico..." 
+                    required 
+                    className="w-full min-h-[120px] md:min-h-[150px] bg-black/50 border border-zinc-700 p-3.5 text-xs sm:text-sm text-white outline-none focus:border-cromo transition-all resize-none rounded-xl placeholder:text-zinc-600" 
+                  />
+                </div>
+
+                <button 
+                  type="submit"
+                  disabled={isValidating || isSubmitting}
+                  aria-label="Enviar mensagem de contato"
+                  className="group relative w-full h-14 sm:h-16 bg-cromo hover:bg-yellow-400 overflow-hidden transition-all rounded-xl shadow-lg shadow-cromo/20 mt-4 active:scale-[0.98] disabled:opacity-70 disabled:cursor-not-allowed"
+                >
+                  <div className="relative z-10 flex items-center justify-center gap-3">
+                    <span className="text-xs sm:text-sm font-bold tracking-[0.2em] text-zinc-950 uppercase">
+                      {isValidating ? 'Validando...' : isSubmitting ? 'Enviando...' : 'Enviar Mensagem'}
+                    </span>
+                    {!isValidating && !isSubmitting && (
+                      <div className="w-2 h-2 bg-black rounded-full animate-pulse opacity-50" />
+                    )}
+                  </div>
+                </button>
+
+                {submitStatus !== 'idle' && (
+                  <motion.div
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0 }}
+                    className={`p-4 rounded-xl border ${
+                      submitStatus === 'success' 
+                        ? 'bg-green-500/10 border-green-500/30 text-green-400' 
+                        : 'bg-red-500/10 border-red-500/30 text-red-400'
+                    }`}
+                  >
+                    <p className="text-xs font-bold text-center">
+                      {submitStatus === 'success' 
+                        ? 'Mensagem enviada com sucesso! Nossa equipe entrará em contato.' 
+                        : 'Erro ao enviar mensagem. Tente novamente ou chame no WhatsApp.'}
+                    </p>
+                  </motion.div>
+                )}
+              </form>
+            </motion.div>
+          </div>
+
+        </div>
       </div>
     </section>
   );
