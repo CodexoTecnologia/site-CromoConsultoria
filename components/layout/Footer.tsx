@@ -15,7 +15,7 @@ export default function Footer() {
     { name: "Nossos Serviços", href: "#servicos" },
     { name: "Portfólio", href: "#portfolio" },
     { name: "Blog", href: "/conteudos/blog" },
-    { name: "E-books", href: "/conteudos/ebooks" },
+    { name: "E-Books", href: "/conteudos/ebooks" },
     { name: "Contato", href: "#contato" },
   ];
 
