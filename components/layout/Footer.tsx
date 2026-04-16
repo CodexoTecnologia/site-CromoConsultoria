@@ -1,19 +1,20 @@
 "use client";
 import Link from "next/link";
 import Image from "next/image";
-import { FaLinkedin, FaInstagram, FaWhatsapp } from "react-icons/fa6";
+import { FaLinkedin, FaInstagram, FaWhatsapp, FaFacebook } from "react-icons/fa6";
 
 export default function Footer() {
   const socialLinks = [
-    { name: "LinkedIn", icon: <FaLinkedin />, url: "https://www.linkedin.com/company/cromo-consultoria" },
-    { name: "Instagram", icon: <FaInstagram />, url: "https://www.instagram.com/cromo.consultoria" },
-    { name: "WhatsApp", icon: <FaWhatsapp />, url: "https://wa.me/5541999999999" }
+    { name: "LinkedIn", icon: <FaLinkedin />, url: "https://www.linkedin.com/company/cromoconsultoria/" },
+    { name: "Instagram", icon: <FaInstagram />, url: "https://www.instagram.com/cromoconsultoria/" },
+    { name: "Facebook", icon: <FaFacebook />, url: "https://www.facebook.com/CromoConsultoria" },
+    { name: "WhatsApp", icon: <FaWhatsapp />, url: "https://wa.me/554187288213" },
   ];
 
   const navLinks = [
-    { name: "Quem Somos", href: "#sobre" },
-    { name: "Nossos Serviços", href: "#servicos" },
-    { name: "Portfólio", href: "#portfolio" },
+    { name: "Quem Somos", href: "/sobre" },
+    { name: "Nossos Serviços", href: "/servicos" },
+    { name: "Portfólio", href: "/portfolio" },
     { name: "Blog", href: "/conteudos/blog" },
     { name: "E-Books", href: "/conteudos/ebooks" },
     { name: "Contato", href: "#contato" },
@@ -22,20 +23,25 @@ export default function Footer() {
   return (
     <footer className="relative bg-zinc-950 border-t border-zinc-800 pt-12 sm:pt-16 md:pt-20 lg:pt-24 pb-8 sm:pb-10 md:pb-12 px-4 sm:px-6 md:px-8 overflow-hidden">
       
-      {/* Brilho suave (glow) de fundo para quebrar o preto absoluto sem usar texturas */}
       <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-cromo/5 rounded-full blur-[120px] pointer-events-none translate-x-1/3 -translate-y-1/3" />
       <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-cromo/5 rounded-full blur-[100px] pointer-events-none -translate-x-1/3 translate-y-1/3" />
 
       <div className="container mx-auto relative z-10">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-10 md:gap-12 lg:gap-16 mb-12 sm:mb-16 md:mb-20">
           
-          {/* LOGO E MISSÃO */}
           <div className="col-span-1 sm:col-span-2 space-y-5 sm:space-y-6 md:space-y-8">
-            <Link href="/" className="flex items-center gap-1 group w-max">
-              <span className="text-xl sm:text-2xl font-black text-white tracking-[0.15em] group-hover:text-cromo transition-colors">
-                CROMO
-              </span>
-              <span className="w-2 h-2 rounded-full bg-cromo animate-pulse"></span>
+            <Link
+              href="/"
+              className="relative flex items-center transition-opacity hover:opacity-80"
+            >
+              <Image
+                src="/assets/logo/logo-cromo.png"
+                alt="Cromo Consultoria"
+                width={140}
+                height={40}
+                priority
+                className="object-contain w-auto h-6 sm:h-8"
+              />
             </Link>
             <p className="max-w-[280px] sm:max-w-sm md:max-w-md text-zinc-400 text-xs sm:text-sm leading-relaxed border-l-2 border-cromo pl-4 sm:pl-5 md:pl-6 italic">
               Transformamos desafios técnicos de engenharia em soluções inovadoras, garantindo viabilidade e propriedade intelectual para a sua indústria.
@@ -86,7 +92,7 @@ export default function Footer() {
               </div>
               <div>
                 <p className="text-zinc-500 text-[9px] sm:text-[10px] uppercase tracking-widest">Telefone / WhatsApp</p>
-                <p className="text-zinc-300 font-mono text-xs sm:text-sm">(41) 99999-9999</p>
+                <p className="text-zinc-300 font-mono text-xs sm:text-sm">(41) 8728-8213</p>
               </div>
               <div>
                  <p className="text-zinc-500 text-[9px] sm:text-[10px] uppercase tracking-widest mt-4">Localização</p>
@@ -102,9 +108,25 @@ export default function Footer() {
                © {new Date().getFullYear()} Cromo Consultoria. Todos os direitos reservados.
              </p>
           </div>
-          <div className="text-[8px] sm:text-[9px] text-zinc-600 font-bold uppercase tracking-[0.2em]">
-            Desenvolvido por Codexo
-          </div>
+<div className="flex flex-col items-center md:items-end">
+  <span className="text-[8px] sm:text-[9px] text-zinc-600 font-bold uppercase tracking-[0.2em]">
+    Desenvolvido por
+  </span>
+  <a 
+    href="https://codexo.com.br" 
+    target="_blank" 
+    rel="noopener noreferrer"
+    className="group"
+  >
+    <Image 
+      src="/assets/logo/logo_codexo_nome_branco.svg" 
+      alt="Codexo" 
+      width={120} 
+      height={35} 
+      className="mt-[5px] h-[35px] w-auto opacity-50 group-hover:opacity-100 transition-opacity duration-300" 
+    />
+  </a>
+</div>
         </div>
       </div>
     </footer>

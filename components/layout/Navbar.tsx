@@ -4,23 +4,26 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, ChevronDown } from "lucide-react";
+import Image from "next/image";
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
-  
-  const [openMobileSubmenu, setOpenMobileSubmenu] = useState<string | null>(null);
+
+  const [openMobileSubmenu, setOpenMobileSubmenu] = useState<string | null>(
+    null,
+  );
 
   useEffect(() => {
     const checkMobile = () => setIsMobile(window.innerWidth < 768);
     checkMobile();
-    
+
     const handleScroll = () => setIsScrolled(window.scrollY > 20);
-    
+
     window.addEventListener("resize", checkMobile, { passive: true });
     window.addEventListener("scroll", handleScroll, { passive: true });
-    
+
     return () => {
       window.removeEventListener("resize", checkMobile);
       window.removeEventListener("scroll", handleScroll);
@@ -28,29 +31,43 @@ export default function Navbar() {
   }, []);
 
   const navLinks = [
-
-    { 
-      name: "Serviços", 
-      href: "/servicos", 
+    {
+      name: "Serviços",
+      href: "/servicos",
       subLinks: [
-        { name: "Desenvolvimento de Produto", href: "/servicos/desenvolvimentodeproduto" },
-        { name: "Estudo de Viabilidade", href: "/servicos/estudodeviabilidade" },
-        { name: "Formulação de Patentes", href: "/servicos/formulacaodepatentes" },
-        { name: "Otimização de Processo", href: "/servicos/otimizacaodeprocesso" },
-        { name: "Prototipagem e Validação", href: "/servicos/prototipagemevalidacao" },
-      ]
+        {
+          name: "Desenvolvimento de Produto",
+          href: "/servicos/desenvolvimentodeproduto",
+        },
+        {
+          name: "Estudo de Viabilidade",
+          href: "/servicos/estudodeviabilidade",
+        },
+        {
+          name: "Formulação de Patentes",
+          href: "/servicos/formulacaodepatentes",
+        },
+        {
+          name: "Otimização de Processo",
+          href: "/servicos/otimizacaodeprocesso",
+        },
+        {
+          name: "Prototipagem e Validação",
+          href: "/servicos/prototipagemevalidacao",
+        },
+      ],
     },
-    { name: "Sobre Nós", href: "#sobre" },
+    { name: "Sobre Nós", href: "/sobre" },
     { name: "Cases", href: "/portfolio" },
     {
       name: "Conteúdos",
-      href: "/conteudos", 
+      href: "/conteudos",
       subLinks: [
         { name: "Blog", href: "/conteudos/blog" },
         { name: "E-books", href: "/conteudos/ebooks" },
-      ]
+      ],
     },
-    { name: "FAQ", href: "/faq" }
+    { name: "FAQ", href: "/faq" },
   ];
 
   const closeMobileMenu = () => {
@@ -64,14 +81,14 @@ export default function Navbar() {
       maxWidth: "1200px",
       y: 0,
       backgroundColor: "rgba(24, 24, 27, 0.2)",
-      backdropFilter: "blur(8px)", 
+      backdropFilter: "blur(8px)",
       borderColor: "rgba(255, 255, 255, 0.05)",
     },
     scrolled: {
-      width: isMobile ? "95%" : "100%", 
+      width: isMobile ? "95%" : "100%",
       maxWidth: isMobile ? "1200px" : "1100px",
       y: isMobile ? 0 : -10,
-      backgroundColor: "rgba(24, 24, 27, 0.85)", 
+      backgroundColor: "rgba(24, 24, 27, 0.85)",
       backdropFilter: "blur(12px)",
       borderColor: "rgba(255, 255, 255, 0.1)",
     },
@@ -88,12 +105,18 @@ export default function Navbar() {
           className="relative flex items-center justify-between border rounded-xl md:rounded-2xl overflow-visible shadow-lg w-full"
         >
           <div className="relative z-20 flex items-center justify-between w-full px-4 sm:px-6 md:px-8 py-3 md:py-4">
-            
-            <Link href="/" className="flex items-center gap-1 group">
-              <span className="text-xl sm:text-2xl font-black text-white tracking-[0.15em] group-hover:text-cromo transition-colors">
-                CROMO
-              </span>
-              <span className="w-2 h-2 rounded-full bg-cromo animate-pulse"></span>
+            <Link
+              href="/"
+              className="relative flex items-center transition-opacity hover:opacity-80"
+            >
+              <Image
+                src="/assets/logo/logo-cromo.png"
+                alt="Cromo Consultoria"
+                width={140}
+                height={40}
+                priority
+                className="object-contain w-auto h-6 sm:h-8"
+              />
             </Link>
 
             <nav className="hidden md:block">
@@ -102,12 +125,15 @@ export default function Navbar() {
                   <li key={link.name} className="relative group">
                     {link.subLinks ? (
                       <>
-                        <Link 
-                          href={link.href} 
+                        <Link
+                          href={link.href}
                           className="flex items-center gap-1 text-[10px] sm:text-xs uppercase tracking-[0.1em] font-bold text-zinc-300 group-hover:text-white transition-all py-2 relative"
                         >
                           {link.name}
-                          <ChevronDown size={14} className="group-hover:rotate-180 transition-transform duration-300" />
+                          <ChevronDown
+                            size={14}
+                            className="group-hover:rotate-180 transition-transform duration-300"
+                          />
                           <span className="absolute bottom-1 left-0 w-0 h-[2px] bg-cromo transition-all group-hover:w-full" />
                         </Link>
 
@@ -126,7 +152,7 @@ export default function Navbar() {
                         </div>
                       </>
                     ) : (
-                      <Link 
+                      <Link
                         href={link.href}
                         className="text-[10px] sm:text-xs uppercase tracking-[0.1em] font-bold text-zinc-300 hover:text-white transition-all relative group py-2 flex"
                       >
@@ -141,7 +167,7 @@ export default function Navbar() {
 
             <div className="flex items-center gap-3 sm:gap-4 md:gap-6">
               <Link href="#contact" className="hidden sm:block">
-                <motion.button 
+                <motion.button
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.98 }}
                   className="px-5 py-2 md:py-2.5 flex items-center gap-2 border border-cromo bg-transparent hover:bg-cromo text-cromo hover:text-zinc-900 font-bold text-[9px] md:text-[10px] tracking-[0.2em] uppercase rounded-full transition-all shadow-lg hover:shadow-cromo/20"
@@ -164,7 +190,6 @@ export default function Navbar() {
       <AnimatePresence>
         {isMobileMenuOpen && (
           <>
-
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
@@ -197,22 +222,28 @@ export default function Navbar() {
                           <div className="flex flex-col">
                             <div className="w-full flex items-center justify-between px-2 py-2 rounded-xl transition-all hover:bg-zinc-800">
                               {/* Clique no texto = Navega para a página */}
-                              <Link 
+                              <Link
                                 href={link.href}
                                 onClick={closeMobileMenu}
                                 className="flex-1 px-2 py-2 text-xs uppercase tracking-[0.2em] font-bold text-zinc-300 hover:text-white"
                               >
                                 {link.name}
                               </Link>
-                              
+
                               {/* Clique na setinha = Abre as opções */}
-                              <button 
-                                onClick={() => setOpenMobileSubmenu(openMobileSubmenu === link.name ? null : link.name)}
+                              <button
+                                onClick={() =>
+                                  setOpenMobileSubmenu(
+                                    openMobileSubmenu === link.name
+                                      ? null
+                                      : link.name,
+                                  )
+                                }
                                 className="p-3 text-zinc-400 hover:text-cromo bg-zinc-800/50 rounded-lg ml-2"
                               >
-                                <ChevronDown 
-                                  size={16} 
-                                  className={`transition-transform duration-300 ${openMobileSubmenu === link.name ? 'rotate-180 text-cromo' : ''}`} 
+                                <ChevronDown
+                                  size={16}
+                                  className={`transition-transform duration-300 ${openMobileSubmenu === link.name ? "rotate-180 text-cromo" : ""}`}
                                 />
                               </button>
                             </div>
@@ -244,7 +275,7 @@ export default function Navbar() {
                           </div>
                         ) : (
                           // ITEM NORMAL (MOBILE)
-                          <Link 
+                          <Link
                             href={link.href}
                             onClick={closeMobileMenu}
                             className="block px-4 py-4 text-xs uppercase tracking-[0.2em] font-bold text-zinc-300 hover:text-white hover:bg-zinc-800 rounded-xl transition-all"
@@ -255,7 +286,7 @@ export default function Navbar() {
                       </motion.li>
                     ))}
                   </ul>
-                  
+
                   <div className="p-2 mt-2">
                     <Link href="#contato" onClick={closeMobileMenu}>
                       <button className="w-full py-4 bg-cromo text-zinc-900 font-black text-xs tracking-[0.2em] uppercase rounded-xl shadow-lg shadow-cromo/20 hover:bg-cromo-hover transition-all">
