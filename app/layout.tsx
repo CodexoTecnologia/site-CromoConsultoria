@@ -4,7 +4,7 @@ import { Geist } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
-import WhatsAppButton from "@/components/sections/shared/WhatsAppButton"; // Se você já tiver esse componente criado
+import WhatsAppButton from "@/components/sections/shared/WhatsAppButton"; 
 
 const geistSans = Geist({ 
   variable: "--font-geist-sans", 
