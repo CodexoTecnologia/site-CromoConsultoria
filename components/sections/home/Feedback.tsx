@@ -29,14 +29,13 @@ const feedbacks = [
 export default function Feedback() {
   return (
     <section id="depoimentos" className="py-20 md:py-32 bg-[#111111] relative overflow-hidden">
-      {/* Detalhe de fundo */}
       <div className="absolute top-0 right-0 w-96 h-96 bg-cromo/5 rounded-full blur-[100px] pointer-events-none" />
 
       <div className="container mx-auto px-4 sm:px-6 relative z-10">
         
         <header className="mb-16 md:mb-20 text-center">
           <div className="inline-flex items-center justify-center gap-3 mb-4">
-            <span className="text-cromo font-bold tracking-widest text-xs uppercase">Feedback</span>
+            <span className="text-cromo font-bold tracking-widest text-xs uppercase">Depoimentos</span>
           </div>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-tight">
             O que dizem os nossos <span className="text-transparent bg-clip-text bg-gradient-to-r from-cromo to-yellow-600">Parceiros</span>

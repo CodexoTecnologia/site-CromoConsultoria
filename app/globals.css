@@ -48,3 +48,17 @@ body {
   -ms-overflow-style: none; 
   scrollbar-width: none; 
 }
+
+.PhoneInputCountrySelect {
+  background-color: transparent !important;
+  color: inherit !important;
+}
+
+.PhoneInputCountrySelect option {
+  background-color: #18181b !important; 
+  color: #ffffff !important;
+}
+
+.PhoneInputCountrySelect:focus {
+  outline: none !important;
+}

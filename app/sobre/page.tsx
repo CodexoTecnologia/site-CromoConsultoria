@@ -71,7 +71,7 @@ export default function SobreNosPage() {
       </section>
 
       <section className="bg-zinc-900 border-y border-zinc-800 py-24 mb-32 relative overflow-hidden">
-        
+
         <div className="absolute top-0 right-0 w-96 h-96 bg-cromo/5 rounded-full blur-[100px] pointer-events-none translate-x-1/4 -translate-y-1/4" />
 
         <div className="absolute bottom-0 left-0 w-96 h-96 bg-cromo/5 rounded-full blur-[100px] pointer-events-none -translate-x-1/4 translate-y-1/4" />
@@ -105,7 +105,6 @@ export default function SobreNosPage() {
               }
             ].map((valor, i) => (
               <div key={i} className="bg-zinc-950 border border-zinc-800 p-8 lg:p-10 rounded-2xl hover:border-cromo group transition-all duration-300 relative overflow-hidden">
-                {/* Efeito de luz sutil dentro do card no hover */}
                 <div className="absolute -top-10 -right-10 w-32 h-32 bg-cromo/5 rounded-full blur-3xl group-hover:bg-cromo/10 transition-colors" />
 
                 <div className="w-14 h-14 rounded-xl bg-zinc-900 border border-zinc-800 flex items-center justify-center mb-6 group-hover:scale-110 group-hover:border-cromo/50 transition-all shadow-lg">

@@ -1,6 +1,7 @@
+// src/components/sections/shared/ContactForm.tsx
 "use client";
 import { useState, useEffect } from "react";
-import { motion, useReducedMotion } from "framer-motion";
+import { motion } from "framer-motion";
 import dynamic from 'next/dynamic';
 
 const PhoneInput = dynamic(() => import('react-phone-number-input').then(mod => mod.default), {
@@ -13,7 +14,6 @@ const PhoneInput = dynamic(() => import('react-phone-number-input').then(mod => 
 });
 
 export default function Contact() {
-  const shouldReduceMotion = useReducedMotion();
   const [phoneValue, setPhoneValue] = useState<string | undefined>();
   const [isPhoneValid, setIsPhoneValid] = useState(true);
   const [isValidating, setIsValidating] = useState(false);
@@ -45,7 +45,15 @@ export default function Contact() {
 
     try {
       const { isValidPhoneNumber } = await import('react-phone-number-input');
+       
       valid = isValidPhoneNumber(phoneValue);
+
+      if (valid && phoneValue.startsWith('+55')) {
+        const apenasNumeros = phoneValue.replace(/\D/g, '');
+        if (apenasNumeros.length !== 12 && apenasNumeros.length !== 13) {
+          valid = false;
+        }
+      }
     } catch (error) {
       console.error("Erro ao validar telefone", error);
       valid = true;
@@ -91,25 +99,24 @@ export default function Contact() {
 
   return (
     <section id="contato" className="relative py-12 sm:py-16 md:py-20 lg:py-24 xl:py-28 px-4 sm:px-6 md:px-8 bg-[#111111] overflow-hidden">
-      {/* Elemento de fundo sutil para dar profundidade ao preto */}
       <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[#FFC700]/5 rounded-full blur-[120px] pointer-events-none" />
 
       <div className="container mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-10 md:gap-12 lg:gap-16 xl:gap-20 relative z-10">
         
         <div className="space-y-5 sm:space-y-6 md:space-y-8 lg:space-y-10">
           <motion.div 
-            initial={shouldReduceMotion ? { opacity: 1 } : { opacity: 0, x: -20 }} 
+            initial={{ opacity: 0, x: -20 }} 
             whileInView={{ opacity: 1, x: 0 }} 
             viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
           >
             <span className="text-[#FFC700] font-bold text-[10px] sm:text-xs md:text-sm tracking-[0.4em] uppercase">
               Contato Cromo
             </span>
-            {/* Mantido o design impactante, mas ajustado para as cores da imagem */}
             <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-white leading-[1.1] mt-3 sm:mt-4">
               VAMOS<br /> 
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#FFC700] to-yellow-600">
-                INVAR JUNTOS?
+                INOVAR JUNTOS?
               </span>
             </h2>
           </motion.div>
@@ -124,16 +131,17 @@ export default function Contact() {
               <p className="text-[10px] font-bold tracking-[0.2em] text-zinc-500 uppercase">Canais Oficiais:</p>
               <div className="space-y-2 text-sm sm:text-base md:text-lg font-medium">
                 <p className="text-white hover:text-[#FFC700] transition-colors cursor-pointer break-all">contato@cromoconsultoria.com.br</p>
-                <p className="text-zinc-400 font-mono">(41) 99999-9999</p>
+                <p className="text-zinc-400 font-mono">(41) 8728-8213</p>
               </div>
             </div>
           </div>
         </div>
 
         <motion.div 
-          initial={shouldReduceMotion ? { opacity: 1 } : { opacity: 0, y: 20 }} 
+          initial={{ opacity: 0, y: 20 }} 
           whileInView={{ opacity: 1, y: 0 }} 
-          viewport={{ once: true }} 
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: 0.2 }}
           className="h-full"
         >
           <form 
@@ -162,6 +170,7 @@ export default function Contact() {
                   <PhoneInput
                     international
                     defaultCountry="BR"
+                    limitMaxLength={true} 
                     value={phoneValue}
                     onChange={(val) => {
                       setPhoneValue(val);
@@ -207,7 +216,6 @@ export default function Contact() {
               className="group relative w-full h-14 sm:h-16 bg-[#FFC700] hover:bg-yellow-400 overflow-hidden transition-all rounded-xl shadow-lg shadow-[#FFC700]/20 mt-6 active:scale-[0.98] disabled:opacity-70 disabled:cursor-not-allowed"
             >
               <div className="relative z-10 flex items-center justify-center gap-3">
-                {/* Note que a cor do texto do botão foi alterada para black para dar o contraste com o amarelo */}
                 <span className="text-xs sm:text-sm font-bold tracking-[0.2em] text-black uppercase">
                   {isValidating ? 'Validando...' : isSubmitting ? 'Enviando...' : 'Enviar Mensagem'}
                 </span>
@@ -217,7 +225,6 @@ export default function Contact() {
               </div>
             </button>
 
-            {/* Mensagem de Feedback */}
             {submitStatus !== 'idle' && (
               <motion.div
                 initial={{ opacity: 0, y: 10 }}
