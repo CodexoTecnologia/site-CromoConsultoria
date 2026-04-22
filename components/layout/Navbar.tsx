@@ -58,7 +58,7 @@ export default function Navbar() {
       ],
     },
     { name: "Sobre Nós", href: "/sobre" },
-    { name: "Cases", href: "/portfolio" },
+    { name: "Portfólio", href: "/portfolio" },
     {
       name: "Conteúdos",
       href: "/conteudos",
