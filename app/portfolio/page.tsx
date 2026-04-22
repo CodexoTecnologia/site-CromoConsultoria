@@ -2,6 +2,8 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Metadata } from "next";
+import ContactForm from "@/components/sections/shared/ContactForm";
+import ScrollToContactButton from "@/components/sections/shared/ScrollToContactButton";
 
 export const metadata: Metadata = {
   title: "Portfólio | Cromo Consultoria",
@@ -92,6 +94,9 @@ const portfolioProjects = [
 ];
 
 export default function PortfolioPage() {
+  const totalProjects = portfolioProjects.length;
+  const projectsInLastRow = totalProjects % 3;
+
   return (
     <main className="min-h-screen bg-zinc-950 pt-32 pb-20">
       
@@ -110,9 +115,20 @@ export default function PortfolioPage() {
       </section>
 
       <section className="container mx-auto px-4 sm:px-6">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8">
           {portfolioProjects.map((project, index) => (
-            <div key={index} className="bg-zinc-900 border border-zinc-800 rounded-3xl overflow-hidden hover:border-cromo transition-colors flex flex-col group">
+            <div
+              key={index}
+              className={`md:col-span-1 lg:col-span-4 bg-zinc-900 border border-zinc-800 rounded-3xl overflow-hidden hover:border-cromo transition-colors flex flex-col group ${
+                projectsInLastRow === 1 && index === totalProjects - 1
+                  ? "lg:col-start-5"
+                  : projectsInLastRow === 2 && index === totalProjects - 2
+                    ? "lg:col-start-3"
+                    : projectsInLastRow === 2 && index === totalProjects - 1
+                      ? "lg:col-start-7"
+                      : ""
+              }`}
+            >
               
               <div className="relative w-full h-56 md:h-64 bg-zinc-800 overflow-hidden border-b border-zinc-800">
                 <Image 
@@ -174,15 +190,16 @@ export default function PortfolioPage() {
         </div>
       </section>
 
-      <section className="container mx-auto px-4 sm:px-6 mt-32 text-center">
+      <section className="container mx-auto px-4 sm:px-6 mt-32 mb-24 md:mb-32 text-center">
         <h2 className="text-3xl font-black text-white mb-6">Seu projeto pode ser o próximo.</h2>
-        <Link 
-          href="/#contato" 
+        <ScrollToContactButton
           className="inline-block bg-cromo text-black font-black text-xs tracking-widest uppercase px-10 py-5 rounded-xl hover:bg-yellow-400 transition-all shadow-xl shadow-cromo/20"
         >
-          Iniciar um Projeto
-        </Link>
+          Quero Iniciar um Projeto
+        </ScrollToContactButton>
       </section>
+
+      <ContactForm />
 
     </main>
   );
