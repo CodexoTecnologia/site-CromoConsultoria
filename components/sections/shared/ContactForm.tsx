@@ -1,8 +1,35 @@
 // src/components/sections/shared/ContactForm.tsx
 "use client";
-import { useState, useEffect } from "react";
+import { useState, useEffect, forwardRef } from "react";
+import type { InputHTMLAttributes } from "react";
 import { motion } from "framer-motion";
 import dynamic from 'next/dynamic';
+
+const BrazilianMaskedInput = forwardRef<HTMLInputElement, InputHTMLAttributes<HTMLInputElement>>(
+  function BrazilianMaskedInput({ value, onChange, ...props }, ref) {
+    const str = String(value || '');
+    let displayed = str;
+
+    if (str.startsWith('+55')) {
+      const local = str.replace(/^\+55\s*/, '').replace(/\D/g, '');
+      if (local.length === 0) {
+        displayed = '+55 ';
+      } else if (local.length <= 2) {
+        displayed = `+55 ${local}`;
+      } else if (local.length <= 6) {
+        displayed = `+55 ${local.slice(0, 2)} ${local.slice(2)}`;
+      } else if (local.length <= 10) {
+        displayed = `+55 ${local.slice(0, 2)} ${local.slice(2, 6)}-${local.slice(6)}`;
+      } else {
+        displayed = `+55 ${local.slice(0, 2)} ${local.slice(2, 3)} ${local.slice(3, 7)}-${local.slice(7, 11)}`;
+      }
+    }
+
+    return (
+      <input {...props} ref={ref} value={displayed} onChange={onChange} />
+    );
+  }
+);
 
 const PhoneInput = dynamic(() => import('react-phone-number-input').then(mod => mod.default), {
   ssr: false,
@@ -13,19 +40,29 @@ const PhoneInput = dynamic(() => import('react-phone-number-input').then(mod => 
   ),
 });
 
-export default function Contact() {
+interface ContactProps {
+  headingLine1?: string;
+  headingLine2?: string;
+  subtitle?: string;
+}
+
+export default function Contact({
+  headingLine1 = "VAMOS",
+  headingLine2 = "INOVAR JUNTOS?",
+  subtitle = "Pronto para transformar sua ideia em realidade com engenharia de elite? Fale com nossos consultores.",
+}: ContactProps) {
   const [phoneValue, setPhoneValue] = useState<string | undefined>();
   const [isPhoneValid, setIsPhoneValid] = useState(true);
   const [isValidating, setIsValidating] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
-  
+
   useEffect(() => {
     if (typeof window !== 'undefined' && !document.querySelector('link[href*="react-phone-number-input"]')) {
       const link = document.createElement('link');
       link.rel = 'stylesheet';
       link.href = 'https://unpkg.com/react-phone-number-input@3.4.14/style.css';
-      link.media = 'print'; 
+      link.media = 'print';
       link.onload = () => { link.media = 'all' };
       document.head.appendChild(link);
     }
@@ -45,7 +82,7 @@ export default function Contact() {
 
     try {
       const { isValidPhoneNumber } = await import('react-phone-number-input');
-        
+
       valid = isValidPhoneNumber(phoneValue);
 
       if (valid && phoneValue.startsWith('+55')) {
@@ -99,17 +136,17 @@ export default function Contact() {
 
   return (
     <section id="contato" className="relative py-16 md:py-24 bg-zinc-950 overflow-hidden border-t border-zinc-800/50">
-      
+
       <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-cromo/5 rounded-full blur-[150px] pointer-events-none" />
       <div className="absolute bottom-0 left-0 w-[300px] h-[300px] bg-cromo/5 rounded-full blur-[120px] pointer-events-none -translate-x-1/3" />
 
       <div className="container mx-auto px-4 sm:px-6 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
-          
+
           <div className="lg:col-span-5 space-y-6 md:space-y-8 lg:sticky lg:top-28">
-            <motion.div 
-              initial={{ opacity: 0, x: -20 }} 
-              whileInView={{ opacity: 1, x: 0 }} 
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5 }}
             >
@@ -119,20 +156,20 @@ export default function Contact() {
                   Contato Cromo
                 </span>
               </div>
-              
+
               <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-white leading-[1.1]">
-                VAMOS<br /> 
+                {headingLine1}<br />
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-cromo to-yellow-600">
-                  INOVAR JUNTOS?
+                  {headingLine2}
                 </span>
               </h2>
             </motion.div>
-            
+
             <div className="space-y-6">
               <p className="text-zinc-400 text-sm md:text-base leading-relaxed max-w-sm border-l-2 border-cromo pl-4 md:pl-5">
-                Pronto para transformar sua ideia em realidade com engenharia de elite? Fale com nossos consultores.
+                {subtitle}
               </p>
-              
+
               <div className="p-6 md:p-8 bg-zinc-900/60 backdrop-blur-sm border border-zinc-800 rounded-2xl space-y-4 shadow-xl relative overflow-hidden group max-w-sm">
                 <div className="absolute top-0 right-0 w-24 h-24 bg-cromo/5 blur-[30px] group-hover:bg-cromo/10 transition-colors pointer-events-none" />
                 <p className="text-[10px] font-bold tracking-[0.2em] text-zinc-500 uppercase">Canais Oficiais:</p>
@@ -145,13 +182,13 @@ export default function Contact() {
           </div>
 
           <div className="lg:col-span-7 w-full max-w-2xl mx-auto lg:mx-0 lg:ml-auto">
-            <motion.div 
-              initial={{ opacity: 0, y: 20 }} 
-              whileInView={{ opacity: 1, y: 0 }} 
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.2 }}
             >
-              <form 
+              <form
                 onSubmit={handleSubmit}
                 method="POST"
                 className="flex flex-col space-y-4 md:space-y-6 p-6 sm:p-8 bg-zinc-900/80 border border-zinc-800 rounded-2xl md:rounded-3xl backdrop-blur-md shadow-2xl"
@@ -159,64 +196,65 @@ export default function Contact() {
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div className="space-y-2">
                     <label htmlFor="contact-name" className="text-[10px] font-bold text-zinc-400 uppercase tracking-widest ml-1">Nome *</label>
-                    <input 
-                      type="text" 
+                    <input
+                      type="text"
                       id="contact-name"
-                      name="name" 
-                      placeholder="Seu nome" 
-                      required 
-                      className="w-full bg-black/50 border border-zinc-700 p-3.5 text-xs sm:text-sm text-white outline-none focus:border-cromo transition-all rounded-xl placeholder:text-zinc-600" 
+                      name="name"
+                      placeholder="Seu nome"
+                      required
+                      className="w-full bg-black/50 border border-zinc-700 p-3.5 text-xs sm:text-sm text-white outline-none focus:border-cromo transition-all rounded-xl placeholder:text-zinc-600"
                     />
                   </div>
 
                   <div className="space-y-2">
                     <label htmlFor="contact-phone" className="text-[10px] font-bold text-zinc-400 uppercase tracking-widest ml-1">
-                      Telefone * {!isPhoneValid && <span className="text-red-500 ml-2 animate-pulse text-[10px]"> {phoneValue ? 'INVÁLIDO' : 'OBRIGATÓRIO'}</span>}
+                      Telefone * {!isPhoneValid && <span className="text-red-500 ml-2 animate-pulse text-[10px]">{phoneValue ? 'INVÁLIDO' : 'INFORME DDD + NÚMERO'}</span>}
                     </label>
                     <div className={`codexo-phone-wrapper transition-colors rounded-xl overflow-hidden border ${!isPhoneValid ? 'border-red-500/50' : 'border-zinc-700 focus-within:border-cromo'}`}>
                       <PhoneInput
                         international
                         defaultCountry="BR"
-                        limitMaxLength={true} 
+                        limitMaxLength={true}
                         value={phoneValue}
                         onChange={(val) => {
                           setPhoneValue(val);
                           if (!isPhoneValid && val) setIsPhoneValid(true);
                         }}
+                        inputComponent={BrazilianMaskedInput}
                         countrySelectProps={{ className: "bg-transparent text-white border-none outline-none pl-3" }}
                         className="w-full bg-black/50 p-3.5 text-xs sm:text-sm text-white outline-none"
-                        placeholder="Número de telefone"
+                        placeholder="Número com DDD"
                       />
-                      <input type="hidden" id="contact-phone" name="phone" value={phoneValue} />
+                      <input type="hidden" id="contact-phone" name="phone" value={phoneValue ?? ''} />
                     </div>
                   </div>
                 </div>
 
                 <div className="space-y-2">
                   <label htmlFor="contact-email" className="text-[10px] font-bold text-zinc-400 uppercase tracking-widest ml-1">E-mail</label>
-                  <input 
+                  <input
                     type="email"
                     id="contact-email"
-                    name="email" 
-                    placeholder="exemplo@empresa.com.br" 
-                    className="w-full bg-black/50 border border-zinc-700 p-3.5 text-xs sm:text-sm text-white outline-none focus:border-cromo transition-all rounded-xl placeholder:text-zinc-600" 
+                    name="email"
+                    placeholder="exemplo@empresa.com.br"
+                    className="w-full bg-black/50 border border-zinc-700 p-3.5 text-xs sm:text-sm text-white outline-none focus:border-cromo transition-all rounded-xl placeholder:text-zinc-600"
                   />
                 </div>
-                
+
                 <div className="space-y-2 flex-grow">
                   <label htmlFor="contact-message" className="text-[10px] font-bold text-zinc-400 uppercase tracking-widest ml-1">
                     Descrição do Projeto *
                   </label>
-                  <textarea 
+                  <textarea
                     id="contact-message"
-                    name="message" 
-                    placeholder="Descreva seu desafio técnico..." 
-                    required 
-                    className="w-full min-h-[120px] md:min-h-[150px] bg-black/50 border border-zinc-700 p-3.5 text-xs sm:text-sm text-white outline-none focus:border-cromo transition-all resize-none rounded-xl placeholder:text-zinc-600" 
+                    name="message"
+                    placeholder="Descreva seu desafio técnico..."
+                    required
+                    className="w-full min-h-[120px] md:min-h-[150px] bg-black/50 border border-zinc-700 p-3.5 text-xs sm:text-sm text-white outline-none focus:border-cromo transition-all resize-none rounded-xl placeholder:text-zinc-600"
                   />
                 </div>
 
-                <button 
+                <button
                   type="submit"
                   disabled={isValidating || isSubmitting}
                   aria-label="Enviar mensagem de contato"
@@ -238,14 +276,14 @@ export default function Contact() {
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0 }}
                     className={`p-4 rounded-xl border ${
-                      submitStatus === 'success' 
-                        ? 'bg-green-500/10 border-green-500/30 text-green-400' 
+                      submitStatus === 'success'
+                        ? 'bg-green-500/10 border-green-500/30 text-green-400'
                         : 'bg-red-500/10 border-red-500/30 text-red-400'
                     }`}
                   >
                     <p className="text-xs font-bold text-center">
-                      {submitStatus === 'success' 
-                        ? 'Mensagem enviada com sucesso! Nossa equipe entrará em contato.' 
+                      {submitStatus === 'success'
+                        ? 'Mensagem enviada com sucesso! Nossa equipe entrará em contato.'
                         : 'Erro ao enviar mensagem. Tente novamente ou chame no WhatsApp.'}
                     </p>
                   </motion.div>

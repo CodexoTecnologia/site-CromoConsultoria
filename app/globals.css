@@ -45,8 +45,21 @@ body {
   display: none;
 }
 .no-scrollbar {
-  -ms-overflow-style: none; 
-  scrollbar-width: none; 
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.PhoneInputInput {
+  background-color: transparent !important;
+  outline: none !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+.PhoneInputInput:focus {
+  outline: none !important;
+  border: none !important;
+  box-shadow: none !important;
 }
 
 .PhoneInputCountrySelect {
@@ -55,10 +68,11 @@ body {
 }
 
 .PhoneInputCountrySelect option {
-  background-color: #18181b !important; 
+  background-color: #18181b !important;
   color: #ffffff !important;
 }
 
 .PhoneInputCountrySelect:focus {
   outline: none !important;
 }
+
