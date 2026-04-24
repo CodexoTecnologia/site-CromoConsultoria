@@ -1,15 +1,23 @@
 // src/components/sections/home/Hero.tsx
 import Link from "next/link";
+import Image from "next/image";
 
 export default function Hero() {
   return (
     <section className="relative w-full min-h-[80vh] py-32 flex items-center justify-center overflow-hidden bg-zinc-950">
 
-      <div 
-        className="absolute inset-0 z-0 bg-[url('https://images.unsplash.com/photo-1503387762-592deb58ef4e?q=80&w=2000')] bg-cover bg-center"
-      >
+      {/* BACKGROUND OTIMIZADO COM NEXT/IMAGE */}
+      <div className="absolute inset-0 z-0">
+        <Image
+          src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?q=80&w=2000"
+          alt="Projeto de engenharia mecânica e mecatrônica"
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover object-center"
+        />
+        {/* Overlays visuais mantidos exatamente como você fez */}
         <div className="absolute inset-0 bg-black/70 backdrop-blur-[2px]"></div>
-        
         <div className="absolute bottom-0 w-full h-40 bg-gradient-to-t from-zinc-950 to-transparent"></div>
       </div>
 

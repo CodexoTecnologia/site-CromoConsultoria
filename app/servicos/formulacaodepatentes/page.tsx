@@ -29,7 +29,7 @@ const serviceInfo = {
 };
 
 export const metadata: Metadata = {
-  title: `${serviceInfo.title} | Cromo Consultoria`,
+  title: serviceInfo.title,
   description: serviceInfo.description,
 };
 
@@ -43,7 +43,6 @@ export default function ServicePage() {
           src={serviceInfo.heroImage}
           alt={serviceInfo.title}
           fill
-          unoptimized
           priority
           className="object-cover"
         />

@@ -6,7 +6,7 @@ import ContactForm from "@/components/sections/shared/ContactForm";
 import ScrollToContactButton from "@/components/sections/shared/ScrollToContactButton";
 
 export const metadata: Metadata = {
-  title: "Portfólio | Cromo Consultoria",
+  title: "Portfólio",
   description: "Conheça os projetos reais desenvolvidos pela Cromo Consultoria em Engenharia.",
 };
 
@@ -136,7 +136,6 @@ export default function PortfolioPage() {
                   alt={project.title} 
                   fill 
                   className="object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700"
-                  unoptimized
                 />
                 <div className="absolute top-4 left-4 bg-zinc-950/80 backdrop-blur-sm border border-zinc-700 px-3 py-1.5 rounded-full z-10">
                   <span className="text-[10px] font-bold tracking-widest text-cromo uppercase">

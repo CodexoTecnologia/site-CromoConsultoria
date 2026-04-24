@@ -12,7 +12,7 @@ import {
 import ContactForm from "@/components/sections/shared/ContactForm";
 
 export const metadata: Metadata = {
-  title: "Sobre Nós | Cromo Consultoria",
+  title: "Sobre Nós",
   description:
     "Conheça a Cromo Consultoria, Empresa Júnior da UTFPR que conecta universidade e mercado com soluções em engenharia.",
 };
@@ -122,7 +122,6 @@ export default function SobreNosPage() {
               alt="Equipe colaborando em ambiente de inovação"
               fill
               className="object-cover group-hover:scale-105 transition-transform duration-1000"
-              unoptimized
               priority
             />
             <div className="absolute inset-0 bg-gradient-to-t from-zinc-950 via-zinc-950/20 to-transparent" />
@@ -181,7 +180,6 @@ export default function SobreNosPage() {
               alt="Planejamento técnico e estratégico de projetos"
               fill
               className="object-cover group-hover:scale-110 transition-transform duration-1000"
-              unoptimized
             />
             <div className="absolute inset-0 bg-gradient-to-t from-zinc-950/80 via-transparent to-transparent" />
           </div>
@@ -271,7 +269,6 @@ export default function SobreNosPage() {
                 alt="Equipe colaborativa em projeto"
                 fill
                 className="object-cover grayscale hover:grayscale-0 transition-all duration-500 hover:scale-105"
-                unoptimized
               />
             </div>
           </div>

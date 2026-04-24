@@ -8,7 +8,7 @@ const serviceInfo = {
 };
 
 export const metadata: Metadata = {
-  title: `${serviceInfo.title} | Cromo Consultoria`,
+  title: serviceInfo.title,
   description: serviceInfo.description,
 };
 

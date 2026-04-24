@@ -5,9 +5,38 @@ import { Wrench, BarChart2, ShieldCheck, Settings, Cpu } from "lucide-react";
 import Cases from "@/components/sections/home/Cases";
 import ContactForm from "@/components/sections/shared/ContactForm";
 
+const pageTitle = "Serviços de Engenharia";
+const pageDescription = "Conheça nossas soluções em engenharia mecânica, mecatrônica e patentes.";
+const pageUrl = "https://www.cromoconsultoria.com.br/servicos";
+
 export const metadata: Metadata = {
-  title: "Nossos Serviços | Cromo Consultoria",
-  description: "Conheça nossas soluções em engenharia mecânica, mecatrônica e patentes.",
+  title: pageTitle,
+  description: pageDescription,
+  alternates: {
+    canonical: pageUrl,
+  },
+  openGraph: {
+    type: "website",
+    locale: "pt_BR",
+    url: pageUrl,
+    title: pageTitle,
+    description: pageDescription,
+    siteName: "Cromo Consultoria",
+    images: [
+    {
+      url: "/assets/images/og-image-default.png",
+      width: 1200,
+      height: 628,
+      alt: "Cromo Consultoria - Serviços de Engenharia",
+    },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: pageTitle,
+    description: pageDescription,
+    images: ["/assets/images/og-image-default.png"],
+  },
 };
 
 const servicesList = [
@@ -53,7 +82,6 @@ export default function ServicosHome() {
           src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=2000"
           alt="Serviços de Engenharia Cromo Consultoria"
           fill
-          unoptimized
           priority
           className="object-cover"
         />

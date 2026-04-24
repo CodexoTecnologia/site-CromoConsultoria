@@ -110,7 +110,6 @@ export default function Cases() {
                     alt={`Projeto: ${item.title}`} 
                     fill 
                     className="object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700" 
-                    unoptimized
                   />
                   <div className="absolute top-3 left-3 bg-zinc-950/80 backdrop-blur-sm border border-zinc-700 px-2.5 py-1 rounded-full">
                     <span className="text-[8px] sm:text-[9px] font-bold tracking-widest text-cromo uppercase">
