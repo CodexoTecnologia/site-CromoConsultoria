@@ -6,8 +6,11 @@ import Cases from "@/components/sections/home/Cases";
 import ContactForm from "@/components/sections/shared/ContactForm";
 
 export const metadata: Metadata = {
-  title: "Nossos Serviços | Cromo Consultoria",
+  title: "Serviços de Engenharia",
   description: "Conheça nossas soluções em engenharia mecânica, mecatrônica e patentes.",
+  openGraph: {
+    url: "https://www.cromoconsultoria.com.br/servicos",
+  }
 };
 
 const servicesList = [

@@ -8,9 +8,13 @@ import Feedback from "@/components/sections/home/Feedback";
 import Benefits from "@/components/sections/home/Benefits";
 import Cases from "@/components/sections/home/Cases";
 
+// Importação do Schema de SEO Local
+import LocalBusinessSchema from "@/components/seo/LocalBusinessSchema";
+
 export default function Home() {
   return (
     <>
+      <LocalBusinessSchema />
       <Hero />
       <About />
       <Benefits />

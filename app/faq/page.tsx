@@ -81,7 +81,6 @@ export default function FAQPage() {
                   alt="Consultoria e Estratégia de Patentes"
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                   fill
-                  unoptimized // retirar depois do deploy, só pra evitar o erro do Turbopack durante o desenvolvimento
                   className="object-cover opacity-80 mix-blend-luminosity hover:mix-blend-normal transition-all duration-700"
                   priority
                 />

@@ -11,9 +11,38 @@ const geistSans = Geist({
   subsets: ["latin"] 
 });
 
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.cromoconsultoria.com.br';
+
 export const metadata: Metadata = {
-  title: "Cromo Consultoria | Inovação e Patentes",
+  metadataBase: new URL(siteUrl),
+  title: {
+    default: "Engenharia Mecânica e Mecatrônica em Curitiba | Cromo Consultoria",
+    template: "%s | Cromo Consultoria"},
   description: "Transformamos ideias em produtos reais com engenharia, estratégia e segurança.",
+  openGraph: {
+    type: "website",
+    locale: "pt_BR",
+    url: siteUrl,
+    title: "Cromo Consultoria | Engenharia Mecânica e Mecatrônica em Curitiba",
+    description: "Transformamos ideias em produtos reais com engenharia, estratégia e segurança.",
+    siteName: "Cromo Consultoria",
+    images: [
+      {
+        // O caminho da imagem que vai aparecer no WhatsApp/LinkedIn
+        url: "/assets/images/og-image-default.png", 
+        width: 1200,
+        height: 628,
+        alt: "Cromo Consultoria - Inovação e Patentes",
+      },
+    ],
+  },
+  
+  twitter: {
+    card: "summary_large_image",
+    title: "Cromo Consultoria | Engenharia Mecânica e Mecatrônica em Curitiba",
+    description: "Transformamos ideias em produtos reais com engenharia, estratégia e segurança.",
+    images: ["/assets/images/og-image-default.png"],
+  },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

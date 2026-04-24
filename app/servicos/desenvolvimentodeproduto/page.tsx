@@ -9,6 +9,7 @@ const serviceInfo = {
   title: "Desenvolvimento de Produto",
   description: "Transformamos suas ideias em produtos físicos reais, com rigor técnico do conceito à fabricação.",
   heroImage: "https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?q=80&w=2000",
+heroImageAlt: "Engenheiros trabalhando em projeto CAD e medição de peças na indústria",
   copy: {
     title: "Da ideia à realidade, com engenharia de precisão",
     paragraphs: [
@@ -29,8 +30,11 @@ const serviceInfo = {
 };
 
 export const metadata: Metadata = {
-  title: `${serviceInfo.title} | Cromo Consultoria`,
+  title: `${serviceInfo.title}`,
   description: serviceInfo.description,
+  openGraph: {
+    url: "https://www.cromoconsultoria.com.br/servicos/desenvolvimentodeproduto",
+  }
 };
 
 export default function ServicePage() {
@@ -41,7 +45,7 @@ export default function ServicePage() {
       <section className="relative w-full h-[55vh] min-h-[380px] max-h-[560px] overflow-hidden">
         <Image
           src={serviceInfo.heroImage}
-          alt={serviceInfo.title}
+          alt={serviceInfo.heroImageAlt}
           fill
           unoptimized
           priority
