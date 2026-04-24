@@ -47,7 +47,6 @@ export default function ServicePage() {
           src={serviceInfo.heroImage}
           alt={serviceInfo.heroImageAlt}
           fill
-          unoptimized
           priority
           className="object-cover"
         />

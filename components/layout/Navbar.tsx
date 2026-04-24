@@ -61,7 +61,7 @@ export default function Navbar() {
     { name: "Portfólio", href: "/portfolio" },
     {
       name: "Conteúdos",
-      href: "/conteudos",
+      // NOTA: Removido o href aqui de propósito, pois é apenas um dropdown
       subLinks: [
         { name: "Blog", href: "/conteudos/blog" },
         { name: "E-books", href: "/conteudos/ebooks" },
@@ -125,17 +125,29 @@ export default function Navbar() {
                   <li key={link.name} className="relative group">
                     {link.subLinks ? (
                       <>
-                        <Link
-                          href={link.href}
-                          className="flex items-center gap-1 text-[10px] sm:text-xs uppercase tracking-[0.1em] font-bold text-zinc-300 group-hover:text-white transition-all py-2 relative"
-                        >
-                          {link.name}
-                          <ChevronDown
-                            size={14}
-                            className="group-hover:rotate-180 transition-transform duration-300"
-                          />
-                          <span className="absolute bottom-1 left-0 w-0 h-[2px] bg-cromo transition-all group-hover:w-full" />
-                        </Link>
+                        {/* TRATATIVA DESKTOP: Verifica se tem href */}
+                        {link.href ? (
+                          <Link
+                            href={link.href}
+                            className="flex items-center gap-1 text-[10px] sm:text-xs uppercase tracking-[0.1em] font-bold text-zinc-300 group-hover:text-white transition-all py-2 relative cursor-pointer"
+                          >
+                            {link.name}
+                            <ChevronDown
+                              size={14}
+                              className="group-hover:rotate-180 transition-transform duration-300"
+                            />
+                            <span className="absolute bottom-1 left-0 w-0 h-[2px] bg-cromo transition-all group-hover:w-full" />
+                          </Link>
+                        ) : (
+                          <span className="flex items-center gap-1 text-[10px] sm:text-xs uppercase tracking-[0.1em] font-bold text-zinc-300 group-hover:text-white transition-all py-2 relative cursor-pointer">
+                            {link.name}
+                            <ChevronDown
+                              size={14}
+                              className="group-hover:rotate-180 transition-transform duration-300"
+                            />
+                            <span className="absolute bottom-1 left-0 w-0 h-[2px] bg-cromo transition-all group-hover:w-full" />
+                          </span>
+                        )}
 
                         <div className="absolute top-full left-1/2 -translate-x-1/2 pt-4 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
                           <div className="w-64 bg-zinc-900 border border-zinc-700/50 rounded-xl shadow-xl overflow-hidden flex flex-col p-2">
@@ -152,8 +164,9 @@ export default function Navbar() {
                         </div>
                       </>
                     ) : (
+                      // ITEM SEM DROPDOWN
                       <Link
-                        href={link.href}
+                        href={link.href!}
                         className="text-[10px] sm:text-xs uppercase tracking-[0.1em] font-bold text-zinc-300 hover:text-white transition-all relative group py-2 flex"
                       >
                         {link.name}
@@ -178,8 +191,10 @@ export default function Navbar() {
 
               <button
                 onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+                aria-label={isMobileMenuOpen ? "Fechar menu" : "Abrir menu"}
+                aria-expanded={isMobileMenuOpen}
                 className="md:hidden text-zinc-300 p-2 hover:bg-zinc-800 hover:text-cromo rounded-lg transition-colors"
-              >
+              >  
                 {isMobileMenuOpen ? <X size={22} /> : <Menu size={22} />}
               </button>
             </div>
@@ -205,7 +220,6 @@ export default function Navbar() {
               transition={{ duration: 0.2 }}
               className="fixed top-[80px] left-3 right-3 z-[99] md:hidden max-h-[80vh] overflow-y-auto no-scrollbar"
             >
-              {/* Menu Mobile Grafite */}
               <div className="bg-zinc-900 border border-zinc-800 rounded-2xl shadow-2xl overflow-hidden">
                 <nav className="p-2">
                   <ul className="flex flex-col">
@@ -218,19 +232,24 @@ export default function Navbar() {
                         className="border-b border-zinc-800/50 last:border-0"
                       >
                         {link.subLinks ? (
-                          // ITEM COM DROPDOWN (MOBILE)
                           <div className="flex flex-col">
                             <div className="w-full flex items-center justify-between px-2 py-2 rounded-xl transition-all hover:bg-zinc-800">
-                              {/* Clique no texto = Navega para a página */}
-                              <Link
-                                href={link.href}
-                                onClick={closeMobileMenu}
-                                className="flex-1 px-2 py-2 text-xs uppercase tracking-[0.2em] font-bold text-zinc-300 hover:text-white"
-                              >
-                                {link.name}
-                              </Link>
+                              
+                              {/* TRATATIVA MOBILE: Verifica se tem href */}
+                              {link.href ? (
+                                <Link
+                                  href={link.href}
+                                  onClick={closeMobileMenu}
+                                  className="flex-1 px-2 py-2 text-xs uppercase tracking-[0.2em] font-bold text-zinc-300 hover:text-white"
+                                >
+                                  {link.name}
+                                </Link>
+                              ) : (
+                                <span className="flex-1 px-2 py-2 text-xs uppercase tracking-[0.2em] font-bold text-zinc-300">
+                                  {link.name}
+                                </span>
+                              )}
 
-                              {/* Clique na setinha = Abre as opções */}
                               <button
                                 onClick={() =>
                                   setOpenMobileSubmenu(
@@ -276,7 +295,7 @@ export default function Navbar() {
                         ) : (
                           // ITEM NORMAL (MOBILE)
                           <Link
-                            href={link.href}
+                            href={link.href!}
                             onClick={closeMobileMenu}
                             className="block px-4 py-4 text-xs uppercase tracking-[0.2em] font-bold text-zinc-300 hover:text-white hover:bg-zinc-800 rounded-xl transition-all"
                           >

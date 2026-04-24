@@ -4,7 +4,7 @@ import { FaqAccordion } from "./FaqAccordion";
 import ContactForm from "@/components/sections/shared/ContactForm"; 
 
 export const metadata: Metadata = {
-  title: "Dúvidas Frequentes | Cromo Consultoria",
+  title: "Dúvidas Frequentes",
   description: "Tire suas dúvidas sobre patentes, registro de marca e engenharia reversa com a Cromo Consultoria.",
 };
 
@@ -46,7 +46,9 @@ export default function FAQPage() {
     <div className="bg-cromo-dark min-h-screen flex flex-col relative">
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(jsonLd).replace(/</g, "\u003c"),
+        }}
       />
       {/* 1. SEÇÃO HERO - Padronizada para exatos 100% da tela (100dvh) */}
       <section className="relative w-full min-h-[100dvh] flex flex-col pt-24 md:pt-32 pb-6 md:pb-8">

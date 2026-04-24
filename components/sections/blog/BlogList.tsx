@@ -70,7 +70,6 @@ export default function BlogList() {
                     src={post.image}
                     alt={post.title}
                     fill
-                    unoptimized
                     className="object-cover"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-zinc-900/80 via-transparent to-transparent" />
