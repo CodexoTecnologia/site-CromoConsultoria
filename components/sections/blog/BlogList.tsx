@@ -2,8 +2,9 @@
 
 import { useState, useMemo } from "react";
 import Image from "next/image";
-import { Search, Clock } from "lucide-react";
-import { blogPosts } from "@/lib/blog-posts";
+import Link from "next/link";
+import { Search, Clock, ArrowRight } from "lucide-react";
+import { blogPosts } from "@/app/conteudos/blog/posts-blog";
 
 export default function BlogList() {
   const [query, setQuery] = useState("");
@@ -61,16 +62,17 @@ export default function BlogList() {
         {filtered.length > 0 ? (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
             {filtered.map((post) => (
-              <article
+              <Link
                 key={post.slug}
-                className="bg-zinc-900 border border-zinc-800 rounded-2xl overflow-hidden shadow-lg flex flex-col"
+                href={`/conteudos/blog/${post.slug}`}
+                className="group bg-zinc-900 border border-zinc-800 hover:border-cromo/40 rounded-2xl overflow-hidden shadow-lg flex flex-col transition-colors"
               >
                 <div className="relative aspect-video w-full overflow-hidden">
                   <Image
                     src={post.image}
                     alt={post.title}
                     fill
-                    className="object-cover"
+                    className="object-cover group-hover:scale-105 transition-transform duration-500"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-zinc-900/80 via-transparent to-transparent" />
                   <span className="absolute top-3 left-3 text-[10px] font-bold text-cromo uppercase tracking-widest bg-zinc-950/80 backdrop-blur-sm px-2.5 py-1 rounded-md border border-cromo/20">
@@ -88,7 +90,7 @@ export default function BlogList() {
                     </span>
                   </div>
 
-                  <h2 className="text-lg font-bold text-white mb-3 leading-snug">
+                  <h2 className="text-lg font-bold text-white mb-3 leading-snug group-hover:text-cromo transition-colors">
                     {post.title}
                   </h2>
 
@@ -96,18 +98,23 @@ export default function BlogList() {
                     {post.excerpt}
                   </p>
 
-                  <div className="flex flex-wrap gap-1.5">
-                    {post.tags.slice(0, 3).map((tag) => (
-                      <span
-                        key={tag}
-                        className="text-[9px] font-bold uppercase tracking-wider text-zinc-600 bg-zinc-800 px-2 py-0.5 rounded"
-                      >
-                        {tag}
-                      </span>
-                    ))}
+                  <div className="flex items-center justify-between mt-auto">
+                    <div className="flex flex-wrap gap-1.5">
+                      {post.tags.slice(0, 2).map((tag) => (
+                        <span
+                          key={tag}
+                          className="text-[9px] font-bold uppercase tracking-wider text-zinc-600 bg-zinc-800 px-2 py-0.5 rounded"
+                        >
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
+                    <span className="text-cromo opacity-0 group-hover:opacity-100 transition-opacity flex items-center gap-1 text-xs font-bold">
+                      Ler <ArrowRight size={12} />
+                    </span>
                   </div>
                 </div>
-              </article>
+              </Link>
             ))}
           </div>
         ) : (

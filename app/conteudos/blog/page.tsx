@@ -14,7 +14,7 @@ export default function BlogPage() {
     <main className="min-h-screen bg-zinc-950">
 
       {/* HERO */}
-      <section className="relative w-full h-[55vh] min-h-[380px] max-h-[560px] overflow-hidden">
+      <section className="relative w-full h-[60vh] min-h-[420px] max-h-[600px] overflow-hidden">
         <Image
           src="https://images.unsplash.com/photo-1504711434969-e33886168f5c?q=80&w=2000"
           alt="Blog Cromo Consultoria"
@@ -25,8 +25,8 @@ export default function BlogPage() {
         <div className="absolute inset-0 bg-gradient-to-t from-zinc-950 via-zinc-950/60 to-zinc-950/20" />
         <div className="absolute inset-0 bg-gradient-to-r from-zinc-950/80 to-transparent" />
 
-        <div className="absolute bottom-0 left-0 right-0 container mx-auto px-4 sm:px-6 pb-14">
-          <span className="text-cromo font-bold text-[10px] uppercase tracking-[0.3em] inline-flex items-center gap-2 mb-4">
+        <div className="absolute inset-0 flex flex-col items-center justify-center px-4 text-center">
+          <span className="text-cromo font-bold text-[10px] uppercase tracking-[0.3em] inline-flex items-center gap-2 mb-5">
             <span className="w-8 h-px bg-cromo" /> Conhecimento & Inovação
           </span>
           <h1 className="text-5xl md:text-6xl lg:text-7xl font-black text-white leading-tight mb-4">
@@ -35,7 +35,7 @@ export default function BlogPage() {
               Cromo
             </span>
           </h1>
-          <p className="text-zinc-300 text-base md:text-lg max-w-2xl">
+          <p className="text-zinc-300 text-base md:text-lg max-w-xl mb-8">
             Artigos produzidos por especialistas para manter você atualizado sobre engenharia, inovação e propriedade intelectual.
           </p>
         </div>
