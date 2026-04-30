@@ -1,9 +1,8 @@
-// src/app/conteudos/ebooks/page.tsx
 "use client";
 
 import { useState, useEffect } from "react";
-import Link from "next/link";
-import Image from "next/image"; 
+import Image from "next/image";
+import Hero from "@/components/sections/shared/Hero";
 import { motion, AnimatePresence } from "framer-motion";
 import { X } from "lucide-react";
 import dynamic from 'next/dynamic';
@@ -119,17 +118,17 @@ export default function EbooksPage() {
   };
 
   return (
-    <main className="min-h-screen bg-zinc-950 pt-32 pb-20 relative">
-      <div className="container mx-auto px-4 sm:px-6 relative z-10">
-        <Link href="/conteudos" className="text-zinc-500 hover:text-cromo text-xs font-bold uppercase tracking-widest mb-12 inline-block transition-colors">
-          ← Voltar
-        </Link>
-        
-        <header className="mb-16">
-          <h1 className="text-4xl md:text-5xl font-black text-white mb-4">E<span className="text-cromo">-Books</span></h1>
-          <p className="text-zinc-400 max-w-xl">Conteúdo aprofundado para download gratuito. Conhecimento técnico ao seu alcance.</p>
-        </header>
+    <main className="min-h-screen bg-zinc-950 pb-20 relative">
+      <Hero
+        imageSrc="https://images.unsplash.com/photo-1481627834876-b7833e8f5570?q=80&w=2000"
+        imageAlt="E-Books Cromo Consultoria"
+        label="Conteúdo Gratuito"
+        title="Baixe Nossos"
+        titleHighlight="E-Books"
+        description="Conteúdo aprofundado para download gratuito. Conhecimento técnico ao seu alcance."
+      />
 
+      <div className="container mx-auto px-4 sm:px-6 relative z-10 pt-12 md:pt-16">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {ebooks.map((ebook, i) => (
             <div key={i} className="bg-zinc-900 border border-zinc-800 p-8 rounded-2xl flex flex-col items-center text-center group hover:border-cromo transition-all">

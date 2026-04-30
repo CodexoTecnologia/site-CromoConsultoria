@@ -92,16 +92,6 @@ export default async function BlogPostPage({
         <div className="absolute inset-0 bg-gradient-to-t from-zinc-950 via-zinc-950/70 to-zinc-950/30" />
         <div className="absolute inset-0 bg-gradient-to-r from-zinc-950/60 to-transparent" />
 
-        {/* Voltar */}
-        <div className="absolute top-8 left-0 right-0 container mx-auto px-4 sm:px-6">
-          <Link
-            href="/conteudos/blog"
-            className="inline-flex items-center gap-2 text-zinc-400 hover:text-cromo transition-colors text-sm font-medium"
-          >
-            <ArrowLeft size={14} />
-            Voltar ao Blog
-          </Link>
-        </div>
 
         <div className="absolute bottom-0 left-0 right-0 container mx-auto px-4 sm:px-6 pb-12">
           <span className="text-cromo font-bold text-[10px] uppercase tracking-[0.3em] inline-flex items-center gap-2 mb-4">

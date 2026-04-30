@@ -1,45 +1,144 @@
 @import "tailwindcss";
 
 :root {
-  --background: #111111; 
+  --background: #111111;
   --foreground: #ededed;
-  
-  --cromo-yellow: #FFC700;
-  --cromo-yellow-hover: #E6B300; 
-  --cromo-dark: #0a0a0a;
+
+  /* Paleta Cromo */
+  --cromo-yellow:       #ffc91e;
+  --cromo-yellow-light: #fad766;
+  --cromo-yellow-hover: #e6b300;
+  --cromo-white:        #fefefe;
+  --cromo-gray-light:   #dfdfdf;
+  --cromo-gray-blue:    #e2e5f2;
+  --cromo-gray:         #4d4d4d;
+  --cromo-purple:       #5a236d;
+  --cromo-dark:         #1d1c1c;
+
+  /* Escala tipográfica — Desktop (≥1280px) */
+  --fs-h1:    4.5rem;
+  --fs-h2:    2.75rem;
+  --fs-h3:    1.75rem;
+  --fs-body:  1.125rem;
+  --fs-small: 0.875rem;
+
+  --lh-tight:   1.1;
+  --lh-normal:  1.6;
+  --ls-heading: 0.02em;
+}
+
+@media (max-width: 1279px) {
+  :root {
+    --fs-h1:    3.25rem;
+    --fs-h2:    2rem;
+    --fs-h3:    1.5rem;
+    --fs-body:  1.0625rem;
+    --fs-small: 0.8125rem;
+  }
+}
+
+@media (max-width: 767px) {
+  :root {
+    --fs-h1:    2.25rem;
+    --fs-h2:    1.625rem;
+    --fs-h3:    1.25rem;
+    --fs-body:  1rem;
+    --fs-small: 0.75rem;
+  }
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  
-  --color-cromo: var(--cromo-yellow);
-  --color-cromo-hover: var(--cromo-yellow-hover);
-  --color-cromo-dark: var(--cromo-dark);
+  --color-background:  var(--background);
+  --color-foreground:  var(--foreground);
+  --color-cromo:            var(--cromo-yellow);
+  --color-cromo-light:      var(--cromo-yellow-light);
+  --color-cromo-hover:      var(--cromo-yellow-hover);
+  --color-cromo-white:      var(--cromo-white);
+  --color-cromo-gray-light: var(--cromo-gray-light);
+  --color-cromo-gray-blue:  var(--cromo-gray-blue);
+  --color-cromo-gray:       var(--cromo-gray);
+  --color-cromo-purple:     var(--cromo-purple);
+  --color-cromo-dark:       var(--cromo-dark);
 
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  /* font-sans → Poppins (corpo padrão) */
+  --font-sans:    var(--font-poppins);
+  /* font-display → Greycliff Arabic CF (títulos do site) */
+  --font-display: var(--font-greycliff, 'Arial Black');
+  /* font-formal → Bebas Neue (títulos formais: blog, ebooks, serviços) */
+  --font-formal:  var(--font-bebas);
+
+  --text-h1:    var(--fs-h1);
+  --text-h2:    var(--fs-h2);
+  --text-h3:    var(--fs-h3);
+  --text-body:  var(--fs-body);
+  --text-small: var(--fs-small);
 }
-
 
 @media (prefers-color-scheme: light) {
   :root {
     --background: #fafafa;
-    --foreground: #111111; 
+    --foreground: #111111;
   }
 }
 
 body {
   background-color: var(--background);
   color: var(--foreground);
-  font-family: var(--font-sans), Arial, Helvetica, sans-serif;
-  scroll-behavior: smooth; 
+  font-family: var(--font-sans), Arial, sans-serif;
+  font-size: var(--fs-body);
+  line-height: var(--lh-normal);
+  scroll-behavior: smooth;
 }
 
 ::selection {
   background-color: var(--cromo-yellow);
   color: #000000;
 }
+
+/* ─── Classes semânticas de tipografia ─────────────────── */
+
+.title-site {
+  font-family: var(--font-display);
+  font-size: var(--fs-h1);
+  font-weight: 700;
+  text-transform: uppercase;
+  line-height: var(--lh-tight);
+  letter-spacing: var(--ls-heading);
+}
+
+.title-formal {
+  font-family: var(--font-formal);
+  font-size: var(--fs-h1);
+  font-weight: 700;
+  text-transform: uppercase;
+  line-height: var(--lh-tight);
+  letter-spacing: var(--ls-heading);
+}
+
+.subtitle {
+  font-size: var(--fs-h2);
+  font-weight: 700;
+  line-height: var(--lh-tight);
+}
+
+.heading {
+  font-size: var(--fs-h3);
+  font-weight: 700;
+  line-height: var(--lh-tight);
+}
+
+.body-text {
+  font-size: var(--fs-body);
+  font-weight: 400;
+  line-height: var(--lh-normal);
+}
+
+.small-text {
+  font-size: var(--fs-small);
+  line-height: var(--lh-normal);
+}
+
+/* ─── Utilitários ──────────────────────────────────────── */
 
 .no-scrollbar::-webkit-scrollbar {
   display: none;
@@ -75,4 +174,3 @@ body {
 .PhoneInputCountrySelect:focus {
   outline: none !important;
 }
-

@@ -1,5 +1,5 @@
-import Image from "next/image";
 import Link from "next/link";
+import Hero from "@/components/sections/shared/Hero";
 import { Metadata } from "next";
 import { Wrench, BarChart2, ShieldCheck, Settings, Cpu } from "lucide-react";
 import Cases from "@/components/sections/home/Cases";
@@ -76,33 +76,14 @@ export default function ServicosHome() {
   return (
     <main className="min-h-screen bg-zinc-950">
 
-      {/* HERO */}
-      <section className="relative w-full h-[55vh] min-h-[380px] max-h-[560px] overflow-hidden">
-        <Image
-          src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=2000"
-          alt="Serviços de Engenharia Cromo Consultoria"
-          fill
-          priority
-          className="object-cover"
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-zinc-950 via-zinc-950/60 to-zinc-950/20" />
-        <div className="absolute inset-0 bg-gradient-to-r from-zinc-950/80 to-transparent" />
-
-        <div className="absolute bottom-0 left-0 right-0 container mx-auto px-4 sm:px-6 pb-14">
-          <span className="text-cromo font-bold text-[10px] uppercase tracking-[0.3em] inline-flex items-center gap-2 mb-4">
-            <span className="w-8 h-px bg-cromo" /> Nossa Expertise
-          </span>
-          <h1 className="text-5xl md:text-6xl lg:text-7xl font-black text-white leading-tight mb-4">
-            Nossos{" "}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-cromo to-yellow-600">
-              Serviços
-            </span>
-          </h1>
-          <p className="text-zinc-300 text-base md:text-lg max-w-2xl">
-            Soluções em engenharia para transformar seu desafio técnico em diferencial competitivo.
-          </p>
-        </div>
-      </section>
+      <Hero
+        imageSrc="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=2000"
+        imageAlt="Serviços de Engenharia Cromo Consultoria"
+        label="Nossa Expertise"
+        title="Nossos"
+        titleHighlight="Serviços"
+        description="Soluções em engenharia para transformar seu desafio técnico em diferencial competitivo."
+      />
 
       {/* SERVIÇOS */}
       <section className="py-16 md:py-24 bg-zinc-950">

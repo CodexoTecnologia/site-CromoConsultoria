@@ -1,14 +1,24 @@
 // src/app/layout.tsx
 import type { Metadata } from "next";
-import { Geist } from "next/font/google";
+import { Poppins, Bebas_Neue } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
-import WhatsAppButton from "@/components/sections/shared/WhatsAppButton"; 
+import WhatsAppButton from "@/components/sections/shared/WhatsAppButton";
+import TextureBackground from "@/components/layout/TextureBackground";
 
-const geistSans = Geist({ 
-  variable: "--font-geist-sans", 
-  subsets: ["latin"] 
+const poppins = Poppins({
+  variable: "--font-poppins",
+  subsets: ["latin"],
+  weight: ["400", "600", "700"],
+  display: "swap",
+});
+
+const bebasNeue = Bebas_Neue({
+  variable: "--font-bebas",
+  subsets: ["latin"],
+  weight: "400",
+  display: "swap",
 });
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.cromoconsultoria.com.br';
@@ -47,9 +57,10 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="pt-BR" className={`${geistSans.variable} antialiased scroll-smooth`}>
+    <html lang="pt-BR" className={`${poppins.variable} ${bebasNeue.variable} antialiased scroll-smooth`}>
       <body className="flex flex-col min-h-screen bg-zinc-950 text-zinc-50 overflow-x-hidden">
         
+        <TextureBackground />
         <Navbar />
         <main className="flex-grow w-full">
           {children}
