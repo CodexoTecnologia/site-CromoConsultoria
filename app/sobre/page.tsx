@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import Hero from "@/components/sections/shared/Hero";
 import {
   Compass,
   Lightbulb,
@@ -74,8 +75,16 @@ const resourceFocus = [
 
 export default function SobreNosPage() {
   return (
-    <main className="min-h-screen bg-zinc-950 pt-32 pb-10">
-      <section className="container mx-auto px-4 sm:px-6 mb-24">
+    <main className="min-h-screen bg-zinc-950 pb-10">
+      <Hero
+        imageSrc="https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=2000"
+        imageAlt="Equipe Cromo Consultoria"
+        label="Empresa Júnior"
+        title="Sobre"
+        titleHighlight="Nós"
+        description="A Cromo é uma Empresa Júnior da UTFPR que conecta universidade e mercado com soluções de engenharia aplicadas."
+      />
+      <section className="container mx-auto px-4 sm:px-6 pt-10 md:pt-14 mb-24">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div className="max-w-2xl space-y-7">
             <div className="flex items-center gap-3">
@@ -85,14 +94,13 @@ export default function SobreNosPage() {
               </span>
             </div>
 
-            <h1 className="text-4xl md:text-5xl lg:text-7xl font-black text-white leading-tight">
-              Engenharia com
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-cromo to-yellow-600">
-                {" "}
+            <h2 className="text-4xl md:text-5xl lg:text-7xl font-black text-white leading-tight">
+              Engenharia com{" "}
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-cromo to-yellow-600 whitespace-nowrap">
                 propósito e impacto
               </span>
               .
-            </h1>
+            </h2>
 
             <p className="text-zinc-300 text-lg md:text-xl leading-relaxed border-l-2 border-zinc-800 pl-6">
               A Cromo Consultoria é uma Empresa Júnior da UTFPR que conecta
@@ -113,23 +121,6 @@ export default function SobreNosPage() {
               >
                 Falar com a equipe
               </Link>
-            </div>
-          </div>
-
-          <div className="relative aspect-[4/5] rounded-3xl overflow-hidden border border-zinc-800 shadow-2xl group">
-            <Image
-              src="https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=2000"
-              alt="Equipe colaborando em ambiente de inovação"
-              fill
-              className="object-cover group-hover:scale-105 transition-transform duration-1000"
-              priority
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-zinc-950 via-zinc-950/20 to-transparent" />
-            <div className="absolute top-5 left-5 rounded-full border border-white/10 bg-black/40 px-4 py-2 text-[10px] font-black uppercase tracking-[0.2em] text-zinc-100 backdrop-blur-sm">
-              UTFPR + Mercado
-            </div>
-            <div className="absolute bottom-5 right-5 rounded-full border border-cromo/40 bg-cromo/10 px-4 py-2 text-[10px] font-black uppercase tracking-[0.2em] text-cromo">
-              Movimento EJ
             </div>
           </div>
         </div>

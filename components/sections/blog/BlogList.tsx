@@ -23,7 +23,7 @@ export default function BlogList() {
   }, [query]);
 
   return (
-    <section className="py-16 md:py-24 bg-zinc-950">
+    <section className="pt-8 md:pt-10 pb-16 md:pb-24 bg-zinc-950">
       <div className="container mx-auto px-4 sm:px-6">
 
         {/* Barra de pesquisa */}

@@ -1,7 +1,7 @@
 // src/app/portfolio/page.tsx
 import Image from "next/image";
-import Link from "next/link";
 import { Metadata } from "next";
+import Hero from "@/components/sections/shared/Hero";
 import ContactForm from "@/components/sections/shared/ContactForm";
 import ScrollToContactButton from "@/components/sections/shared/ScrollToContactButton";
 
@@ -98,21 +98,15 @@ export default function PortfolioPage() {
   const projectsInLastRow = totalProjects % 3;
 
   return (
-    <main className="min-h-screen bg-zinc-950 pt-32 pb-20">
-      
-      <section className="container mx-auto px-4 sm:px-6 mb-16">
-        <Link href="/" className="text-zinc-500 hover:text-cromo text-xs font-bold uppercase tracking-widest mb-12 inline-block transition-colors">
-          ← Voltar ao Início
-        </Link>
-        <div className="max-w-3xl">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-black text-white leading-tight mb-6">
-            Nosso <span className="text-cromo">Portfólio</span>
-          </h1>
-          <p className="text-zinc-400 text-lg">
-            Confira como aplicamos a engenharia para resolver problemas reais, proteger inovações e viabilizar novos produtos para a indústria.
-          </p>
-        </div>
-      </section>
+    <main className="min-h-screen bg-zinc-950 pb-20">
+      <Hero
+        imageSrc="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=2000"
+        imageAlt="Projetos de Engenharia Cromo Consultoria"
+        label="Nossos Resultados"
+        title="Nosso"
+        titleHighlight="Portfólio"
+        description="Confira como aplicamos a engenharia para resolver problemas reais, proteger inovações e viabilizar novos produtos para a indústria."
+      />
 
       <section className="container mx-auto px-4 sm:px-6">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8">

@@ -1,6 +1,5 @@
-import Link from "next/link";
-import Image from "next/image";
 import { Metadata } from "next";
+import Hero from "@/components/sections/shared/Hero";
 import { GraduationCap, FileText, CheckCircle, TrendingUp } from "lucide-react";
 import Feedback from "@/components/sections/home/Feedback";
 import ContactForm from "@/components/sections/shared/ContactForm";
@@ -9,7 +8,7 @@ const serviceInfo = {
   title: "Desenvolvimento de Produto",
   description: "Transformamos suas ideias em produtos físicos reais, com rigor técnico do conceito à fabricação.",
   heroImage: "https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?q=80&w=2000",
-heroImageAlt: "Engenheiros trabalhando em projeto CAD e medição de peças na indústria",
+  heroImageAlt: "Engenheiros trabalhando em projeto CAD e medição de peças na indústria",
   copy: {
     title: "Da ideia à realidade, com engenharia de precisão",
     paragraphs: [
@@ -30,7 +29,7 @@ heroImageAlt: "Engenheiros trabalhando em projeto CAD e medição de peças na i
 };
 
 export const metadata: Metadata = {
-  title: `${serviceInfo.title}`,
+  title: serviceInfo.title,
   description: serviceInfo.description,
   openGraph: {
     url: "https://www.cromoconsultoria.com.br/servicos/desenvolvimentodeproduto",
@@ -41,39 +40,13 @@ export default function ServicePage() {
   return (
     <main className="min-h-screen bg-zinc-950">
 
-      {/* HERO */}
-      <section className="relative w-full h-[55vh] min-h-[380px] max-h-[560px] overflow-hidden">
-        <Image
-          src={serviceInfo.heroImage}
-          alt={serviceInfo.heroImageAlt}
-          fill
-          priority
-          className="object-cover"
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-zinc-950 via-zinc-950/60 to-zinc-950/20" />
-        <div className="absolute inset-0 bg-gradient-to-r from-zinc-950/80 to-transparent" />
-
-        <div className="absolute bottom-0 left-0 right-0 container mx-auto px-4 sm:px-6 pb-14">
-          <Link
-            href="/servicos"
-            className="inline-flex items-center gap-2 text-zinc-400 hover:text-cromo text-xs font-bold uppercase tracking-wider transition-colors mb-8"
-          >
-            ← Voltar para Serviços
-          </Link>
-          <div className="flex items-center gap-3 mb-4">
-            <div className="w-8 h-[2px] bg-cromo" />
-            <span className="text-cromo font-bold tracking-widest text-[10px] uppercase">
-              Serviço Especializado
-            </span>
-          </div>
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-black text-white leading-tight mb-4">
-            {serviceInfo.title}
-          </h1>
-          <p className="text-zinc-300 text-base md:text-lg max-w-2xl leading-relaxed">
-            {serviceInfo.description}
-          </p>
-        </div>
-      </section>
+      <Hero
+        imageSrc={serviceInfo.heroImage}
+        imageAlt={serviceInfo.heroImageAlt}
+        label="Serviço Especializado"
+        title={serviceInfo.title}
+        description={serviceInfo.description}
+      />
 
       {/* COPY */}
       <section className="py-16 md:py-24 bg-zinc-950">

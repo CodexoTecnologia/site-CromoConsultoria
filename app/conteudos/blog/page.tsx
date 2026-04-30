@@ -1,5 +1,5 @@
-import Image from "next/image";
 import { Metadata } from "next";
+import Hero from "@/components/sections/shared/Hero";
 import BlogList from "@/components/sections/blog/BlogList";
 import ContactForm from "@/components/sections/shared/ContactForm";
 
@@ -13,33 +13,14 @@ export default function BlogPage() {
   return (
     <main className="min-h-screen bg-zinc-950">
 
-      {/* HERO */}
-      <section className="relative w-full h-[60vh] min-h-[420px] max-h-[600px] overflow-hidden">
-        <Image
-          src="https://images.unsplash.com/photo-1504711434969-e33886168f5c?q=80&w=2000"
-          alt="Blog Cromo Consultoria"
-          fill
-          priority
-          className="object-cover"
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-zinc-950 via-zinc-950/60 to-zinc-950/20" />
-        <div className="absolute inset-0 bg-gradient-to-r from-zinc-950/80 to-transparent" />
-
-        <div className="absolute inset-0 flex flex-col items-center justify-center px-4 text-center">
-          <span className="text-cromo font-bold text-[10px] uppercase tracking-[0.3em] inline-flex items-center gap-2 mb-5">
-            <span className="w-8 h-px bg-cromo" /> Conhecimento & Inovação
-          </span>
-          <h1 className="text-5xl md:text-6xl lg:text-7xl font-black text-white leading-tight mb-4">
-            Blog{" "}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-cromo to-yellow-600">
-              Cromo
-            </span>
-          </h1>
-          <p className="text-zinc-300 text-base md:text-lg max-w-xl mb-8">
-            Artigos produzidos por especialistas para manter você atualizado sobre engenharia, inovação e propriedade intelectual.
-          </p>
-        </div>
-      </section>
+      <Hero
+        imageSrc="https://images.unsplash.com/photo-1504711434969-e33886168f5c?q=80&w=2000"
+        imageAlt="Blog Cromo Consultoria"
+        label="Conhecimento & Inovação"
+        title="Blog"
+        titleHighlight="Cromo"
+        description="Artigos produzidos por especialistas para manter você atualizado sobre engenharia, inovação e propriedade intelectual."
+      />
 
       {/* LISTA COM BUSCA */}
       <BlogList />
