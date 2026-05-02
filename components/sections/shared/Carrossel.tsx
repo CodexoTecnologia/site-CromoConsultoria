@@ -1,7 +1,8 @@
 "use client";
 
-import React, { useCallback, useEffect, useState } from "react";
+import React, { useCallback, useEffect, useRef, useState } from "react";
 import useEmblaCarousel from "embla-carousel-react";
+import Autoplay from "embla-carousel-autoplay";
 
 interface CarouselProps<T> {
   data: T[];
@@ -9,7 +10,13 @@ interface CarouselProps<T> {
 }
 
 export default function Carousel<T>({ data, renderItem }: CarouselProps<T>) {
-  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true, align: "start" });
+  const autoplay = useRef(
+    Autoplay({ delay: 4500, stopOnInteraction: false, stopOnMouseEnter: false }),
+  );
+  const [emblaRef, emblaApi] = useEmblaCarousel(
+    { loop: true, align: "start", draggable: true },
+    [autoplay.current],
+  );
   
   const [selectedIndex, setSelectedIndex] = useState(0);
   const [scrollSnaps, setScrollSnaps] = useState<number[]>([]);
@@ -46,8 +53,11 @@ export default function Carousel<T>({ data, renderItem }: CarouselProps<T>) {
   return (
     <div className="relative group">
       
-      <div className="overflow-hidden rounded-2xl" ref={emblaRef}>
-        <div className="flex gap-4 md:gap-6 touch-pan-y pl-2 py-2">
+      <div
+        className="overflow-hidden rounded-2xl cursor-grab active:cursor-grabbing"
+        ref={emblaRef}
+      >
+        <div className="flex gap-4 md:gap-6 touch-pan-y select-none pl-2 py-2">
           {data.map((item, index) => (
             <div 
               key={index} 
