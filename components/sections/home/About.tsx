@@ -53,7 +53,8 @@ export default function About() {
             <Image 
               src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=2000" 
               alt="Laboratório de Engenharia" 
-              fill 
+              fill
+              sizes="(max-width: 1024px) 100vw, 50vw"
               className="object-cover group-hover:scale-105 transition-transform duration-700" 
             />
             <div className="absolute inset-0 bg-gradient-to-t from-zinc-950 via-transparent to-transparent opacity-60 pointer-events-none" />
