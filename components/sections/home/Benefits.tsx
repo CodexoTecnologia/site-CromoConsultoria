@@ -63,7 +63,8 @@ export default function Benefits() {
                 <Image 
                   src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=1000" 
                   alt="Engenharia de Alta Performance" 
-                  fill 
+                  fill
+                  sizes="(max-width: 768px) 100vw, 50vw"
                   className="object-cover group-hover:scale-105 transition-transform duration-1000 grayscale group-hover:grayscale-0"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-zinc-950/90 via-zinc-950/20 to-transparent" />

@@ -1,21 +1,25 @@
+import PixelBlast from '@/components/sections/shared/PixelBlast';
+
 export default function TextureBackground() {
   return (
     <div
       className="fixed inset-0 w-full h-full pointer-events-none select-none"
-      style={{ opacity: 0.06, zIndex: 9999 }}
+      style={{ opacity: 0.1, zIndex: 9999 }}
       aria-hidden="true"
     >
-      <svg className="w-full h-full" xmlns="http://www.w3.org/2000/svg">
-        <filter id="cromo-texture">
-          <feTurbulence
-            type="fractalNoise"
-            baseFrequency="0.65"
-            numOctaves="3"
-            stitchTiles="stitch"
-          />
-        </filter>
-        <rect width="100%" height="100%" filter="url(#cromo-texture)" />
-      </svg>
+      <PixelBlast
+        variant="square"
+        pixelSize={3}
+        color="#B497CF"
+        patternScale={2}
+        patternDensity={0.52}
+        pixelSizeJitter={0.15}
+        speed={0.1}
+        edgeFade={0.2}
+        transparent
+        enableRipples={false}
+        autoPauseOffscreen
+      />
     </div>
   );
 }
