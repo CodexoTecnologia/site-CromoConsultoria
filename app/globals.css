@@ -148,29 +148,30 @@ body {
   scrollbar-width: none;
 }
 
-.PhoneInputInput {
+/* Ajustes Phone Input encapsulados */
+.codexo-phone-wrapper .PhoneInputInput {
   background-color: transparent !important;
   outline: none !important;
   border: none !important;
   box-shadow: none !important;
 }
 
-.PhoneInputInput:focus {
+.codexo-phone-wrapper .PhoneInputInput:focus {
   outline: none !important;
   border: none !important;
   box-shadow: none !important;
 }
 
-.PhoneInputCountrySelect {
+.codexo-phone-wrapper .PhoneInputCountrySelect {
   background-color: transparent !important;
   color: inherit !important;
 }
 
-.PhoneInputCountrySelect option {
+.codexo-phone-wrapper .PhoneInputCountrySelect option {
   background-color: #18181b !important;
   color: #ffffff !important;
 }
 
-.PhoneInputCountrySelect:focus {
+.codexo-phone-wrapper .PhoneInputCountrySelect:focus {
   outline: none !important;
 }

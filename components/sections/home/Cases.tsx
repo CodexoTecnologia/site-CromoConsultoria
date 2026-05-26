@@ -1,3 +1,4 @@
+// src/components/sections/home/Cases.tsx
 "use client";
 
 import React, { useCallback } from "react";
@@ -5,67 +6,24 @@ import Link from "next/link";
 import Image from "next/image";
 import useEmblaCarousel from "embla-carousel-react";
 import Autoplay from "embla-carousel-autoplay";
-
-const casesData = [
-  {
-    client: "Cliente Industrial",
-    title: "Torrador de Café",
-    description: "Desenvolvimento de desenho industrial e relatório descritivo no SolidWorks para garantir a patente e evitar cópias da concorrência.",
-    tag: "Desenho Industrial",
-    image: "https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?q=80&w=800",
-  },
-  {
-    client: "Ekorama",
-    title: "Máquina de Fliperama Sustentável",
-    description: "Desenvolvimento de máquina de jogos onde a ficha é um material reciclável (latas, tampas), incentivando a sustentabilidade.",
-    tag: "Desenvolvimento de Produto",
-    image: "https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=800",
-  },
-  {
-    client: "EMaster",
-    title: "Empilhadeira Motorizada",
-    description: "Dimensionamento e desenvolvimento do projeto, incluindo alternativas de mobilidade, gabaritos de solda e memorial de cálculo para 1000Kg.",
-    tag: "Engenharia Mecânica",
-    image: "https://images.unsplash.com/photo-1581092160607-ee22621dd758?q=80&w=800",
-  },
-  {
-    client: "EMaster",
-    title: "Elevador Automotivo Hidráulico",
-    description: "Modelagem 3D, desenhos de fabricação e dimensionamento de componentes comerciais para um novo elevador do tipo pórtico.",
-    tag: "Modelagem 3D",
-    image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=800",
-  },
-  {
-    client: "Setor Esportivo",
-    title: "Case 3D para Sensor Crossfit",
-    description: "Prototipagem em impressão 3D da estrutura externa de um sensor de medição de desempenho, com tamanho compatível para o esporte.",
-    tag: "Prototipagem 3D",
-    image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=800",
-  },
-  {
-    client: "Setor Alimentício",
-    title: "Máquina de Pastel Automatizada",
-    description: "Conceituação e projeto de máquina para automatizar a produção de massas recheadas em diversos formatos, como letras.",
-    tag: "Automação",
-    image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=800",
-  }
-];
+import { portfolioProjects } from "@/content/portfolio";
 
 export default function Cases() {
-  const duplicatedCases = [...casesData, ...casesData, ...casesData];
+  // Limita a renderização para no máximo 5 projetos
+  const displayCases = portfolioProjects.slice(0, 7);
 
   const [emblaRef, emblaApi] = useEmblaCarousel(
     { 
-      loop: true,           // Ativa o loop infinito nativo
-      align: "start",       // Alinha ao início
-      dragFree: true,       // Permite o "chute" rápido
-      containScroll: false  // Para loop infinito, o scroll não deve ser "contido"
+      loop: true,
+      align: "start",
+      dragFree: true,
+      containScroll: false
     },
     [
       Autoplay({ 
-        delay: 2500,                    // Velocidade da rotação
-        stopOnInteraction: false,       // Não para se o usuário clicar
-        stopOnMouseEnter: true          // Para se o mouse estiver em cima (boa prática de UX)
+        delay: 2500,
+        stopOnInteraction: false,
+        stopOnMouseEnter: true
       })
     ]
   );
@@ -76,7 +34,6 @@ export default function Cases() {
   return (
     <section id="cases" className="py-16 md:py-20 lg:py-24 bg-zinc-950 relative border-b border-zinc-800/50 overflow-hidden">
       
-      {/* Luz de fundo decorativa */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-cromo/5 rounded-full blur-[150px] pointer-events-none" />
 
       <div className="container mx-auto px-4 sm:px-6 relative z-10">
@@ -87,25 +44,37 @@ export default function Cases() {
               <span className="text-cromo font-bold tracking-widest text-[10px] uppercase">Resultados Comprovados</span>
             </div>
             
-            <h2 className="text-3xl md:text-4xl font-black text-white leading-tight">
+            <h2 className="subtitle text-white">
               Confira o nosso <span className="text-transparent bg-clip-text bg-gradient-to-r from-cromo to-yellow-600">Portfólio</span>
             </h2>
-            <p className="text-zinc-400 mt-3 text-sm md:text-base max-w-lg">
+            
+            <p className="body-text text-zinc-400 mt-3 max-w-lg">
               Projetos reais desenvolvidos pela nossa equipe de engenharia para solucionar desafios complexos da indústria.
             </p>
           </div>
           
           <div className="flex items-center gap-4">
             <div className="hidden md:flex gap-2">
-              <button onClick={scrollPrev} className="w-12 h-12 flex items-center justify-center rounded-full bg-zinc-900 border border-zinc-800 text-white hover:text-cromo hover:border-cromo transition-all shadow-lg active:scale-95">
-                <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" /></svg>
+              <button 
+                onClick={scrollPrev} 
+                aria-label="Projeto anterior"
+                className="w-12 h-12 flex items-center justify-center rounded-full bg-zinc-900 border border-zinc-800 text-white hover:text-cromo hover:border-cromo transition-all shadow-lg active:scale-95 focus:outline-none focus:ring-2 focus:ring-cromo"
+              >
+                <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" /></svg>
               </button>
-              <button onClick={scrollNext} className="w-12 h-12 flex items-center justify-center rounded-full bg-zinc-900 border border-zinc-800 text-white hover:text-cromo hover:border-cromo transition-all shadow-lg active:scale-95">
-                <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
+              <button 
+                onClick={scrollNext} 
+                aria-label="Próximo projeto"
+                className="w-12 h-12 flex items-center justify-center rounded-full bg-zinc-900 border border-zinc-800 text-white hover:text-cromo hover:border-cromo transition-all shadow-lg active:scale-95 focus:outline-none focus:ring-2 focus:ring-cromo"
+              >
+                <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
               </button>
             </div>
             
-            <Link href="/portfolio" className="shrink-0 bg-cromo text-black font-black text-[10px] sm:text-xs tracking-widest uppercase px-6 py-3 sm:px-8 sm:py-4 rounded-xl shadow-lg shadow-cromo/20 hover:bg-yellow-400 transition-all flex items-center justify-center w-max">
+            <Link 
+              href="/portfolio" 
+              className="shrink-0 bg-cromo text-black font-black text-[10px] sm:text-xs tracking-widest uppercase px-6 py-3 sm:px-8 sm:py-4 rounded-xl shadow-lg shadow-cromo/20 hover:bg-yellow-400 transition-all flex items-center justify-center w-max focus:outline-none focus:ring-2 focus:ring-white"
+            >
               Acessar Portfólio Completo
             </Link>
           </div>
@@ -113,26 +82,34 @@ export default function Cases() {
       </div>
 
       <div className="w-full relative z-10 pb-4">
-        {/* VIEWPORT */}
-        <div className="overflow-hidden" ref={emblaRef}>
-          {/* CONTAINER DA TRILHA */}
+        {/* Container principal do Embla */}
+        <div className="overflow-hidden px-4 sm:px-6 lg:px-20" ref={emblaRef}>
+          {/* CORREÇÃO DO BUG: Removido o "gap" e adicionada margem negativa (-ml-4) */}
           <div 
-            className="flex gap-4 md:gap-6 ml-4 sm:ml-6 md:ml-10 lg:ml-20 touch-pan-y py-2 cursor-grab active:cursor-grabbing" 
+            className="flex -ml-4 md:-ml-6 touch-pan-y py-4 cursor-grab active:cursor-grabbing" 
             onDragStartCapture={(e) => e.preventDefault()}
           >
-            {duplicatedCases.map((item, index) => (
-              <div key={index} className="flex-[0_0_280px] sm:flex-[0_0_320px] min-w-0 select-none">
-                <div className="block h-full bg-zinc-900 border border-zinc-800 rounded-2xl overflow-hidden hover:border-cromo/50 transition-colors flex flex-col group">
+            {displayCases.map((item, index) => (
+              /* CORREÇÃO DO BUG: Adicionado padding-left (pl-4) para criar o espaço de forma segura para a matemática do Embla */
+              <div key={index} className="flex-[0_0_280px] sm:flex-[0_0_320px] min-w-0 pl-4 md:pl-6 select-none">
+                
+                {/* TRANSFORMADO EM LINK: Agora o card inteiro é clicável e leva para /portfolio */}
+                <Link 
+                  href="/portfolio" 
+                  className="block h-full bg-zinc-900 border border-zinc-800 rounded-2xl overflow-hidden hover:border-cromo-purple/50 hover:shadow-[0_0_25px_rgba(90,35,109,0.3)] transition-all duration-300 flex flex-col group focus:outline-none focus:ring-2 focus:ring-cromo"
+                >
+                  
                   <div className="relative w-full h-40 sm:h-48 bg-zinc-800 overflow-hidden border-b border-zinc-800">
                     <Image 
                       src={item.image} 
                       alt={item.title} 
                       fill 
+                      sizes="(max-width: 640px) 280px, 320px"
                       className="object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700" 
                     />
                     <div className="absolute top-3 left-3 bg-zinc-950/80 backdrop-blur-sm border border-zinc-700 px-2.5 py-1 rounded-full">
                       <span className="text-[8px] sm:text-[9px] font-bold tracking-widest text-cromo uppercase">
-                        {item.tag}
+                        {item.category}
                       </span>
                     </div>
                   </div>
@@ -144,17 +121,18 @@ export default function Cases() {
                     <h3 className="text-base sm:text-lg font-bold text-white mb-2 group-hover:text-cromo transition-colors">
                       {item.title}
                     </h3>
-                    <p className="text-zinc-400 text-xs sm:text-sm leading-relaxed mt-auto line-clamp-3">
-                      {item.description}
+                    <p className="body-text text-zinc-400 text-sm sm:text-sm mt-2">
+                      {item.shortDescription}
                     </p>
                   </div>
-                </div>
+                  
+                </Link>
               </div>
             ))}
           </div>
         </div>
 
-        {/* Gradientes de desfoque nas bordas para esconder o "corte" do loop */}
+        {/* Máscaras de gradiente lateral ajustadas */}
         <div className="absolute top-0 bottom-0 left-0 w-8 sm:w-16 bg-gradient-to-r from-zinc-950 to-transparent pointer-events-none z-20" />
         <div className="absolute top-0 bottom-0 right-0 w-8 sm:w-16 bg-gradient-to-l from-zinc-950 to-transparent pointer-events-none z-20" />
       </div>

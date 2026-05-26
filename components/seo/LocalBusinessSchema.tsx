@@ -9,6 +9,7 @@ export default function LocalBusinessSchema() {
     '@id': 'https://www.cromoconsultoria.com.br',
     url: 'https://www.cromoconsultoria.com.br',
     telephone: '+5541987288213',
+    email: 'contato@cromoconsultoria.com.br',
     address: {
       '@type': 'PostalAddress',
       streetAddress: 'R. Dep. Heitor Alencar Furtado, 4900 - Bloco L, andar 2 - Campina do Siqueira',
@@ -41,7 +42,20 @@ export default function LocalBusinessSchema() {
     ],
     description: 'Consultoria especializada em engenharia mecânica e mecatrônica em Curitiba. Transformamos desafios técnicos em produtos inovadores e processos otimizados com o rigor acadêmico da UTFPR e visão de mercado.',
     priceRange: '$',
-    areaServed: 'Curitiba',
+    areaServed: [
+      {
+        '@type': 'City',
+        name: 'Curitiba'
+      },
+      {
+        '@type': 'AdministrativeArea',
+        name: 'Paraná'
+      },
+      {
+        '@type': 'Country',
+        name: 'Brazil'
+      }
+    ],
   };
 
   return (

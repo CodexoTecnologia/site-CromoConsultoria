@@ -2,7 +2,7 @@
 "use client";
 import { useState, useEffect, forwardRef } from "react";
 import type { InputHTMLAttributes } from "react";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import dynamic from 'next/dynamic';
 
 const BrazilianMaskedInput = forwardRef<HTMLInputElement, InputHTMLAttributes<HTMLInputElement>>(
@@ -56,6 +56,8 @@ export default function Contact({
   const [isValidating, setIsValidating] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
+  const [messageLength, setMessageLength] = useState(0);
+  const MAX_CHARS = 500;
 
   useEffect(() => {
     if (typeof window !== 'undefined' && !document.querySelector('link[href*="react-phone-number-input"]')) {
@@ -108,25 +110,23 @@ export default function Contact({
     const formData = new FormData(form);
 
     try {
-      const response = await fetch('https://formspree.io/f/xnnberyp', {
+      const response = await fetch('/api/contato', {
         method: 'POST',
         body: formData,
-        headers: {
-          'Accept': 'application/json'
-        }
       });
 
       if (response.ok) {
         setSubmitStatus('success');
         form.reset();
         setPhoneValue(undefined);
+        setMessageLength(0); // AJUSTE 1: Zera o contador de caracteres
         setTimeout(() => setSubmitStatus('idle'), 5000);
       } else {
         setSubmitStatus('error');
         setTimeout(() => setSubmitStatus('idle'), 5000);
       }
     } catch (error) {
-      console.error('Erro ao enviar formulário:', error);
+      console.error('Erro ao conectar com o servidor:', error);
       setSubmitStatus('error');
       setTimeout(() => setSubmitStatus('idle'), 5000);
     } finally {
@@ -166,7 +166,7 @@ export default function Contact({
             </motion.div>
 
             <div className="space-y-6">
-              <p className="text-zinc-400 text-sm md:text-base leading-relaxed max-w-sm border-l-2 border-cromo pl-4 md:pl-5">
+              <p className="body-text text-zinc-400 max-w-sm border-l-2 border-cromo pl-4 md:pl-5">
                 {subtitle}
               </p>
 
@@ -175,7 +175,7 @@ export default function Contact({
                 <p className="text-[10px] font-bold tracking-[0.2em] text-zinc-500 uppercase">Canais Oficiais:</p>
                 <div className="space-y-2 text-sm sm:text-base font-medium">
                   <p className="text-zinc-300 hover:text-cromo transition-colors cursor-pointer break-all">contato@cromoconsultoria.com.br</p>
-                  <p className="text-zinc-400 font-mono">(41) 8728-8213</p>
+                  <p className="text-zinc-400 font-mono">(41) 98728-8213</p>
                 </div>
               </div>
             </div>
@@ -242,15 +242,24 @@ export default function Contact({
                 </div>
 
                 <div className="space-y-2 flex-grow">
-                  <label htmlFor="contact-message" className="text-[10px] font-bold text-zinc-400 uppercase tracking-widest ml-1">
-                    Descrição do Projeto *
-                  </label>
+                  <div className="flex justify-between items-center ml-1">
+                    <label htmlFor="contact-message" className="text-[10px] font-bold text-zinc-400 uppercase tracking-widest">
+                      Descrição do Projeto *
+                    </label>
+                    <span className={`text-[9px] font-mono font-bold tracking-widest uppercase ${messageLength >= MAX_CHARS ? 'text-cromo animate-pulse' : 'text-zinc-500'}`}>
+                      {messageLength} / {MAX_CHARS}
+                    </span>
+                  </div>
+                  
+                  {/* AJUSTE 2: Classes embutidas para esconder a scrollbar + break-all para o texto */}
                   <textarea
                     id="contact-message"
                     name="message"
                     placeholder="Descreva seu desafio técnico..."
                     required
-                    className="w-full min-h-[120px] md:min-h-[150px] bg-black/50 border border-zinc-700 p-3.5 text-xs sm:text-sm text-white outline-none focus:border-cromo transition-all resize-none rounded-xl placeholder:text-zinc-600"
+                    maxLength={MAX_CHARS}
+                    onChange={(e) => setMessageLength(e.target.value.length)}
+                    className="w-full min-h-[120px] md:min-h-[150px] bg-black/50 border border-zinc-700 p-3.5 text-xs sm:text-sm text-white outline-none focus:border-cromo transition-all resize-none rounded-xl placeholder:text-zinc-600 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none] break-words"
                   />
                 </div>
 
@@ -270,24 +279,27 @@ export default function Contact({
                   </div>
                 </button>
 
-                {submitStatus !== 'idle' && (
-                  <motion.div
-                    initial={{ opacity: 0, y: 10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0 }}
-                    className={`p-4 rounded-xl border ${
-                      submitStatus === 'success'
-                        ? 'bg-green-500/10 border-green-500/30 text-green-400'
-                        : 'bg-red-500/10 border-red-500/30 text-red-400'
-                    }`}
-                  >
-                    <p className="text-xs font-bold text-center">
-                      {submitStatus === 'success'
-                        ? 'Mensagem enviada com sucesso! Nossa equipe entrará em contato.'
-                        : 'Erro ao enviar mensagem. Tente novamente ou chame no WhatsApp.'}
-                    </p>
-                  </motion.div>
-                )}
+                {/* AJUSTE 3: Adicionado AnimatePresence para garantir a montagem/desmontagem correta da mensagem */}
+                <AnimatePresence>
+                  {submitStatus !== 'idle' && (
+                    <motion.div
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0 }}
+                      className={`p-4 rounded-xl border ${
+                        submitStatus === 'success'
+                          ? 'bg-green-500/10 border-green-500/30 text-green-400'
+                          : 'bg-red-500/10 border-red-500/30 text-red-400'
+                      }`}
+                    >
+                      <p className="text-xs font-bold text-center">
+                        {submitStatus === 'success'
+                          ? 'Mensagem enviada com sucesso! Nossa equipe entrará em contato.'
+                          : 'Erro ao enviar mensagem. Tente novamente ou chame no WhatsApp.'}
+                      </p>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
               </form>
             </motion.div>
           </div>
