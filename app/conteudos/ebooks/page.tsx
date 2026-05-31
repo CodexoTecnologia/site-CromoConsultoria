@@ -120,7 +120,7 @@ export default function EbooksPage() {
   return (
     <main className="min-h-screen bg-zinc-950 pb-20 relative">
       <Hero
-        imageSrc="https://images.unsplash.com/photo-1481627834876-b7833e8f5570?q=80&w=2000"
+        imageSrc="/assets/images/ebooks/hero-ebooks.png"
         imageAlt="E-Books Cromo Consultoria"
         label="Conteúdo Gratuito"
         title="Baixe Nossos"

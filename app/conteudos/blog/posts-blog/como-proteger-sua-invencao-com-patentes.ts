@@ -2,83 +2,71 @@ import type { BlogPost } from "./index";
 
 const post: BlogPost = {
   slug: "como-proteger-sua-invencao-com-patentes",
-  title: "Como Proteger Sua Invenção com Patentes no Brasil",
+  title: "Patentes: proteja sua invenção e valorize sua inovação",
   category: "Propriedade Intelectual",
   date: "10 Abr, 2026",
   excerpt:
-    "Um guia prático sobre o processo de depósito de patentes no INPI, requisitos de patenteabilidade e estratégias para proteger sua inovação.",
+    "Toda grande ideia precisa de proteção. A patente é o direito de propriedade industrial que garante exclusividade sobre uma invenção, permitindo que o criador tenha segurança para desenvolver, explorar e comercializar sua solução sem o risco de cópias indevidas. Na prática, isso significa transformar conhecimento em vantagem competitiva.",
   content:
-    "patente inpi propriedade intelectual invenção registro proteção inovação depósito documento reivindicação modelo utilidade",
-  image: "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?q=80&w=1200",
+    "patentes propriedade industrial exclusividade invenção inovação proteção propriedade intelectual INPI",
+  image: "/assets/images/blog/post-patentes.png",
   readTime: "8 min",
-  tags: ["patentes", "INPI", "propriedade intelectual", "inovação"],
-  author: "Equipe Cromo Consultoria",
+  tags: ["patentes", "propriedade intelectual", "inovação"],
+  author: "Ana Beatriz Gomes dos Santos",
   sections: [
     {
+      type: "heading",
+      text: "Cromo Consultoria",
+    },
+    {
       type: "paragraph",
-      text: "Você investiu meses desenvolvendo uma solução técnica inovadora. Mas sem proteção legal, qualquer concorrente pode copiar sua ideia e comercializá-la livremente. A patente é o instrumento jurídico que garante a exclusividade da exploração da sua invenção por um período determinado — no Brasil, até 20 anos para invenções e 15 anos para modelos de utilidade.",
+      text: "Na Cromo Consultoria, entendemos que inovar vai muito além de criar algo novo. É preciso também proteger o que foi desenvolvido com tanto esforço. Por isso, oferecemos apoio estratégico para empresas e empreendedores que desejam entender melhor como funciona o processo de patente e como dar esse passo com mais segurança.",
     },
     {
       type: "heading",
-      text: "O que pode ser patenteado?",
+      text: "O que é uma patente?",
     },
     {
       type: "paragraph",
-      text: "Para ser patenteável, uma invenção precisa atender a três critérios fundamentais estabelecidos pela Lei de Propriedade Industrial (Lei 9.279/1996):",
+      text: "A patente é uma forma de proteção legal concedida a uma invenção ou melhoria técnica. Ela assegura ao titular o direito exclusivo de uso por um período determinado, evitando que terceiros explorem a criação sem autorização. Isso é essencial para quem investe tempo, pesquisa, recursos e conhecimento no desenvolvimento de produtos, processos ou soluções inovadoras.",
+    },
+    {
+      type: "paragraph",
+      text: "Esse tipo de proteção é especialmente importante em setores competitivos, onde a diferença entre crescer e perder mercado muitas vezes está na capacidade de inovar com segurança.",
+    },
+    {
+      type: "heading",
+      text: "Por que proteger sua invenção?",
     },
     {
       type: "list",
       items: [
-        "Novidade: A invenção não pode ter sido divulgada publicamente antes do depósito — em qualquer lugar do mundo.",
-        "Atividade inventiva: A solução não pode ser óbvia para um técnico especializado na área.",
-        "Aplicação industrial: A invenção deve poder ser fabricada ou utilizada em algum tipo de indústria.",
+        "Exclusividade sobre a invenção.",
+        "Maior segurança para comercializar a solução.",
+        "Valorização da propriedade intelectual.",
+        "Proteção contra cópias e uso indevido.",
+        "Mais credibilidade no mercado.",
       ],
     },
     {
       type: "heading",
-      text: "Patente de Invenção vs. Modelo de Utilidade",
+      text: "Como a Cromo pode ajudar",
     },
     {
       type: "paragraph",
-      text: "A Patente de Invenção (PI) protege criações inteiramente novas, com alto grau de inventividade — como um novo composto químico ou um processo industrial inédito. Já o Modelo de Utilidade (MU) protege melhorias funcionais em objetos já conhecidos, com requisito de inventividade menor. O prazo do MU é de 15 anos e o processo tende a ser mais rápido.",
+      text: "Na Cromo Consultoria, auxiliamos no entendimento das etapas necessárias para estruturar melhor o processo de proteção da sua inovação. Nosso objetivo é orientar empresas e profissionais que desejam transformar ideias em ativos estratégicos, com mais organização, visão técnica e planejamento.",
+    },
+    {
+      type: "paragraph",
+      text: "Se você tem um novo produto, tecnologia ou melhoria que merece ser protegida, este pode ser o momento certo para buscar orientação especializada. A patente não é apenas um documento: é uma ferramenta para fortalecer o futuro do seu negócio.",
     },
     {
       type: "heading",
-      text: "Passo a passo do depósito no INPI",
-    },
-    {
-      type: "list",
-      items: [
-        "Busca de anterioridade: Pesquise bases como INPI, Espacenet e Google Patents para verificar se algo similar já foi patenteado.",
-        "Redação técnica: Elabore o relatório descritivo, reivindicações, resumo e desenhos técnicos — essa é a etapa mais crítica.",
-        "Depósito eletrônico: Acesse o e-INPI, preencha o formulário e pague a GRU (Guia de Recolhimento da União) correspondente.",
-        "Publicação e exame: Após 18 meses, o pedido é publicado na Revista da Propriedade Industrial (RPI). O exame técnico ocorre mediante requerimento.",
-        "Concessão: Se aprovado, a carta-patente é emitida e você passa a ser titular do direito exclusivo.",
-      ],
-    },
-    {
-      type: "heading",
-      text: "A importância da redação das reivindicações",
+      text: "Fale com a Cromo Consultoria",
     },
     {
       type: "paragraph",
-      text: "As reivindicações definem o escopo legal da sua patente — o que está protegido e o que não está. Reivindicações mal redigidas podem deixar brechas exploráveis por concorrentes ou ser rejeitadas pelo examinador. Por isso, contar com suporte técnico especializado nessa fase é fundamental para maximizar o valor da proteção.",
-    },
-    {
-      type: "quote",
-      text: "Uma patente mal redigida pode ser pior do que não ter patente: ela dá uma falsa sensação de segurança enquanto deixa a inovação exposta.",
-    },
-    {
-      type: "heading",
-      text: "Quanto custa e quanto tempo leva?",
-    },
-    {
-      type: "paragraph",
-      text: "O processo no INPI pode levar de 4 a 10 anos para uma patente de invenção, dependendo da complexidade e do backlog do órgão. As taxas oficiais variam conforme o tipo de pedido e o porte da empresa (há desconto para MEI e empresas de pequeno porte). Os custos com consultoria técnica para a elaboração do documento variam, mas o retorno sobre o investimento costuma ser expressivo quando a patente é bem estruturada.",
-    },
-    {
-      type: "paragraph",
-      text: "A Cromo Consultoria oferece suporte completo em processos de patenteamento, desde a busca de anterioridade até a redação técnica e acompanhamento junto ao INPI. Fale com nossa equipe para uma avaliação inicial da sua invenção.",
+      text: "Se sua empresa está desenvolvendo algo novo e quer entender como proteger essa inovação, entre em contato com a Cromo Consultoria. Estamos prontos para ajudar você a dar os próximos passos com mais clareza, segurança e estratégia.",
     },
   ],
 };

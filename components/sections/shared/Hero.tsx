@@ -8,6 +8,7 @@ interface HeroProps {
   title: string;
   titleHighlight?: string;
   description?: string;
+  imagePosition?: string;
   backLink?: {
     href: string;
     label: string;
@@ -22,6 +23,7 @@ export default function Hero({
   titleHighlight,
   description,
   backLink,
+  imagePosition = "object-center",
 }: HeroProps) {
   return (
     <section className="relative w-full h-[55vh] min-h-[380px] max-h-[560px] overflow-hidden">
@@ -30,7 +32,9 @@ export default function Hero({
         alt={imageAlt}
         fill
         priority
-        className="object-cover"
+        loading="eager"
+        sizes="100vw"
+        className={`object-cover ${imagePosition}`}
       />
       <div className="absolute inset-0 bg-gradient-to-t from-zinc-950 via-zinc-950/60 to-zinc-950/20" />
       <div className="absolute inset-0 bg-gradient-to-r from-zinc-950/80 to-transparent" />

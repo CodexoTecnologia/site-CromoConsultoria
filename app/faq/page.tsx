@@ -130,12 +130,13 @@ export default function FAQPage() {
       />
 
       <Hero
-        imageSrc="https://images.unsplash.com/photo-1503387762-592deb58ef4e?q=80&w=2000"
+        imageSrc="/assets/images/faq/hero-faq.png"
         imageAlt="Consultoria em Engenharia e Desenvolvimento"
         label="Central de Ajuda"
         title="Dúvidas"
         titleHighlight="Frequentes"
         description="Nossa transparência é o primeiro passo para o sucesso do seu projeto. Encontre respostas sobre desenvolvimento e engenharia."
+        imagePosition="object-[center_25%]"
       />
 
       <section id="perguntas" className="relative -mt-6 md:-mt-12 pt-8 md:pt-12 pb-16 md:pb-24 scroll-mt-20 z-20">

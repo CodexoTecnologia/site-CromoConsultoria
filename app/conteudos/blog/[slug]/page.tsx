@@ -80,26 +80,34 @@ export default async function BlogPostPage({
   return (
     <main className="min-h-screen bg-zinc-950">
 
-      {/* HERO */}
-      <section className="relative w-full h-[55vh] min-h-[380px] max-h-[540px] overflow-hidden">
+      {/* HERO DO POST */}
+      <section className="relative w-full min-h-[500px] md:min-h-[60vh] flex flex-col justify-center pt-32 pb-16 overflow-hidden">
         <Image
           src={post.image}
           alt={post.title}
           fill
           priority
-          className="object-cover"
+          loading="eager"
+          sizes="100vw"
+          className="object-cover object-center"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-zinc-950 via-zinc-950/70 to-zinc-950/30" />
-        <div className="absolute inset-0 bg-gradient-to-r from-zinc-950/60 to-transparent" />
+        
+        {/* Gradientes IDÊNTICOS aos da sua Hero Global */}
+        <div className="absolute inset-0 bg-gradient-to-t from-zinc-950 via-zinc-950/60 to-zinc-950/20" />
+        <div className="absolute inset-0 bg-gradient-to-r from-zinc-950/80 to-transparent" />
 
-
-        <div className="absolute bottom-0 left-0 right-0 container mx-auto px-4 sm:px-6 pb-12">
+        <div className="container mx-auto px-4 sm:px-6 relative z-10">
+          {/* Label com a mesma barrinha de 8px (w-8) da Hero Global */}
           <span className="text-cromo font-bold text-[10px] uppercase tracking-[0.3em] inline-flex items-center gap-2 mb-4">
-            <span className="w-6 h-px bg-cromo" /> {post.category}
+            <span className="w-8 h-px bg-cromo" /> {post.category}
           </span>
-          <h1 className="text-3xl md:text-4xl lg:text-5xl font-black text-white leading-tight max-w-3xl mb-5">
+
+          {/* Título BEM MENOR (3xl até 5xl) e com limite de largura (max-w-4xl) para quebrar linha bonito */}
+          <h1 className="text-3xl md:text-4xl lg:text-5xl font-black text-white leading-tight max-w-4xl mb-6">
             {post.title}
           </h1>
+
+          {/* Metadados do Blog alinhados visualmente com a description da Hero Global */}
           <div className="flex flex-wrap items-center gap-4 text-sm text-zinc-400">
             <span className="font-medium text-zinc-300">{post.author}</span>
             <span className="w-1 h-1 bg-zinc-600 rounded-full" />
@@ -111,7 +119,7 @@ export default async function BlogPostPage({
           </div>
         </div>
       </section>
-
+      
       {/* CONTEÚDO */}
       <div className="container mx-auto px-4 sm:px-6 max-w-3xl py-16">
 
@@ -177,6 +185,7 @@ export default async function BlogPostPage({
                       src={related.image}
                       alt={related.title}
                       fill
+                      sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                       className="object-cover group-hover:scale-105 transition-transform duration-500"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-zinc-900/80 to-transparent" />

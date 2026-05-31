@@ -14,7 +14,7 @@ export default function BlogPage() {
     <main className="min-h-screen bg-zinc-950">
 
       <Hero
-        imageSrc="https://images.unsplash.com/photo-1504711434969-e33886168f5c?q=80&w=2000"
+        imageSrc="/assets/images/blog/hero-blog.png"
         imageAlt="Blog Cromo Consultoria"
         label="Conhecimento & Inovação"
         title="Blog"

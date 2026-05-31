@@ -1,3 +1,4 @@
+// src/app/servicos/page.tsx
 import Link from "next/link";
 import Hero from "@/components/sections/shared/Hero";
 import { Metadata } from "next";
@@ -23,12 +24,12 @@ export const metadata: Metadata = {
     description: pageDescription,
     siteName: "Cromo Consultoria",
     images: [
-    {
-      url: "/assets/images/og-image-default.png",
-      width: 1200,
-      height: 628,
-      alt: "Cromo Consultoria - Serviços de Engenharia",
-    },
+      {
+        url: "/assets/images/og-image-default.png",
+        width: 1200,
+        height: 628,
+        alt: "Cromo Consultoria - Serviços de Engenharia",
+      },
     ],
   },
   twitter: {
@@ -77,7 +78,7 @@ export default function ServicosHome() {
     <main className="min-h-screen bg-zinc-950">
 
       <Hero
-        imageSrc="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=2000"
+        imageSrc="/assets/images/servicos/hero-servicos.png"
         imageAlt="Serviços de Engenharia Cromo Consultoria"
         label="Nossa Expertise"
         title="Nossos"
@@ -85,50 +86,65 @@ export default function ServicosHome() {
         description="Soluções em engenharia para transformar seu desafio técnico em diferencial competitivo."
       />
 
-      {/* SERVIÇOS */}
+      {/* SERVIÇOS - bg-zinc-950 restaurado na section também */}
       <section className="py-16 md:py-24 bg-zinc-950">
-        <div className="container mx-auto px-4 sm:px-6">
-
-          <header className="text-center mb-12 md:mb-16">
-            <div className="inline-flex items-center justify-center gap-3 mb-3">
+        <div className="container mx-auto px-4 sm:px-6 relative z-10">
+          
+          <header className="text-center mb-16">
+            <div className="inline-flex items-center justify-center gap-3 mb-4">
               <div className="w-8 h-[2px] bg-cromo" />
               <span className="text-cromo font-bold tracking-widest text-[10px] uppercase">
                 Áreas de Atuação
               </span>
               <div className="w-8 h-[2px] bg-cromo" />
             </div>
-            <h2 className="text-3xl md:text-4xl font-black text-white">
+            
+            <h2 className="subtitle text-white">
               O que podemos fazer{" "}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-cromo to-yellow-600">
                 por você
               </span>
             </h2>
-            <p className="text-zinc-400 mt-4 max-w-xl mx-auto text-sm md:text-base">
+            
+            <p className="body-text text-zinc-400 mt-5 max-w-xl mx-auto">
               Selecione uma das nossas áreas de atuação para descobrir como podemos transformar o seu desafio técnico em resultado real.
             </p>
           </header>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
-            {servicesList.map((service) => {
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto">
+            {servicesList.map((service, index) => {
               const Icon = service.Icon;
+              const number = String(index + 1).padStart(2, '0');
+
               return (
                 <Link
                   key={service.slug}
                   href={`/servicos/${service.slug}`}
-                  className="group bg-zinc-900 border border-zinc-800 hover:border-cromo rounded-2xl p-8 transition-all duration-300 hover:-translate-y-1 shadow-lg flex flex-col"
+                  className="bg-zinc-900 border border-zinc-800 p-8 rounded-2xl transition-all duration-500 hover:-translate-y-1 hover:border-cromo-purple/50 hover:shadow-[0_0_30px_rgba(90,35,109,0.15)] group relative overflow-hidden flex flex-col focus:outline-none focus:ring-2 focus:ring-cromo"
                 >
-                  <div className="w-14 h-14 rounded-xl bg-cromo/10 border border-cromo/20 group-hover:bg-cromo group-hover:border-cromo flex items-center justify-center mb-6 transition-all duration-300 text-cromo group-hover:text-zinc-950">
-                    <Icon size={24} />
+                  {/* Glow interno roxo */}
+                  <div className="absolute -top-12 -left-12 w-32 h-32 bg-cromo-purple/20 blur-[50px] pointer-events-none transition-opacity duration-500 opacity-0 group-hover:opacity-100" />
+                  
+                  <div className="mb-8 flex items-center justify-between relative z-10">
+                    <div className="w-14 h-14 rounded-xl bg-zinc-950 border border-zinc-800 flex items-center justify-center text-zinc-400 group-hover:text-cromo group-hover:border-cromo/30 transition-colors duration-300 shadow-inner">
+                      <Icon size={26} strokeWidth={1.5} />
+                    </div>
+                    <span className="text-[10px] font-bold uppercase tracking-widest text-zinc-700 group-hover:text-cromo-purple/70 transition-colors duration-300">
+                      {number}
+                    </span>
                   </div>
-                  <h2 className="text-xl font-bold text-zinc-100 group-hover:text-white mb-3">
+
+                  <h3 className="text-xl font-bold text-zinc-100 group-hover:text-white mb-4 relative z-10 transition-colors duration-300">
                     {service.name}
-                  </h2>
-                  <p className="text-zinc-500 text-sm mb-6 flex-grow leading-relaxed">
+                  </h3>
+                  
+                  <p className="body-text text-zinc-400 mb-8 flex-grow relative z-10">
                     {service.desc}
                   </p>
-                  <div className="text-cromo text-xs font-bold uppercase tracking-wider flex items-center gap-2 mt-auto">
+
+                  <div className="text-zinc-500 group-hover:text-cromo text-[10px] sm:text-xs font-bold uppercase tracking-widest flex items-center gap-2 mt-auto relative z-10 transition-colors duration-300">
                     Saiba mais
-                    <span className="group-hover:translate-x-1 transition-transform">→</span>
+                    <span className="group-hover:translate-x-2 transition-transform duration-300">→</span>
                   </div>
                 </Link>
               );
@@ -138,10 +154,8 @@ export default function ServicosHome() {
         </div>
       </section>
 
-      {/* CASES */}
+      {/* CASES E CONTATO */}
       <Cases />
-
-      {/* CONTATO */}
       <ContactForm />
 
     </main>

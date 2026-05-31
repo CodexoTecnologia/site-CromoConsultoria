@@ -58,7 +58,7 @@ export default function About() {
 
           <div className="relative w-full aspect-video lg:aspect-[4/3] rounded-2xl overflow-hidden border border-zinc-800 shadow-2xl group">
             <Image 
-              src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=2000" 
+              src="/assets/images/home/equipe-home.png" 
               alt="Equipe da Cromo trabalhando em laboratório de engenharia na UTFPR" 
               fill 
               sizes="(max-width: 1024px) 100vw, 50vw"

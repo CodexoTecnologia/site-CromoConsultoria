@@ -17,6 +17,7 @@ export default function Footer() {
     { name: "Portfólio", href: "/portfolio" },
     { name: "Blog", href: "/conteudos/blog" },
     { name: "E-Books", href: "/conteudos/ebooks" },
+    { name: "FAQ", href: "/faq" },
     { name: "Contato", href: "#contato" },
   ];
 
@@ -34,14 +35,18 @@ export default function Footer() {
               href="/"
               className="relative flex items-center transition-opacity hover:opacity-80"
             >
+              {/* Colocamos a altura responsiva em uma div em volta dela */}
+            <div className="h-6 sm:h-8 flex items-center">
               <Image
                 src="/assets/logo/logo-cromo.png"
                 alt="Cromo Consultoria"
                 width={140}
                 height={40}
                 priority
-                className="object-contain w-auto h-6 sm:h-8"
+                style={{ width: "100%", height: "100%" }}
+                className="object-contain" 
               />
+            </div>
             </Link>
             <p className="max-w-[280px] sm:max-w-sm md:max-w-md text-zinc-400 text-xs sm:text-sm leading-relaxed border-l-2 border-cromo pl-4 sm:pl-5 md:pl-6 italic">
               Transformamos desafios técnicos de engenharia em soluções inovadoras, garantindo viabilidade e propriedade intelectual para a sua indústria.
@@ -108,25 +113,26 @@ export default function Footer() {
                © {new Date().getFullYear()} Cromo Consultoria. Todos os direitos reservados.
              </p>
           </div>
-<div className="flex flex-col items-center md:items-end">
-  <span className="text-[8px] sm:text-[9px] text-zinc-600 font-bold uppercase tracking-[0.2em]">
-    Desenvolvido por
-  </span>
-  <a 
-    href="https://codexo.com.br" 
-    target="_blank" 
-    rel="noopener noreferrer"
-    className="group"
-  >
-    <Image 
-      src="/assets/logo/logo_codexo_nome_branco.svg" 
-      alt="Codexo" 
-      width={120} 
-      height={35} 
-      className="mt-[5px] h-[35px] w-auto opacity-50 group-hover:opacity-100 transition-opacity duration-300" 
-    />
-  </a>
-</div>
+          <div className="flex flex-col items-center md:items-end">
+            <span className="text-[8px] sm:text-[9px] text-zinc-600 font-bold uppercase tracking-[0.2em]">
+              Desenvolvido por
+            </span>
+            <a 
+              href="https://codexo.com.br" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="group h-9 flex items-center mt-1"
+            >
+              <Image 
+                src="/assets/logo/logo_codexo_nome_branco.svg" 
+                alt="Codexo" 
+                width={120} 
+                height={35} 
+                style={{ width: "auto", height: "100%" }}
+                className="opacity-50 group-hover:opacity-100 transition-opacity duration-300" 
+              />
+            </a>
+          </div>
         </div>
       </div>
     </footer>

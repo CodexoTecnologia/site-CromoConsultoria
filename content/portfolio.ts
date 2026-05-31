@@ -1,5 +1,4 @@
 // content/portfolio.ts
-
 export interface PortfolioProject {
   client: string;
   title: string;
@@ -8,8 +7,9 @@ export interface PortfolioProject {
   problema: string;
   acao: string;
   resultado: string;
-  image: string;
+  image: string; // Imagem de capa
   imageAlt?: string;
+  gallery?: string[];
 }
 
 export const portfolioProjects: PortfolioProject[] = [
@@ -26,6 +26,13 @@ export const portfolioProjects: PortfolioProject[] = [
       "Entregas de desenhos de fabricação, gabaritos de solda e memorial de cálculo para empilhadeira com capacidade para 1000Kg.",
     image: "/assets/images/portfolio/empilhadeira-motorizada/empilhadeira1.jpg",
     imageAlt: "Modelo 3D da empilhadeira motorizada EMaster desenvolvida pela Cromo",
+    gallery: [
+      "/assets/images/portfolio/empilhadeira-motorizada/empilhadeira1.jpg",
+      "/assets/images/portfolio/empilhadeira-motorizada/empilhadeira2.jpg",
+      "/assets/images/portfolio/empilhadeira-motorizada/empilhadeira3.jpg",
+      "/assets/images/portfolio/empilhadeira-motorizada/empilhadeira4.jpg",
+      
+    ]
   },
   {
     client: "EMaster",
@@ -98,6 +105,34 @@ export const portfolioProjects: PortfolioProject[] = [
     imageAlt: "Projeto conceitual da máquina de pastel automatizada com sistema de moldagem em letras",
   },
   {
+    client: "Setor Alimentício",
+    title: "Máquina de Abate de Tilápias",
+    category: "Conceituação de Máquinas",
+    shortDescription:
+      "Conceituação e desenvolvimento de sistema automatizado para insensibilização mecânica instantânea de tilápias, promovendo eficiência operacional e redução do estresse animal.",
+    problema:
+      "O processo manual de abate apresentava baixa padronização operacional e elevado nível de estresse nos animais, exigindo uma solução automatizada, eficiente e mais humanizada.",
+    acao: "Desenvolvimento do conceito de uma máquina de insensibilização mecânica instantânea, projetada para automatizar o processo de abate com foco em segurança operacional, padronização e bem-estar animal.",
+    resultado:
+      "Entrega da documentação técnica e conceitual necessária para a patente e validação inicial da solução pelo cliente.",    
+    image: "/assets/images/portfolio/abate-tilapia/abate-tilapia-desenho.png",
+    imageAlt: "Máquina de abate de tilápias",
+  },
+  {
+    client: "Robô Lava e Seca",
+    title: "Robô Lava e Seca",
+    category: "Desenho Mecânico & Fabricação",
+    shortDescription:
+      "Sistema robótico para realização de levagem e secagem técnica.",
+    problema:
+      "O cliente tinha a ideia de um robô que realizasse a lavagem e secagem de roupas, mas não tinha o conhecimento técnico para desenvolver o projeto.",
+    acao: "Desenvolvimento do projeto robótico para realização de lavagem e secagem de roupas, com integração de engenharia de fluídos e automação pneumática.",
+    resultado:
+      "Projeto robótico entregue com sucesso, auxiliando na  realização de lavagem e secagem de roupas.",
+    image: "/assets/images/portfolio/robo-lava-seca/robo1.png",
+    imageAlt: "Desenho de fabricação do robô Lava e Seca",
+  },
+  {
     client: "Metalfranca",
     title: "Cadeira COLORE — Metalfranca",
     category: "Desenhos de Fabricação",
@@ -164,21 +199,35 @@ export const portfolioProjects: PortfolioProject[] = [
     acao: "Desenvolvimento de um sistema de controle do volume de água da caixa d'água, manual de montagem e indicações de instalação dos equipamentos.",
     resultado:
       "O deslocamento frequente entre residência e bomba foi eliminado com a automatização do controle.",
-    image: "/assets/images/portfolio/bomba-agua.jpg",
+    image: "/assets/images/portfolio/bomba-dagua/bomba-dagua1.png",
     imageAlt: "Esquemático eletrônico do sistema de controle de bomba d'água automatizado",
   },
   {
-    client: "Setor Esportivo",
-    title: "Análise de Dados — Sensor de Ciclismo",
-    category: "Análise de Dados",
+    client: "Hospitalar",
+    title: "Maca Hospitalar",
+    category: "Prototipagem & Design",
     shortDescription:
-      "Análise de performance de ciclistas com métricas de melhoria geral e por categoria de potência.",
+      "Maca hospitalar com monitoramento de massa total e por segmentos corporais dos pacientes.",
     problema:
-      "O cliente queria avaliar os dados obtidos de um dispositivo de monitoramento de ciclistas e comprovar os benefícios que seu produto traria.",
-    acao: "Análise dos dados obtidos pelo dispositivo, incluindo melhoria geral de desempenho e melhoria por categorias de potência.",
+      "O cliente encontrou a oportunidade de implementar um sistema de monitoramento à maca hospitalar, tendo em vista que o peso de um paciente é essencial para seu acompanhamento e diagnóstico. Todavia, a aferição dessa grandeza em pacientes acamados é um grande desafio.",
+    acao: "Foi proposto o desenvolvimento de um protótipo em escala reduzida para validação da ideia, tal qual como o fornecimento de modelos 3D, esquemáticos eletrônicos, código de programação e manuais de instalação e manuseio.",
     resultado:
-      "Todas as informações obtidas foram essenciais para que o cliente demonstrasse os benefícios do seu dispositivo ao esportista.",
-    image: "/assets/images/portfolio/analise-dados-ciclismo.jpg",
-    imageAlt: "Dashboard de análise de performance de ciclistas desenvolvido pela Cromo",
+      "Foi repassado o protótipo em escala reduzida, responsável pela validação da ideia apresentando apenas 2% de erro médio, eficiência na transmissão dos dados e uma correspondência consistente para com cada segmento analisado.",
+    image: "/assets/images/portfolio/maca-hospitalar/maca-hospitalar.png",
+    imageAlt: "Modelo 3D da maca hospitalar desenvolvida para o cliente",
+  },
+  {
+    client: "Ekorama",
+    title: "Ekorama Arcade Sustentável",
+    category: "Desenvolvimento de Produto",
+    shortDescription:
+      "Desenvolvimento conceitual de máquina interativa voltada à reciclagem gamificada, incentivando o descarte consciente por meio da troca de resíduos recicláveis por experiências recreativas.",
+    problema:
+      "O cliente buscava uma solução inovadora capaz de estimular práticas sustentáveis de forma atrativa e acessível, incentivando o descarte correto de materiais recicláveis através da interação lúdica",
+    acao: "Foi desenvolvido o conceito de uma máquina estilo fliperama que utiliza resíduos recicláveis como forma de interação, unindo entretenimento, educação ambiental e incentivo à reciclagem.",
+    resultado:
+      "Entrega do conceito técnico e visual do produto, possibilitando validação da proposta e avanço no desenvolvimento da solução sustentável.",
+    image: "/assets/images/portfolio/ekorama/ekorama.png",
+    imageAlt: "Projeto conceitual da máquina interativa sustentável Ekorama",
   },
 ];

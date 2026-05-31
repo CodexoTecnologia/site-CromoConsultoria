@@ -6,6 +6,8 @@ import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import WhatsAppButton from "@/components/sections/shared/WhatsAppButton";
 import TextureBackground from "@/components/layout/TextureBackground";
+import CookieConsent from "@/components/sections/shared/CookieConsent";
+import GlobalSpotlight from "@/components/ui/GlobalSpotlight";
 
 const poppins = Poppins({
   variable: "--font-poppins",
@@ -52,7 +54,11 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="pt-BR" className={`${poppins.variable} ${bebasNeue.variable} scroll-smooth`}>
+    <html
+      lang="pt-BR"
+      className={`${poppins.variable} ${bebasNeue.variable} scroll-smooth`}
+      data-scroll-behavior="smooth"
+    >
       <head>
         {/* ==========================================
             ESPAÇO RESERVADO PARA OS PIXELS (FASE 3)
@@ -71,6 +77,26 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       
       <body className="flex flex-col min-h-screen bg-zinc-950 text-zinc-50 overflow-x-hidden selection:bg-cromo selection:text-zinc-950">
         
+        {/* A MÁGICA ESTÁ AQUI: dangerouslySetInnerHTML e afterInteractive */}
+        <Script 
+          id="google-consent-default" 
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              
+              gtag('consent', 'default', {
+                'ad_storage': 'denied',
+                'analytics_storage': 'denied',
+                'personalization_storage': 'denied',
+                'security_storage': 'granted' 
+              });
+            `
+          }}
+        />
+
+        <GlobalSpotlight />
         <TextureBackground />
         <Navbar />
         
@@ -80,7 +106,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 
         <Footer />
         <WhatsAppButton />
-        
+        <CookieConsent />
       </body>
     </html>
   );

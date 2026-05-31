@@ -5,7 +5,7 @@ export default function LocalBusinessSchema() {
     '@context': 'https://schema.org',
     '@type': 'LocalBusiness',
     name: 'Cromo Consultoria',
-    image: 'https://www.cromoconsultoria.com.br/assets/logo/logo-cromo.png', // Alterar em produção quanto tiver o link correto
+    image: 'https://www.cromoconsultoria.com.br/assets/logo/vprincipal/logo-preta.svg', // Alterar em produção quanto tiver o link correto
     '@id': 'https://www.cromoconsultoria.com.br',
     url: 'https://www.cromoconsultoria.com.br',
     telephone: '+5541987288213',

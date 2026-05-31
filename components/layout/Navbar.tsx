@@ -9,14 +9,14 @@ import Image from "next/image";
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [isMobile, setIsMobile] = useState(false);
+  const [isTabletOrMobile, setIsTabletOrMobile] = useState(false);
 
   const [openMobileSubmenu, setOpenMobileSubmenu] = useState<string | null>(
     null,
   );
 
   useEffect(() => {
-    const checkMobile = () => setIsMobile(window.innerWidth < 768);
+    const checkMobile = () => setIsTabletOrMobile(window.innerWidth < 1024);
     checkMobile();
 
     const handleScroll = () => setIsScrolled(window.scrollY > 20);
@@ -61,7 +61,6 @@ export default function Navbar() {
     { name: "Portfólio", href: "/portfolio" },
     {
       name: "Conteúdos",
-      // NOTA: Removido o href aqui de propósito, pois é apenas um dropdown
       subLinks: [
         { name: "Blog", href: "/conteudos/blog" },
         { name: "E-books", href: "/conteudos/ebooks" },
@@ -77,7 +76,7 @@ export default function Navbar() {
 
   const navbarVariants = {
     initial: {
-      width: isMobile ? "95%" : "95%",
+      width: isTabletOrMobile ? "95%" : "95%",
       maxWidth: "1200px",
       y: 0,
       backgroundColor: "rgba(24, 24, 27, 0.2)",
@@ -85,9 +84,9 @@ export default function Navbar() {
       borderColor: "rgba(255, 255, 255, 0.05)",
     },
     scrolled: {
-      width: isMobile ? "95%" : "100%",
-      maxWidth: isMobile ? "1200px" : "1100px",
-      y: isMobile ? 0 : -10,
+      width: isTabletOrMobile ? "95%" : "100%",
+      maxWidth: isTabletOrMobile ? "1200px" : "1100px",
+      y: isTabletOrMobile ? 0 : -10,
       backgroundColor: "rgba(24, 24, 27, 0.85)",
       backdropFilter: "blur(12px)",
       borderColor: "rgba(255, 255, 255, 0.1)",
@@ -115,11 +114,12 @@ export default function Navbar() {
                 width={140}
                 height={40}
                 priority
+                style={{ width: "auto" }}
                 className="object-contain w-auto h-6 sm:h-8"
               />
             </Link>
 
-            <nav className="hidden md:block">
+            <nav className="hidden lg:block">
               <ul className="flex items-center gap-4 lg:gap-8">
                 {navLinks.map((link) => (
                   <li key={link.name} className="relative group">
@@ -193,7 +193,7 @@ export default function Navbar() {
                 onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
                 aria-label={isMobileMenuOpen ? "Fechar menu" : "Abrir menu"}
                 aria-expanded={isMobileMenuOpen}
-                className="md:hidden text-zinc-300 p-2 hover:bg-zinc-800 hover:text-cromo rounded-lg transition-colors"
+                className="lg:hidden text-zinc-300 p-2 hover:bg-zinc-800 hover:text-cromo rounded-lg transition-colors"
               >  
                 {isMobileMenuOpen ? <X size={22} /> : <Menu size={22} />}
               </button>
@@ -218,7 +218,7 @@ export default function Navbar() {
               animate={{ opacity: 1, y: 0, scale: 1 }}
               exit={{ opacity: 0, y: -10, scale: 0.95 }}
               transition={{ duration: 0.2 }}
-              className="fixed top-[80px] left-3 right-3 z-[99] md:hidden max-h-[80vh] overflow-y-auto no-scrollbar"
+              className="fixed top-[80px] left-3 right-3 z-[99] lg:hidden max-h-[80vh] overflow-y-auto no-scrollbar"
             >
               <div className="bg-zinc-900 border border-zinc-800 rounded-2xl shadow-2xl overflow-hidden">
                 <nav className="p-2">
