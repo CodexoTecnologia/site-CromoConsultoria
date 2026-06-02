@@ -1,4 +1,3 @@
-// src/components/sections/home/Cases.tsx
 "use client";
 
 import React, { useCallback } from "react";
@@ -82,7 +81,6 @@ export default function Cases() {
       </div>
 
       <div className="w-full relative z-10 pb-4">
-        {/* Container principal do Embla */}
         <div className="overflow-hidden px-4 sm:px-6 lg:px-20" ref={emblaRef}>
           {/* CORREÇÃO DO BUG: Removido o "gap" e adicionada margem negativa (-ml-4) */}
           <div 
@@ -115,7 +113,7 @@ export default function Cases() {
                   </div>
 
                   <div className="p-5 flex flex-col flex-grow">
-                    <p className="text-[10px] text-zinc-500 font-bold uppercase tracking-widest mb-1.5">
+                    <p className="text-[10px] text-zinc-400 font-bold uppercase tracking-widest mb-1.5">
                       {item.client}
                     </p>
                     <h3 className="text-base sm:text-lg font-bold text-white mb-2 group-hover:text-cromo transition-colors">
@@ -132,7 +130,6 @@ export default function Cases() {
           </div>
         </div>
 
-        {/* Máscaras de gradiente lateral ajustadas */}
         <div className="absolute top-0 bottom-0 left-0 w-8 sm:w-16 bg-gradient-to-r from-zinc-950 to-transparent pointer-events-none z-20" />
         <div className="absolute top-0 bottom-0 right-0 w-8 sm:w-16 bg-gradient-to-l from-zinc-950 to-transparent pointer-events-none z-20" />
       </div>

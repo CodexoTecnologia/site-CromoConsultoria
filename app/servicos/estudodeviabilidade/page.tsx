@@ -49,10 +49,9 @@ export default function ServicePage() {
         title={serviceInfo.title}
         titleHighlight={serviceInfo.titleHighlight}
         description={serviceInfo.description}
-        // imagePosition="object-[center_70%]"
+      
       />
 
-      {/* COPY (Texto explicativo) */}
       <section className="py-16 md:py-24 bg-zinc-950 relative overflow-hidden">
         <div className="container mx-auto px-4 sm:px-6 relative z-10">
           <div className="max-w-4xl mx-auto">
@@ -70,7 +69,6 @@ export default function ServicePage() {
         </div>
       </section>
 
-      {/* BENEFÍCIOS (Cards Premium) */}
       <section className="py-16 md:py-24 bg-zinc-950 relative overflow-hidden border-t border-zinc-800/50">
         
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-cromo/5 rounded-full blur-[150px] pointer-events-none" />
@@ -124,10 +122,8 @@ export default function ServicePage() {
         </div>
       </section>
 
-      {/* DEPOIMENTOS */}
       <Feedback />
 
-      {/* CONTATO */}
       <ContactForm
         headingLine1={serviceInfo.headingLine1}
         headingLine2={serviceInfo.headingLine2}

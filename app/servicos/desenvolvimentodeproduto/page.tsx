@@ -42,7 +42,6 @@ export const metadata: Metadata = {
 
 export default function ServicePage() {
   return (
-    // Trava principal do Dark Mode e z-index
     <main className="min-h-screen bg-zinc-950 relative z-10 w-full">
 
       <Hero
@@ -55,17 +54,17 @@ export default function ServicePage() {
         imagePosition="object-[center_30%]"
       />
 
-      {/* COPY (Texto explicativo) */}
+      
       <section className="py-16 md:py-24 bg-zinc-950 relative overflow-hidden">
         <div className="container mx-auto px-4 sm:px-6 relative z-10">
           <div className="max-w-4xl mx-auto">
-            {/* Aplicado a classe .subtitle */}
+            
             <h2 className="subtitle text-white mb-10">
               {serviceInfo.copy.title}
             </h2>
             <div className="space-y-6 border-l-2 border-zinc-800 pl-6 md:pl-8">
               {serviceInfo.copy.paragraphs.map((p, i) => (
-                // Aplicado a classe .body-text
+                
                 <p key={i} className="body-text text-zinc-400">
                   {p}
                 </p>
@@ -75,10 +74,10 @@ export default function ServicePage() {
         </div>
       </section>
 
-      {/* BENEFÍCIOS (Cards Premium) */}
+      
       <section className="py-16 md:py-24 bg-zinc-950 relative overflow-hidden border-t border-zinc-800/50">
         
-        {/* Glow de fundo da seção para dar volume */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-cromo/5 rounded-full blur-[150px] pointer-events-none" />
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-cromo/5 rounded-full blur-[150px] pointer-events-none" />
 
         <div className="container mx-auto px-4 sm:px-6 relative z-10">
@@ -103,23 +102,21 @@ export default function ServicePage() {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
             {serviceInfo.benefits.map((benefit, i) => {
               const Icon = benefit.Icon;
-              // const number = String(i + 1).padStart(2, '0');
+              
 
               return (
                 <div
                   key={i}
                   className="bg-zinc-900 border border-zinc-800 p-8 rounded-2xl transition-all duration-500 hover:-translate-y-1 hover:border-cromo-purple/50 hover:shadow-[0_0_30px_rgba(90,35,109,0.15)] group relative overflow-hidden flex flex-col"
                 >
-                  {/* Glow interno roxo */}
+                  <div className="absolute -top-12 -left-12 w-32 h-32 bg-cromo-purple/20 blur-[50px] pointer-events-none transition-opacity duration-500 opacity-0 group-hover:opacity-100" />
                   <div className="absolute -top-12 -left-12 w-32 h-32 bg-cromo-purple/20 blur-[50px] pointer-events-none transition-opacity duration-500 opacity-0 group-hover:opacity-100" />
                   
                   <div className="mb-8 flex items-center justify-between relative z-10">
                     <div className="w-12 h-12 rounded-xl bg-zinc-950 border border-zinc-800 flex items-center justify-center text-zinc-400 group-hover:text-cromo group-hover:border-cromo/30 transition-colors duration-300 shadow-inner">
                       <Icon size={24} strokeWidth={1.5} />
                     </div>
-                    {/* <span className="text-[10px] font-bold uppercase tracking-widest text-zinc-700 group-hover:text-cromo-purple/70 transition-colors duration-300">
-                      {number}
-                    </span> */}
+                    
                   </div>
 
                   <h3 className="text-lg font-bold text-zinc-100 group-hover:text-white mb-4 relative z-10 transition-colors duration-300">

@@ -1,13 +1,16 @@
 import type { Metadata } from "next";
 import { Poppins, Bebas_Neue } from "next/font/google";
 import Script from "next/script";
+import dynamic from "next/dynamic"; // 1. Importe o dynamic
 import "./globals.css";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
-import WhatsAppButton from "@/components/sections/shared/WhatsAppButton";
 import TextureBackground from "@/components/layout/TextureBackground";
-import CookieConsent from "@/components/sections/shared/CookieConsent";
-import GlobalSpotlight from "@/components/ui/GlobalSpotlight";
+
+// 2. Transforme os itens "acessórios" em carregamento assíncrono
+const WhatsAppButton = dynamic(() => import("@/components/sections/shared/WhatsAppButton"));
+const CookieConsent = dynamic(() => import("@/components/sections/shared/CookieConsent"));
+const GlobalSpotlight = dynamic(() => import("@/components/ui/GlobalSpotlight"));
 
 const poppins = Poppins({
   variable: "--font-poppins",
@@ -89,7 +92,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         {gtmId && (
           <Script
             id="google-tag-manager"
-            strategy="afterInteractive"
+            strategy="lazyOnload" // Carrega o GTM de forma otimizada, sem bloquear a renderização
             dangerouslySetInnerHTML={{
               __html: `
                 (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':

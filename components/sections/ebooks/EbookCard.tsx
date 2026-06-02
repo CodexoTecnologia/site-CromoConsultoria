@@ -9,20 +9,16 @@ interface EbookCardProps {
 export default function EbookCard({ ebook, onDownloadClick }: EbookCardProps) {
   return (
     <div className="relative group bg-zinc-900 border border-zinc-800 p-8 rounded-2xl flex flex-col items-center text-center transition-all duration-500 hover:-translate-y-1 hover:border-cromo-purple/50 hover:shadow-[0_0_30px_rgba(90,35,109,0.15)] overflow-hidden h-full">
-      {/* O ROXINHO (Fundo com Blur) */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-48 h-48 bg-cromo-purple/20 blur-[60px] pointer-events-none transition-opacity duration-500 opacity-0 group-hover:opacity-100 z-0" />
 
-      {/* OVERLAY CLICÁVEL (O Segredo da responsividade) 
-          Ele fica invisível e cobre o card todo, mas só existe no PC (md:block).
-          No celular (hidden) ele some, não atrapalha o scroll e obriga a clicar no botão. 
-      */}
-      <div 
-        className="absolute inset-0 z-20 hidden md:block cursor-pointer" 
-        onClick={() => onDownloadClick(ebook)} 
+      {/* Overlay cobrindo o card no desktop para tornar o card clicável; oculto no mobile */}
+      <div
+        className="absolute inset-0 z-20 hidden md:block cursor-pointer"
+        onClick={() => onDownloadClick(ebook)}
         aria-hidden="true"
       />
 
-      {/* Conteúdo do Card (z-10 para ficar acima do brilho roxo) */}
+      {/* Conteúdo do card */}
       <div className="relative z-10 flex flex-col items-center w-full h-full">
         
         {/* Imagem (Removi o onClick daqui para não abrir no celular se o usuário esbarrar nela) */}

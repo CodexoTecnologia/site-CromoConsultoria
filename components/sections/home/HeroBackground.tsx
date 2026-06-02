@@ -13,7 +13,8 @@ export default function HeroBackground() {
           alt="Projeto de engenharia mecânica e mecatrônica em Curitiba"
           fill
           priority
-          sizes="100vw"
+          quality={50} // Mesmo com qualidade reduzida, o "sizes" abaixo garante que o Next envie um arquivo menor para telas menores, otimizando ainda mais a performance
+          sizes="(max-width: 640px) 50vw, 100vw" // Para telas até 640px, a imagem ocupará metade da largura da tela (50vw), e para telas maiores, ocupará a largura total (100vw). Isso ajuda o Next a escolher a melhor versão da imagem para cada dispositivo.
           className="object-cover object-[30%_50%] md:object-center opacity-40"
         />
       </div>

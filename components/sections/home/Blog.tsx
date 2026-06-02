@@ -106,7 +106,7 @@ export default function Blog() {
                   </p>
 
                   {/* CTA "Ler mais" */}
-                  <div className="flex items-center gap-2 text-[10px] font-bold uppercase tracking-widest text-zinc-500 group-hover:text-cromo transition-colors mt-auto">
+                  <div className="flex items-center gap-2 text-[10px] font-bold uppercase tracking-widest color:#808089 group-hover:text-cromo transition-colors mt-auto">
                     Ler artigo
                     <ArrowRight
                       className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform"

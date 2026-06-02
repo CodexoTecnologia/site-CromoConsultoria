@@ -172,7 +172,7 @@ export default function Contact({
 
               <div className="p-6 md:p-8 bg-zinc-900/60 backdrop-blur-sm border border-zinc-800 rounded-2xl space-y-4 shadow-xl relative overflow-hidden group max-w-sm">
                 <div className="absolute top-0 right-0 w-24 h-24 bg-cromo/5 blur-[30px] group-hover:bg-cromo/10 transition-colors pointer-events-none" />
-                <p className="text-[10px] font-bold tracking-[0.2em] text-zinc-500 uppercase">Canais Oficiais:</p>
+                <p className="text-[10px] font-bold tracking-[0.2em] text-zinc-400 uppercase">Canais Oficiais:</p>
                 <div className="space-y-2 text-sm sm:text-base font-medium">
                   <p className="text-zinc-300 hover:text-cromo transition-colors cursor-pointer break-all">contato@cromoconsultoria.com.br</p>
                   <p className="text-zinc-400 font-mono">(41) 98728-8213</p>

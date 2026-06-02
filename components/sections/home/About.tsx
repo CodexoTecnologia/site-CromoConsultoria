@@ -1,4 +1,3 @@
-// src/components/sections/home/About.tsx
 import Image from "next/image";
 import Link from "next/link";
 
@@ -6,7 +5,7 @@ export default function About() {
   return (
     <section id="sobre" className="py-16 md:py-20 lg:py-24 bg-zinc-950 relative border-b border-zinc-800/50 overflow-hidden">
       
-      {/* Elemento decorativo luminoso */}
+      <div className="absolute top-1/2 right-0 w-[400px] h-[400px] bg-cromo/5 rounded-full blur-[150px] pointer-events-none translate-x-1/3 -translate-y-1/2" />
       <div className="absolute top-1/2 right-0 w-[400px] h-[400px] bg-cromo/5 rounded-full blur-[150px] pointer-events-none translate-x-1/3 -translate-y-1/2" />
 
       <div className="container mx-auto px-4 sm:px-6 relative z-10">
@@ -20,12 +19,12 @@ export default function About() {
               </span>
             </div>
             
-            {/* Classe Global .subtitle aplicada */}
+            {/* Título */}
             <h2 className="subtitle text-white">
               A ponte entre a <span className="text-transparent bg-clip-text bg-gradient-to-r from-cromo to-yellow-600">pesquisa de ponta</span> e a indústria.
             </h2>
             
-            {/* Classe Global .body-text aplicada e texto do seu Docx */}
+            {/* Texto descritivo */}
             <p className="body-text text-zinc-400 max-w-lg">
               Somos a Cromo Consultoria, uma empresa júnior formada por estudantes de engenharia mecânica e mecatrônica da <strong>UTFPR Curitiba</strong>. 
               Nosso objetivo é desenvolver soluções inovadoras e acessíveis, ao mesmo tempo em que formamos profissionais capacitados para o mercado.

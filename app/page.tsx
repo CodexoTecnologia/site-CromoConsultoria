@@ -1,4 +1,3 @@
-// src/app/page.tsx
 import { Metadata } from "next";
 import Hero from "@/components/sections/home/Hero";
 import About from "@/components/sections/home/About";

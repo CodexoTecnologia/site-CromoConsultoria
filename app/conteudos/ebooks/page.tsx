@@ -33,7 +33,6 @@ export default function EbooksPage() {
         </div>
       </section>
       
-      {/* SEÇÃO DE CONTATO ADICIONADA AQUI */}
       <section id="contato" className="relative z-10">
         <ContactForm />
       </section>

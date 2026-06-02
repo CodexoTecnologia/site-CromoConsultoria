@@ -123,8 +123,8 @@ export default function SobreNosPage() {
               alt="Planejamento técnico e estratégico de projetos"
               className="w-full aspect-square lg:aspect-[4/5] rounded-3xl border border-zinc-800 shadow-2xl lg:order-1"
               gallery={[
-                "/assets/images/sobre/equipe-talk1.png", // A primeira foto abrindo maior
-                "/assets/images/sobre/equipe-talk2.png" // Outra do laboratório
+                "/assets/images/sobre/equipe-talk1.png",
+                "/assets/images/sobre/equipe-talk2.png"
               ]} 
             />
 

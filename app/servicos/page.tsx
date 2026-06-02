@@ -1,4 +1,3 @@
-// src/app/servicos/page.tsx
 import Link from "next/link";
 import Image from "next/image";
 import Hero from "@/components/sections/shared/Hero";

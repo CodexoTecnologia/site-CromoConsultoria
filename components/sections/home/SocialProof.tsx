@@ -1,4 +1,3 @@
-// src/components/sections/home/SocialProof.tsx
 "use client";
 import { useEffect, useRef } from "react";
 import { motion, useInView, animate } from "framer-motion";
@@ -36,7 +35,6 @@ export default function SocialProof() {
   return (
     <section className="py-16 md:py-20 bg-zinc-950 relative border-y border-zinc-800/50 overflow-hidden">
       
-      {/* Luz ambiente roxa sutil no fundo */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[300px] bg-cromo-purple/10 rounded-full blur-[150px] pointer-events-none" />
 
       <div className="container mx-auto px-4 sm:px-6 relative z-10">
@@ -50,7 +48,7 @@ export default function SocialProof() {
               transition={{ delay: index * 0.1, duration: 0.5 }}
               className="flex flex-col items-center justify-center text-center px-2 sm:px-4"
             >
-              {/* O toque roxo: Sombra leve (drop-shadow) roxa que interage com o amarelo */}
+              {/* Número com animação */}
               <span className="text-4xl sm:text-5xl lg:text-6xl font-black text-cromo tracking-tighter mb-2 drop-shadow-[0_0_15px_rgba(90,35,109,0.4)]">
                 <AnimatedCounter 
                   to={metric.to} 

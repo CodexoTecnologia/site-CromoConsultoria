@@ -32,7 +32,7 @@ export default function Feedbacks() {
               
               <div className="flex items-center justify-between mt-auto border-t border-zinc-800 pt-6">
                 <div>
-                  <h4 className="text-white font-bold text-sm">{t.name}</h4>
+                  <h3 className="text-white font-bold text-sm">{t.name}</h3>
                   <p className="text-cromo text-[10px] uppercase tracking-widest font-bold">{t.role}</p>
                 </div>
                 <div className="flex gap-1">
