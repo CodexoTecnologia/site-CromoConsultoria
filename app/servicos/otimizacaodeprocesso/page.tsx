@@ -1,6 +1,6 @@
 import { Metadata } from "next";
 import Hero from "@/components/sections/shared/Hero";
-import { Target, TrendingUp, CheckCircle, Zap } from "lucide-react";
+import { Target, TrendingUp, CheckCircle, Zap, Layers } from "lucide-react";
 import Feedback from "@/components/sections/home/Feedback";
 import ContactForm from "@/components/sections/shared/ContactForm";
 
@@ -8,25 +8,26 @@ const serviceInfo = {
   title: "Otimização de ",
   titleHighlight: "Processo",
   description: "Identificamos e eliminamos gargalos na sua operação para aumentar lucro e produtividade.",
-  heroImage: "/assets/images/servicos/otimizacao-de-processo/hero-otimizacao-pro.png",
+  heroImage: "/assets/images/servicos/otimizacao-de-processo/hero-otimizacao-cr.jpg",
   heroImageAlt: "Engenheiros otimizando processos em chão de fábrica",
   copy: {
     title: "Mais eficiência, menos desperdício — sem parar a produção",
     paragraphs: [
-      "Processos ineficientes custam dinheiro todos os dias. Gargalos, retrabalhos, desperdício de material e tempo ocioso são problemas que impactam diretamente a lucratividade da sua operação. A Cromo identifica e resolve esses pontos com precisão.",
-      "Utilizamos metodologias consagradas de engenharia industrial — como mapeamento de fluxo de valor, análise de gargalos e estudo de tempos e movimentos — para diagnosticar sua operação e propor melhorias com ROI mensurável.",
-      "Atuamos em linhas de montagem, processos de usinagem, setores logísticos e fluxos de produção em geral, sempre com foco em resultados concretos e implementação prática.",
+      "Processos ineficientes geram desperdícios, aumentam custos e reduzem a competitividade de uma empresa. Muitas vezes, pequenas falhas operacionais impactam diretamente nos resultados sem serem percebidas, comprometendo a produtividade e a qualidade das entregas. A falta de padronização e controle também pode dificultar o crescimento sustentável do negócio.",
+      "A CROMO realiza uma análise detalhada dos processos, identificando gargalos, falhas e oportunidades de melhoria. Avaliamos fluxos de trabalho, uso de recursos e desempenho operacional para propor soluções práticas, aplicáveis e alinhadas com a realidade da empresa. Nosso foco é promover melhorias que tragam resultados concretos e mensuráveis.",
+      "Nosso trabalho busca tornar sua operação mais organizada, produtiva e alinhada às melhores práticas de engenharia. Com melhorias bem direcionadas, é possível reduzir custos, otimizar recursos e alcançar resultados mais consistentes, aumentando a eficiência e a competitividade da empresa no mercado.",
     ],
   },
   benefits: [
-    { title: "Diagnóstico Preciso", description: "Mapeamos toda a operação para identificar onde estão os reais pontos de perda.", Icon: Target },
-    { title: "ROI Mensurável", description: "Cada melhoria proposta é acompanhada de projeção financeira e prazo de retorno.", Icon: TrendingUp },
-    { title: "Implementação Guiada", description: "Não entregamos apenas relatórios — acompanhamos a execução das melhorias.", Icon: CheckCircle },
-    { title: "Resultados Rápidos", description: "Projetos de otimização costumam se pagar em poucos meses de operação.", Icon: Zap },
+    { title: "Redução de custos operacionais", description: "Redução de custos operacionais por meio de otimizações práticas.", Icon: TrendingUp },
+    { title: "Aumento da produtividade", description: "Melhor aproveitamento do tempo e dos recursos disponíveis.", Icon: Zap },
+    { title: "Identificação de gargalos", description: "Mapeamento e identificação dos principais pontos de estrangulamento.", Icon: Target },
+    { title: "Processos mais eficientes", description: "Padronização e ajustes que tornam o fluxo de trabalho mais fluido.", Icon: Layers },
+    { title: "Melhor aproveitamento de recursos", description: "Uso otimizado de pessoal, equipamentos e materiais.", Icon: CheckCircle },
   ],
-  headingLine1: "VAMOS",
-  headingLine2: "OTIMIZAR JUNTOS?",
-  formSubtitle: "Descubra quanto sua operação pode render com engenharia industrial de alta performance.",
+  headingLine1: "MELHORE SEUS RESULTADOS",
+  headingLine2: "COM PROCESSOS OTIMIZADOS!",
+  formSubtitle: "Descubra com a Cromo como tornar seus processos mais eficientes, produtivos e competitivos.",
 };
 
 export const metadata: Metadata = {
@@ -48,7 +49,7 @@ export default function ServicePage() {
         title={serviceInfo.title}
         titleHighlight={serviceInfo.titleHighlight}
         description={serviceInfo.description}
-        imagePosition="object-[center_30%]"
+        imagePosition="object-[center_70%]"
       />
 
       {/* COPY (Texto explicativo) */}

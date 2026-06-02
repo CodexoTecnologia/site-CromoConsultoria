@@ -1,6 +1,6 @@
 import { Metadata } from "next";
 import Hero from "@/components/sections/shared/Hero";
-import { GraduationCap, FileText, CheckCircle, TrendingUp } from "lucide-react";
+import { GraduationCap, FileText, CheckCircle, TrendingUp, PackageOpen } from "lucide-react";
 import Feedback from "@/components/sections/home/Feedback";
 import ContactForm from "@/components/sections/shared/ContactForm";
 
@@ -11,22 +11,25 @@ const serviceInfo = {
   heroImage: "/assets/images/servicos/desenvolvimento-de-produto/hero-desenvolvimento.png",
   heroImageAlt: "Engenheiros trabalhando em projeto CAD e medição de peças na indústria",
   copy: {
-    title: "Da ideia à realidade, com engenharia de precisão",
+    title: "Da ideia ao mercado, com rigor técnico e visão de produto",
     paragraphs: [
-      "O desenvolvimento de produto é o processo que transforma uma ideia em um produto físico funcional, pronto para o mercado. Na Cromo, conduzimos cada etapa com rigor técnico: da conceituação e modelagem 3D até os desenhos de fabricação e memorial de cálculo.",
-      "Nossa equipe combina domínio de ferramentas CAD/CAM, normas técnicas vigentes e experiência industrial para garantir que seu produto seja não apenas inovador, mas fabricável, seguro e competitivo.",
-      "Atendemos desde startups com um primeiro produto até indústrias consolidadas que precisam renovar seu portfólio — sempre com foco em resultado, prazo e custo.",
+      "Transformar uma ideia em um produto real exige muito mais do que criatividade. É necessário aplicar conhecimentos técnicos, realizar análises estruturadas e garantir que a solução seja funcional, viável e eficiente. Além disso, é fundamental considerar fatores como custo de produção, escalabilidade, durabilidade e adequação às necessidades do mercado.",
+      "A CROMO atua em todas as etapas do desenvolvimento de produto, realizando dimensionamentos mecânicos e mecatrônicos, modelagens 2D e 3D, cálculos e simulações. Nosso processo é construído para reduzir incertezas e garantir que o produto final atenda às expectativas técnicas e práticas.",
+      "Trabalhamos com metodologias ágeis, o que nos permite lidar com adversidades, adaptar rapidamente o projeto às mudanças de requisitos e manter flexibilidade ao longo de todo o desenvolvimento.",
+      "Mantemos um acompanhamento frequente entre nossa equipe e o cliente, garantindo alinhamento contínuo, coerência nas decisões e maior controle sobre o resultado final. Além disso, nossas entregas podem incluir listas de fornecedores e fabricantes, estimativas de custos, manuais de uso, montagem e fabricação, bem como desenvolvimento de programação quando necessário.",
+      "Dessa forma, garantimos um processo mais transparente, eficiente e completo, transformando ideias em soluções concretas, testáveis e prontas para aplicação no mercado.",
     ],
   },
   benefits: [
-    { title: "Metodologia Estruturada", description: "Seguimos um processo claro do briefing ao produto finalizado, com entregas e marcos bem definidos.", Icon: GraduationCap },
-    { title: "Modelagem 3D Profissional", description: "Utilizamos SolidWorks e ferramentas CAD para criar modelos precisos e prontos para fabricação.", Icon: FileText },
-    { title: "Documentação Completa", description: "Entregamos desenhos técnicos, memorial de cálculo e toda a documentação necessária para produção.", Icon: CheckCircle },
-    { title: "Suporte Pós-Entrega", description: "Acompanhamos a fase de fabricação e estamos disponíveis para ajustes e melhorias contínuas.", Icon: TrendingUp },
+    { title: "Desenvolvimento Técnico Completo", description: "Atuamos em todas as etapas do projeto, do conceito inicial à validação final, com visão integrada de engenharia.", Icon: GraduationCap },
+    { title: "Modelagem e Simulação", description: "Criamos modelagens 2D e 3D, cálculos e simulações para reduzir incertezas e validar a solução antes da execução.", Icon: FileText },
+    { title: "Redução de Erros e Retrabalho", description: "Acompanhamento frequente e análises estruturadas ajudam a evitar falhas e a manter o projeto sob controle.", Icon: CheckCircle },
+    { title: "Soluções Personalizadas", description: "Adaptamos cada entrega às exigências técnicas, operacionais e de mercado de cada cliente.", Icon: PackageOpen },
+    { title: "Maior Previsibilidade do Resultado", description: "Consideramos custo, escalabilidade, durabilidade e viabilidade para orientar decisões mais seguras.", Icon: TrendingUp },
   ],
-  headingLine1: "VAMOS",
-  headingLine2: "CRIAR SEU PRODUTO?",
-  formSubtitle: "Fale com nossos engenheiros e dê o primeiro passo para transformar sua ideia em produto.",
+  headingLine1: "VAMOS DAR FORMA",
+  headingLine2: "À SUA IDEIA COM ENGENHARIA?",
+  formSubtitle: "Fale com a Cromo, transforme seu conceito em um produto real, funcional e pronto para o mercado.",
 };
 
 export const metadata: Metadata = {

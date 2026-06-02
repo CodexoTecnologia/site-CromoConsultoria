@@ -31,6 +31,7 @@ export default function PortfolioPage() {
           <PortfolioGrid projects={portfolioProjects} />
 
         </div>
+        
       </section>
 
       <section className="container mx-auto px-4 sm:px-6 my-24 md:my-32 text-center relative z-10">

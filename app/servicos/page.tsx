@@ -1,8 +1,9 @@
 // src/app/servicos/page.tsx
 import Link from "next/link";
+import Image from "next/image";
 import Hero from "@/components/sections/shared/Hero";
 import { Metadata } from "next";
-import { Wrench, BarChart2, ShieldCheck, Settings, Cpu } from "lucide-react";
+import { Lightbulb, ClipboardList, ShieldCheck, Settings, Cpu, } from "lucide-react";
 import Cases from "@/components/sections/home/Cases";
 import ContactForm from "@/components/sections/shared/ContactForm";
 
@@ -44,32 +45,42 @@ const servicesList = [
   {
     name: "Desenvolvimento de Produto",
     slug: "desenvolvimentodeproduto",
-    desc: "Do conceito ao produto final com engenharia de precisão e documentação completa.",
-    Icon: Wrench,
+    desc: "Transformamos sua ideia em um produto real, realizando modelagens, cálculos e simulações. Garantimos que sua solução seja funcional, viável e pronta para aplicação, reduzindo erros e retrabalhos no desenvolvimento.",
+    Icon: Lightbulb,
+    heroImage: "/assets/images/servicos/desenvolvimento-de-produto/hero-desenvolvimento.png",
+    heroAlt: "Hero de desenvolvimento de produto",
   },
   {
     name: "Estudo de Viabilidade",
     slug: "estudodeviabilidade",
-    desc: "Análise técnica e financeira completa para validar seu projeto antes de investir.",
-    Icon: BarChart2,
+    desc: "Avaliamos a viabilidade técnica e econômica do seu projeto, analisando custos, riscos e potencial de retorno. Assim, você toma decisões mais seguras antes de investir tempo e recursos..",
+    Icon: ClipboardList,
+    heroImage: "/assets/images/servicos/viabilidade/hero-viabilidade.png",
+    heroAlt: "Hero de estudo de viabilidade",
   },
   {
     name: "Formulação de Patentes",
     slug: "formulacaodepatentes",
-    desc: "Proteção intelectual da sua inovação com documentação estratégica para o INPI.",
+    desc: "Auxiliamos na estruturação técnica da sua patente, organizando informações e garantindo clareza na documentação. Isso aumenta a qualidade do processo e fortalece a proteção da sua inovação..",
     Icon: ShieldCheck,
+    heroImage: "/assets/images/servicos/formulacao-de-patentes/hero-banner-patente.jpg",
+    heroAlt: "Hero de formulação de patentes",
   },
   {
     name: "Otimização de Processo",
     slug: "otimizacaodeprocesso",
-    desc: "Redução de custos e aumento de eficiência na sua linha de produção.",
+    desc: "Analisamos seus processos para identificar falhas, gargalos e desperdícios. Aplicamos melhorias que aumentam a eficiência, reduzem custos e tornam sua operação mais produtiva e competitiva..",
     Icon: Settings,
+    heroImage: "/assets/images/servicos/otimizacao-de-processo/hero-otimizacao-cr.jpg",
+    heroAlt: "Hero de otimização de processo",
   },
   {
     name: "Prototipagem e Validação",
     slug: "prototipagemevalidacao",
-    desc: "Testes práticos com prototipagem rápida antes da escala industrial.",
+    desc: "Desenvolvemos protótipos para testar e validar sua solução antes da implementação final. Isso permite identificar melhorias, reduzir riscos e evitar investimentos em projetos não otimizados.",
     Icon: Cpu,
+    heroImage: "/assets/images/servicos/prototipagem-e-validacao/hero-prototipo.png",
+    heroAlt: "Hero de prototipagem e validação",
   },
 ];
 
@@ -81,9 +92,9 @@ export default function ServicosHome() {
         imageSrc="/assets/images/servicos/hero-servicos.png"
         imageAlt="Serviços de Engenharia Cromo Consultoria"
         label="Nossa Expertise"
-        title="Nossos"
-        titleHighlight="Serviços"
-        description="Soluções em engenharia para transformar seu desafio técnico em diferencial competitivo."
+        title="Nossas"
+        titleHighlight="Soluções"
+        description="Soluções completas em engenharia para transformar seu desafio em diferencial competitivo."
       />
 
       {/* SERVIÇOS - bg-zinc-950 restaurado na section também */}
@@ -117,36 +128,53 @@ export default function ServicosHome() {
               const number = String(index + 1).padStart(2, '0');
 
               return (
-                <Link
-                  key={service.slug}
-                  href={`/servicos/${service.slug}`}
-                  className="bg-zinc-900 border border-zinc-800 p-8 rounded-2xl transition-all duration-500 hover:-translate-y-1 hover:border-cromo-purple/50 hover:shadow-[0_0_30px_rgba(90,35,109,0.15)] group relative overflow-hidden flex flex-col focus:outline-none focus:ring-2 focus:ring-cromo"
-                >
-                  {/* Glow interno roxo */}
-                  <div className="absolute -top-12 -left-12 w-32 h-32 bg-cromo-purple/20 blur-[50px] pointer-events-none transition-opacity duration-500 opacity-0 group-hover:opacity-100" />
-                  
-                  <div className="mb-8 flex items-center justify-between relative z-10">
-                    <div className="w-14 h-14 rounded-xl bg-zinc-950 border border-zinc-800 flex items-center justify-center text-zinc-400 group-hover:text-cromo group-hover:border-cromo/30 transition-colors duration-300 shadow-inner">
-                      <Icon size={26} strokeWidth={1.5} />
+                <div key={service.slug} className="group relative">
+                  <div className="pointer-events-none absolute -inset-4 rounded-[2rem] bg-cromo-purple/0 blur-3xl opacity-0 transition-all duration-500 group-hover:bg-cromo-purple/20 group-hover:opacity-100" />
+
+                  <Link
+                    href={`/servicos/${service.slug}`}
+                    className="relative flex min-h-[420px] flex-col overflow-hidden rounded-3xl border border-white/8 bg-zinc-950/95 transition-all duration-500 hover:-translate-y-1 hover:border-cromo/30 hover:shadow-[0_20px_60px_rgba(0,0,0,0.45)] focus:outline-none focus:ring-2 focus:ring-cromo"
+                  >
+                    <div className="absolute inset-0">
+                      <Image
+                        src={service.heroImage}
+                        alt={service.heroAlt}
+                        fill
+                        sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                        className="object-cover brightness-[0.22] contrast-125 saturate-0 transition-transform duration-700 group-hover:scale-105 group-hover:brightness-[0.28]"
+                      />
+                      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(255,199,0,0.08),transparent_30%),linear-gradient(180deg,rgba(0,0,0,0.42)_0%,rgba(2,2,4,0.82)_46%,rgba(2,2,4,0.98)_100%)]" />
                     </div>
-                    <span className="text-[10px] font-bold uppercase tracking-widest text-zinc-700 group-hover:text-cromo-purple/70 transition-colors duration-300">
-                      {number}
-                    </span>
-                  </div>
 
-                  <h3 className="text-xl font-bold text-zinc-100 group-hover:text-white mb-4 relative z-10 transition-colors duration-300">
-                    {service.name}
-                  </h3>
-                  
-                  <p className="body-text text-zinc-400 mb-8 flex-grow relative z-10">
-                    {service.desc}
-                  </p>
+                    <div className="absolute -top-12 -left-12 h-32 w-32 rounded-full bg-cromo-purple/15 blur-[55px] opacity-40 transition-opacity duration-500 group-hover:opacity-75" />
 
-                  <div className="text-zinc-500 group-hover:text-cromo text-[10px] sm:text-xs font-bold uppercase tracking-widest flex items-center gap-2 mt-auto relative z-10 transition-colors duration-300">
-                    Saiba mais
-                    <span className="group-hover:translate-x-2 transition-transform duration-300">→</span>
-                  </div>
-                </Link>
+                    <div className="relative z-10 flex flex-1 flex-col justify-between p-7 sm:p-8">
+                      <div className="flex items-start justify-between gap-4">
+                        <div className="inline-flex h-14 w-14 items-center justify-center rounded-2xl border border-white/10 bg-black/35 text-cromo backdrop-blur-md shadow-[0_0_24px_rgba(0,0,0,0.35)] transition-transform duration-300 group-hover:-translate-y-1">
+                          <Icon size={26} strokeWidth={1.5} />
+                        </div>
+                        <span className="text-[10px] font-bold uppercase tracking-[0.28em] text-zinc-300/70">
+                          {number}
+                        </span>
+                      </div>
+
+                      <div className="mt-auto pt-16">
+                        <h3 className="mb-3 text-xl font-bold text-white transition-colors duration-300 group-hover:text-cromo">
+                          {service.name}
+                        </h3>
+
+                        <p className="body-text max-w-md text-zinc-300/85">
+                          {service.desc}
+                        </p>
+
+                        <div className="mt-8 flex items-center justify-between border-t border-white/8 pt-5 text-[10px] sm:text-xs font-bold uppercase tracking-[0.2em] text-zinc-400 transition-colors duration-300 group-hover:text-white/90">
+                          <span>Ver detalhes</span>
+                          <span className="transition-transform duration-300 group-hover:translate-x-2">→</span>
+                        </div>
+                      </div>
+                    </div>
+                  </Link>
+                </div>
               );
             })}
           </div>
@@ -156,7 +184,11 @@ export default function ServicosHome() {
 
       {/* CASES E CONTATO */}
       <Cases />
-      <ContactForm />
+      <ContactForm 
+        headingLine1="TIRE SEU PROJETO"
+        headingLine2="DO PAPEL COM A CROMO!"
+        subtitle="Fale com nosso time e descubra como podemos ajudar no seu projeto com engenharia e estratégia."
+      />
 
     </main>
   );

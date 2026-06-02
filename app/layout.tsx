@@ -24,6 +24,7 @@ const bebasNeue = Bebas_Neue({
 });
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.cromoconsultoria.com.br';
+const gtmId = process.env.NEXT_PUBLIC_GTM_ID || '';
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -60,41 +61,61 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       data-scroll-behavior="smooth"
     >
       <head>
-        {/* ==========================================
-            ESPAÇO RESERVADO PARA OS PIXELS (FASE 3)
-            Deixaremos os IDs em branco para a Cromo preencher
-            ========================================== */}
-        
-        {/* Google Analytics / GTM */}
-        {/* <Script strategy="afterInteractive" src={`https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX`} /> */}
-        
-        {/* Meta Pixel Code */}
-        {/* <Script id="meta-pixel" strategy="afterInteractive">...</Script> */}
-        
-        {/* LinkedIn Insight Tag */}
-        {/* <Script id="linkedin-tag" strategy="afterInteractive">...</Script> */}
-      </head>
-      
-      <body className="flex flex-col min-h-screen bg-zinc-950 text-zinc-50 overflow-x-hidden selection:bg-cromo selection:text-zinc-950">
-        
-        {/* A MÁGICA ESTÁ AQUI: dangerouslySetInnerHTML e afterInteractive */}
-        <Script 
-          id="google-consent-default" 
-          strategy="afterInteractive"
+        {/* 1. CONSENT MODE DEFAULT — roda ANTES de tudo */}
+        <script
+          id="google-consent-default"
           dangerouslySetInnerHTML={{
             __html: `
               window.dataLayer = window.dataLayer || [];
               function gtag(){dataLayer.push(arguments);}
-              
+
               gtag('consent', 'default', {
                 'ad_storage': 'denied',
                 'analytics_storage': 'denied',
+                'ad_user_data': 'denied',
+                'ad_personalization': 'denied',
                 'personalization_storage': 'denied',
-                'security_storage': 'granted' 
+                'security_storage': 'granted',
+                'wait_for_update': 500
               });
-            `
+
+              gtag('set', 'url_passthrough', true);
+              gtag('set', 'ads_data_redaction', true);
+            `,
           }}
         />
+
+        {/* 2. GTM — depois do default */}
+        {gtmId && (
+          <Script
+            id="google-tag-manager"
+            strategy="afterInteractive"
+            dangerouslySetInnerHTML={{
+              __html: `
+                (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+                new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+                j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+                'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+                })(window,document,'script','dataLayer', '${gtmId}');
+              `,
+            }}
+          />
+        )}
+      </head>
+      
+      <body className="flex flex-col min-h-screen bg-zinc-950 text-zinc-50 overflow-x-hidden selection:bg-cromo selection:text-zinc-950">
+        
+        {/* NOSCRIPT DO GTM (Garante o funcionamento se o JS falhar/demorar) */}
+        {gtmId && (
+          <noscript>
+            <iframe
+              src={`https://www.googletagmanager.com/ns.html?id=${gtmId}`}
+              height="0"
+              width="0"
+              style={{ display: "none", visibility: "hidden" }}
+            />
+          </noscript>
+        )}
 
         <GlobalSpotlight />
         <TextureBackground />

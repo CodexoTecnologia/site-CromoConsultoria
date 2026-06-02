@@ -1,6 +1,6 @@
 import { Metadata } from "next";
 import Hero from "@/components/sections/shared/Hero";
-import { Zap, CheckCircle, RefreshCw, FileText } from "lucide-react";
+import { Zap, CheckCircle, RefreshCw, FileText, ShieldCheck } from "lucide-react";
 import Feedback from "@/components/sections/home/Feedback";
 import ContactForm from "@/components/sections/shared/ContactForm";
 
@@ -11,22 +11,23 @@ const serviceInfo = {
   heroImage: "/assets/images/servicos/prototipagem-e-validacao/hero-prototipo.png",
   heroImageAlt: "Prototipagem e Validação",
   copy: {
-    title: "Teste antes de fabricar, economize antes de errar",
+    title: "Prototipagem para reduzir riscos",
     paragraphs: [
-      "Fabricar em escala sem antes validar um protótipo é um risco desnecessário. Um erro de projeto descoberto na fase de protótipo custa centenas de reais — o mesmo erro descoberto na produção pode custar milhões. A Cromo protege seu investimento.",
-      "Desenvolvemos protótipos funcionais usando impressão 3D, usinagem CNC e outros processos de fabricação rápida, com o objetivo de validar forma, encaixe, funcionalidade e desempenho antes da escala industrial.",
-      "Após a prototipagem, conduzimos ciclos de validação e testes para confirmar que o produto atende às especificações técnicas e às expectativas do cliente final.",
+      "Antes de investir na produção ou implementação de uma solução, é fundamental garantir que ela funcione na prática. A prototipagem permite transformar conceitos em versões físicas ou funcionais, possibilitando testes reais e validações em condições próximas às de uso final. Esse processo reduz incertezas e aumenta significativamente a confiabilidade do projeto.",
+      "A CROMO desenvolve protótipos que permitem avaliar usabilidade, desempenho, qualidade e possíveis falhas do produto. Além disso, realizamos testes que ajudam a identificar pontos de melhoria, limitações técnicas e oportunidades de otimização. Esse processo é essencial para ajustar o projeto de forma assertiva antes de avançar para etapas mais complexas e custosas.",
+      "Ao validar o projeto antes da execução definitiva, reduzimos riscos, evitamos retrabalhos e aumentamos significativamente as chances de sucesso. Nosso foco é proporcionar segurança e confiança em cada etapa do desenvolvimento, garantindo que a solução final esteja alinhada com os requisitos técnicos e expectativas do cliente.",
     ],
   },
   benefits: [
-    { title: "Prototipagem Rápida", description: "Utilizamos impressão 3D e usinagem CNC para entregar protótipos em dias, não meses.", Icon: Zap },
-    { title: "Validação Técnica", description: "Realizamos testes de forma, encaixe, funcionalidade e desempenho com critério de engenharia.", Icon: CheckCircle },
-    { title: "Iteração Ágil", description: "Ajustamos e melhoramos rapidamente com base nos resultados dos testes.", Icon: RefreshCw },
-    { title: "Documentação para Produção", description: "Entregamos especificações e relatórios prontos para a fase de fabricação em escala.", Icon: FileText },
+    { title: "Testes reais antes da implementação", description: "Avaliação prática do produto em condições próximas ao uso final.", Icon: Zap },
+    { title: "Redução de riscos e falhas", description: "Identificamos e mitigamos falhas que podem comprometer a produção em escala.", Icon: CheckCircle },
+    { title: "Identificação de melhorias", description: "Detectamos pontos de melhoria para aumentar performance e usabilidade.", Icon: RefreshCw },
+    { title: "Economia com retrabalho", description: "Evite custos extras corrigindo problemas já na fase de protótipo.", Icon: FileText },
+    { title: "Maior confiabilidade do produto", description: "Entregamos soluções testadas, reduzindo incertezas e aumentando a qualidade final.", Icon: ShieldCheck },
   ],
-  headingLine1: "VAMOS",
-  headingLine2: "PROTOTIPAR JUNTOS?",
-  formSubtitle: "Dê o próximo passo no desenvolvimento do seu produto com nossos engenheiros.",
+  headingLine1: "REDUZA RISCOS,",
+  headingLine2: "VALIDE SEU PROJETO!",
+  formSubtitle: "Teste sua solução com a CROMO antes de investir na versão final e reduza riscos no desenvolvimento..",
 };
 
 export const metadata: Metadata = {

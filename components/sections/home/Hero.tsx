@@ -20,7 +20,7 @@ export default function Hero() {
         </h1>
         
         <p className="body-text text-zinc-300 text-sm sm:text-base md:text-lg lg:text-xl max-w-2xl mb-10 leading-relaxed">
-          Transformamos desafios técnicos em produtos inovadores e processos otimizados com rigor acadêmico e visão de mercado.
+          Transformamos desafios em projetos personalizados, inovadores e com qualidade chancelada com rigor acadêmico e custo acessível.
         </p>
 
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4 w-full">

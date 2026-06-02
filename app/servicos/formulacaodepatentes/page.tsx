@@ -8,7 +8,7 @@ const serviceInfo = {
   title: "Formulação de ",
   titleHighlight: "Patentes",
   description: "Proteja sua inovação com documentação técnica precisa e estratégica para o INPI.",
-  heroImage: "/assets/images/servicos/formulacao-de-patentes/hero-patente.png",
+  heroImage: "/assets/images/servicos/formulacao-de-patentes/hero-banner-patente.jpg",
   heroImageAlt: "Documentação estratégica e registro de patentes",
   copy: {
     title: "Proteja sua inovação antes que alguém o faça",

@@ -31,7 +31,12 @@ export default function Home() {
       <Cases />
       <Feedback />
       <Blog />
-      <ContactForm />
+      <ContactForm 
+        headingLine1="TIRE SEU PROJETO"
+        headingLine2="DO PAPEL COM A CROMO!"
+        subtitle="Fale com nossos engenheiros e dê o primeiro passo para transformar sua ideia em realidade." 
+      />
+
     </>
   );
 }

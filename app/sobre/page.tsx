@@ -19,11 +19,25 @@ export const metadata: Metadata = {
 };
 
 const values = [
-  { title: "Sangue nos olhos", description: "Senso crítico para analisar o que já foi feito, assertividade para agir e autonomia para evoluir continuamente.", icon: Target },
-  { title: "Inteligência coletiva", description: "Comunicação clara, empatia e troca de conhecimento para gerar mais valor ao cliente interno e externo.", icon: Users },
-  { title: "Autonomia e protagonismo", description: "Cada membro é protagonista da própria trajetória e assume a liderança do seu capítulo dentro da Cromo.", icon: Compass },
-  { title: "Foco em solução", description: "Buscamos resultados práticos com impacto real para clientes, equipe e ecossistema de inovação.", icon: Lightbulb },
+  { title: "Comprometimento", description: "Assumimos cada projeto com responsabilidade, presença e dedicação para entregar o melhor resultado possível.", icon: Target },
+  { title: "Inovação", description: "Buscamos novas formas de resolver problemas e criar soluções de engenharia mais inteligentes e eficazes.", icon: Lightbulb },
+  { title: "Proatividade", description: "Agimos com iniciativa, antecipando necessidades e construindo caminhos para a evolução contínua.", icon: Compass },
+  { title: "Qualidade", description: "Mantemos foco em excelência técnica, consistência e atenção aos detalhes em cada entrega.", icon: Users },
+  { title: "Ética", description: "Conduzimos nossas relações e decisões com transparência, respeito e responsabilidade.", icon: ShieldCheck },
 ];
+
+const mission = {
+  title: "Missão",
+  description:
+    "Desenvolver soluções em engenharia com qualidade, contribuindo para o crescimento dos clientes e a formação de profissionais capacitados.",
+  icon: Target,
+};
+
+const vision = {
+  title: "Visão",
+  description: "Ser referência em projetos de engenharia no movimento empresa júnior.",
+  icon: Rocket,
+};
 
 const pillars = [
   { title: "Contexto VUCA", description: "Atuamos com leitura de cenário volátil, incerto, complexo e ambíguo para tomar decisões mais inteligentes.", icon: ShieldCheck },
@@ -44,7 +58,7 @@ export default function SobreNosPage() {
         label="Empresa Júnior"
         title="Sobre"
         titleHighlight="Nós"
-        description="A Cromo é uma Empresa Júnior da UTFPR que conecta universidade e mercado com soluções de engenharia aplicadas."
+        description="A Cromo Consultoria é uma empresa júnior vinculada à Universidade Tecnológica Federal do Paraná (UTFPR), campus Curitiba."
         imagePosition="object-[center_30%]"
       />
 
@@ -61,7 +75,7 @@ export default function SobreNosPage() {
                 Engenharia com <span className="text-transparent bg-clip-text bg-gradient-to-r from-cromo to-yellow-600">propósito e impacto</span>.
               </h2>
               <p className="body-text text-zinc-400 border-l-2 border-zinc-800 pl-6">
-                A Cromo Consultoria é uma Empresa Júnior da UTFPR que conecta universidade e mercado para reduzir o distanciamento tecnológico com soluções de engenharia aplicadas.
+                A Cromo Consultoria é uma empresa júnior vinculada à Universidade Tecnológica Federal do Paraná (UTFPR), campus Curitiba. Formada por estudantes de engenharia mecânica, mecatrônica e produção, a empresa tem como propósito desenvolver soluções em engenharia que atendam às necessidades do mercado, proporcionando aos seus membros experiência prática e desenvolvimento profissional.
               </p>
               <div className="flex flex-wrap gap-4 pt-2">
                 <Link href="#o-que-e-cromo" className="inline-flex items-center justify-center rounded-xl bg-cromo px-6 py-3.5 text-[10px] sm:text-xs font-black uppercase tracking-widest text-zinc-950 transition-all shadow-[0_0_20px_rgba(255,199,0,0.15)] hover:bg-white hover:shadow-[0_0_30px_rgba(255,199,0,0.3)] hover:-translate-y-1 focus:ring-2 focus:ring-white focus:outline-none">
@@ -84,8 +98,8 @@ export default function SobreNosPage() {
             <div className="space-y-8 lg:order-2">
               <div>
                 <h2 className="subtitle text-white mb-6">O que é a <span className="text-transparent bg-clip-text bg-gradient-to-r from-cromo to-yellow-600">Cromo</span></h2>
-                <p className="body-text text-zinc-400 mb-4">Projetamos sonhos com vivência empresarial real, formando líderes e entregando valor para clientes internos e externos.</p>
-                <p className="body-text text-zinc-400">Atuamos em um cenário VUCA e, por isso, combinamos base técnica, visão de negócio e métodos ágeis para transformar desafios em soluções viáveis.</p>
+                <p className="body-text text-zinc-400 mb-4">A Cromo Consultoria é uma empresa júnior vinculada à UTFPR, campus Curitiba, formada por estudantes de engenharia mecânica, mecatrônica e produção.</p>
+                <p className="body-text text-zinc-400">Nosso propósito é desenvolver soluções em engenharia que atendam às necessidades do mercado, gerando aprendizado prático para os membros e valor concreto para os clientes.</p>
               </div>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -114,6 +128,30 @@ export default function SobreNosPage() {
               ]} 
             />
 
+          </div>
+        </div>
+
+        <div className="container mx-auto px-4 sm:px-6 mt-12 relative z-10">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto">
+            {[mission, vision].map((item) => {
+              const Icon = item.icon;
+
+              return (
+                <article
+                  key={item.title}
+                  className="bg-zinc-900 border border-zinc-800 p-8 lg:p-10 rounded-2xl transition-all duration-500 hover:-translate-y-1 hover:border-cromo-purple/50 hover:shadow-[0_0_30px_rgba(90,35,109,0.15)] group relative overflow-hidden flex flex-col"
+                >
+                  <div className="absolute -top-12 -left-12 w-32 h-32 bg-cromo-purple/20 blur-[50px] pointer-events-none transition-opacity duration-500 opacity-0 group-hover:opacity-100" />
+                  <div className="w-14 h-14 rounded-xl bg-zinc-950 border border-zinc-800 flex items-center justify-center mb-6 group-hover:border-cromo/30 transition-colors duration-300 shadow-inner relative z-10">
+                    <Icon className="w-6 h-6 text-zinc-400 group-hover:text-cromo transition-colors duration-300" />
+                  </div>
+                  <h3 className="text-xl font-bold text-zinc-100 group-hover:text-white mb-4 relative z-10 transition-colors duration-300">
+                    {item.title}
+                  </h3>
+                  <p className="body-text text-zinc-400 relative z-10">{item.description}</p>
+                </article>
+              );
+            })}
           </div>
         </div>
       </section>

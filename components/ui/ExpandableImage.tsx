@@ -147,7 +147,7 @@ export default function ExpandableImage({ src, alt, className = "", gallery }: E
                   className={`relative w-[90vw] max-w-5xl h-[70vh] sm:h-[80vh] ${scale > 1 ? 'cursor-grab active:cursor-grabbing' : 'cursor-pointer'}`}
                 >
                   {/* Troca a foto com base no index atual da galeria */}
-                  <Image src={activeImages[currentIndex]} alt={`${alt} - Imagem ${currentIndex + 1}`} fill sizes="100vw" className="object-contain pointer-events-none" quality={100} />
+                  <Image src={activeImages[currentIndex]} alt={`${alt} - Imagem ${currentIndex + 1}`} fill sizes="100vw" className="object-contain pointer-events-none" />
                 </motion.div>
               </div>
 

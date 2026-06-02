@@ -109,7 +109,7 @@ export default function Navbar() {
               className="relative flex items-center transition-opacity hover:opacity-80"
             >
               <Image
-                src="/assets/logo/logo-cromo.png"
+                src="/assets/logo/vprincipal/logo-branca.svg"
                 alt="Cromo Consultoria"
                 width={140}
                 height={40}

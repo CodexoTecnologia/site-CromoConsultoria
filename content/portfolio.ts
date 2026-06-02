@@ -1,4 +1,3 @@
-// content/portfolio.ts
 export interface PortfolioProject {
   client: string;
   title: string;
@@ -15,15 +14,16 @@ export interface PortfolioProject {
 export const portfolioProjects: PortfolioProject[] = [
   {
     client: "EMaster",
-    title: "Empilhadeira Motorizada",
+    title: "Empilhadeira 1000Kg - Emaster",
     category: "Engenharia Mecânica",
     shortDescription:
       "Dimensionamento e desenvolvimento do projeto, incluindo gabaritos de solda e memorial de cálculo para 1000Kg.",
     problema:
-      "A EMaster queria crescer a produção inserindo uma empilhadeira de elevação motorizada e movimentação manual no mercado, porém não existia projeto de tal produto.",
-    acao: "Dimensionamento do modelo baseado no protótipo já existente, apresentação de alternativas de mobilidade e desenvolvimento do projeto dos gabaritos de solda.",
+      "A Emaster, empresa com know-how em elevação de cargas automotivas, desejava diversificar sua linha de produtos passando a produzir empilhadeiras. A empresa já possuía um protótipo de 1000kg, mas necessitava implementar melhorias nos quesitos de “manobrabilidade” e “alimentação elétrica”, além de realizar o dimensionamento estrutural correto para garantir estabilidade operacional com o mínimo de peso possível.",
+    acao: 
+      "A UTJr. Consultoria Mecânica estruturou o projeto utilizando a metodologia de Design Thinking e benchmarking com soluções do mercado. O escopo abrangeu o desenvolvimento de alternativas de melhorias funcionais, a elaboração de um memorial de cálculo completo (baseado nas NBRs pertinentes) para justificar as dimensões adotadas, e a confecção de todos os desenhos de fabricação dos componentes e dos gabaritos de solda.",
     resultado:
-      "Entregas de desenhos de fabricação, gabaritos de solda e memorial de cálculo para empilhadeira com capacidade para 1000Kg.",
+      "O projeto estruturou as bases de engenharia para o novo equipamento. As entregas definidas garantiram à Emaster as soluções de manobrabilidade e elétrica, um memorial de cálculo validando o dimensionamento (incluindo o motor e a estrutura) e o detalhamento técnico completo (desenhos das peças e de gabaritos de solda), deixando o projeto 100% preparado para a fase de fabricação e testes.",
     image: "/assets/images/portfolio/empilhadeira-motorizada/empilhadeira1.jpg",
     imageAlt: "Modelo 3D da empilhadeira motorizada EMaster desenvolvida pela Cromo",
     gallery: [
@@ -31,7 +31,6 @@ export const portfolioProjects: PortfolioProject[] = [
       "/assets/images/portfolio/empilhadeira-motorizada/empilhadeira2.jpg",
       "/assets/images/portfolio/empilhadeira-motorizada/empilhadeira3.jpg",
       "/assets/images/portfolio/empilhadeira-motorizada/empilhadeira4.jpg",
-      
     ]
   },
   {
@@ -109,28 +108,44 @@ export const portfolioProjects: PortfolioProject[] = [
     title: "Máquina de Abate de Tilápias",
     category: "Conceituação de Máquinas",
     shortDescription:
-      "Conceituação e desenvolvimento de sistema automatizado para insensibilização mecânica instantânea de tilápias, promovendo eficiência operacional e redução do estresse animal.",
+      "Desenvolvimento de toda a parte mecânica e eletrônica de uma máquina automatizada para abate de tilápias.",
     problema:
-      "O processo manual de abate apresentava baixa padronização operacional e elevado nível de estresse nos animais, exigindo uma solução automatizada, eficiente e mais humanizada.",
-    acao: "Desenvolvimento do conceito de uma máquina de insensibilização mecânica instantânea, projetada para automatizar o processo de abate com foco em segurança operacional, padronização e bem-estar animal.",
+      "O projeto consistia em desenvolver toda a parte mecânica e eletrônica de uma máquina para o abate de tilápias. O grande desafio estava na complexidade de adaptar os mecanismos às diferentes variações de tamanho e peso dos peixes, sendo necessário calibrar a força exata de abate (forte o suficiente para ser eficiente, mas sem excessos para não prejudicar o processo). Adicionalmente, enfrentou-se obstáculos de cronograma, expandindo o projeto de 28 para 55 semanas de execução.",
+    acao: "A equipe atuou em diversas frentes da engenharia para finalizar o equipamento. O escopo compreendeu toda a modelagem 3D, elaboração dos desenhos de fabricação, desenvolvimento da programação e criação de esquemáticos eletrônicos. Também efetuaram a confecção de extensos documentos de apoio e pesquisa de orçamentos.",
     resultado:
-      "Entrega da documentação técnica e conceitual necessária para a patente e validação inicial da solução pelo cliente.",    
+      "O projeto atingiu sua entrega final integrando as lógicas e mecânicas estipuladas. Foram repassados aos responsáveis o Memorial de Cálculos, Manual do Usuário, Manuais de Montagem e Manual de automação, deixando a tecnologia estruturada e pronta para as próximas fases de produção.",    
     image: "/assets/images/portfolio/abate-tilapia/abate-tilapia-desenho.png",
     imageAlt: "Máquina de abate de tilápias",
   },
   {
-    client: "Robô Lava e Seca",
+    client: "Inovatech",
     title: "Robô Lava e Seca",
     category: "Desenho Mecânico & Fabricação",
     shortDescription:
-      "Sistema robótico para realização de levagem e secagem técnica.",
+      "Desenvolvimento do projeto estrutural e mecânico de um robô para lavagem e secagem de cadeiras de praia.",
     problema:
-      "O cliente tinha a ideia de um robô que realizasse a lavagem e secagem de roupas, mas não tinha o conhecimento técnico para desenvolver o projeto.",
-    acao: "Desenvolvimento do projeto robótico para realização de lavagem e secagem de roupas, com integração de engenharia de fluídos e automação pneumática.",
+      "Havia a necessidade de desenvolver a parte mecânica de um robô focado na limpeza de cadeiras de praia feitas de plástico. O desafio envolvia criar um mecanismo com dois braços: um capaz de suportar a cadeira suspensa na altura ideal e outro responsável por aplicar jatos de água para lavar e jatos de ar para secar o material.",
+    acao: 
+    "O Departamento de Projetos conduziu pesquisas preliminares, estudo de normas e alinhamento de funcionamento com a Inovatech. O desenvolvimento do descritivo técnico abrangeu a modelagem 3D do robô, criação dos desenhos 2D, desenvolvimento de produto e o dimensionamento mecânico completo da estrutura estrutural.",
     resultado:
-      "Projeto robótico entregue com sucesso, auxiliando na  realização de lavagem e secagem de roupas.",
+    "A entrega final do projeto descritivo foi concluída com sucesso, englobando todos os manuais, relatórios e detalhamentos de desenhos técnicos necessários. O projeto entregue fornece a base estrutural mecânica pronta para futuras fases de fabricação, prototipagem e testes (etapas estas que não faziam parte do escopo atual).",
     image: "/assets/images/portfolio/robo-lava-seca/robo1.png",
     imageAlt: "Desenho de fabricação do robô Lava e Seca",
+  },
+  {
+    client: "Cliente Confidencial",
+    title: "Suporte para Fita Adesiva Larga",
+    category: "Patente & Documentação Técnica",
+    shortDescription:
+      "Preparação de toda a documentação técnica, descritiva e desenhos 2D necessários para o patenteamento no INPI.",
+    problema:
+      "O projeto consistia em preparar toda a documentação necessária para o patenteamento de um modelo de suporte de fita adesiva larga.",
+    acao: 
+      "A execução das atividades ocorreu em etapas, totalizando um período de semanas. Inicialmente, foi feita uma busca por patentes semelhantes e uma definição dos parâmetros do patenteamento. Em seguida, a equipe consultou manuais e diretrizes do Instituto Nacional da Propriedade Industrial (INPI) e redigiu os documentos exigidos: resumo, relatório descritivo, quadro reivindicatório e desenhos 2D.",
+    resultado:
+      "O projeto finalizou com sucesso a confecção de todos os arquivos de patenteamento. O quadro reivindicatório foi construído para garantir proteção para a forma, método de fabricação, uso, material e faixa de peso do suporte.",
+    image: "/assets/images/portfolio/suporte-fita/suporte-fita.png",
+    imageAlt: "Desenho técnico do suporte para fita adesiva larga",
   },
   {
     client: "Metalfranca",
@@ -160,20 +175,6 @@ export const portfolioProjects: PortfolioProject[] = [
     image: "/assets/images/portfolio/conesul/robotica/conesul-kit-amarelo.png",
     imageAlt: "Kit de robótica educacional desenvolvido para produção nacional pela Conesul",
   },
-//   {
-//     client: "Conesul",
-//     title: "Brinquedos Educativos de Programação",
-//     category: "Modelagem 3D & Educação",
-//     shortDescription:
-//       "Desenhos 2D e 3D de brinquedos para ensinar programação a crianças do Ensino Fundamental nas escolas brasileiras.",
-//     problema:
-//       "O cliente queria implementar brinquedos que ensinassem crianças sobre programação nas escolas brasileiras no Ensino Fundamental.",
-//     acao: "Desenvolvimento dos desenhos 2D e 3D dos brinquedos com esquematização do produto, programação e funcionalidades.",
-//     resultado:
-//       "Produto entregue ao cliente com todos os tópicos propostos no contrato, incluindo modelos 3D e lista de possíveis fornecedores.",
-//     image: "/assets/images/portfolio/conesul/brinquedos/brinquedos-conesul.jpg",
-//     imageAlt: "Brinquedo educativo para ensino de programação desenvolvido para Conesul",
-//   },
   {
     client: "Cliente Industrial",
     title: "Torrador de Café",
@@ -221,9 +222,9 @@ export const portfolioProjects: PortfolioProject[] = [
     title: "Ekorama Arcade Sustentável",
     category: "Desenvolvimento de Produto",
     shortDescription:
-      "Desenvolvimento conceitual de máquina interativa voltada à reciclagem gamificada, incentivando o descarte consciente por meio da troca de resíduos recicláveis por experiências recreativas.",
+      "Desenvolvimento conceitual de máquina interativa voltada à reciclagem gamificada, incentivando o descarte consciente com uma experiência recreativa.",
     problema:
-      "O cliente buscava uma solução inovadora capaz de estimular práticas sustentáveis de forma atrativa e acessível, incentivando o descarte correto de materiais recicláveis através da interação lúdica",
+      "O cliente buscava uma solução inovadora capaz de estimular práticas sustentáveis de forma atrativa e acessível, incentivando o descarte correto de materiais recicláveis através da interação lúdica.",
     acao: "Foi desenvolvido o conceito de uma máquina estilo fliperama que utiliza resíduos recicláveis como forma de interação, unindo entretenimento, educação ambiental e incentivo à reciclagem.",
     resultado:
       "Entrega do conceito técnico e visual do produto, possibilitando validação da proposta e avanço no desenvolvimento da solução sustentável.",

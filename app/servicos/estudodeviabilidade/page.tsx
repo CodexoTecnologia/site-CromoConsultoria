@@ -7,26 +7,27 @@ import ContactForm from "@/components/sections/shared/ContactForm";
 const serviceInfo = {
   title: "Estudo de ",
   titleHighlight: "Viabilidade",
-  description: "Avaliamos a viabilidade técnica, econômica e comercial de projetos, garantindo decisões informadas e estratégicas.",
+  description: "Avaliamos a viabilidade técnica, econômica e comercial de projetos, garantindo decisões seguras e estratégicas.",
   heroImage: "/assets/images/servicos/viabilidade/hero-viabilidade.png",
   heroImageAlt: "Análise de Viabilidade Técnica e Econômica com gráficos e relatórios",
   copy: {
-    title: "Segurança técnica e financeira antes do próximo passo",
+    title: "Avaliação técnica e econômica antes do investimento",
     paragraphs: [
-      "Tirar uma ideia do papel exige mais do que intuição. O Estudo de Viabilidade é a etapa crucial onde validamos se o seu projeto é tecnicamente possível, financeiramente viável e comercialmente atrativo para o mercado.",
-      "Nossos engenheiros analisam profundamente os requisitos de materiais, custos de fabricação, processos produtivos e normas técnicas. Entregamos um panorama claro e realista, mitigando riscos antes mesmo de você investir grandes capitais em protótipos ou maquinário.",
-      "Com dados precisos e análises criteriosas estruturadas pela Cromo, você ganha a segurança necessária para buscar investimentos, aprovar orçamentos internos ou pivotar a ideia no momento certo, economizando tempo e recursos valiosos.",
+      "Antes de investir tempo, dinheiro e recursos em um projeto, é essencial entender se ele realmente faz sentido do ponto de vista técnico e econômico. Muitas ideias falham não por falta de potencial, mas por ausência de uma análise estruturada antes da execução. Sem uma avaliação adequada, decisões importantes acabam sendo tomadas com base em suposições, o que aumenta significativamente os riscos envolvidos.",
+      "A CROMO realiza estudos de viabilidade completos, avaliando os pontos fortes e limitações do projeto, além de analisar custos, materiais, tecnologias necessárias e possíveis riscos envolvidos. Também consideramos cenários alternativos e variáveis externas que podem impactar a execução e o desempenho do projeto ao longo do tempo. A partir disso, construímos uma visão clara sobre a possibilidade real de implementação e retorno.",
+      "Com uma abordagem baseada em engenharia e análise estratégica, ajudamos você a tomar decisões mais seguras, evitando prejuízos e direcionando esforços para projetos com maior chance de sucesso e sustentabilidade no longo prazo.",
     ],
   },
   benefits: [
-    { title: "Análise Econômica", description: "Projeção detalhada de custos de manufatura, materiais e operação para garantir a rentabilidade do seu projeto.", Icon: TrendingUp },
-    { title: "Validação Técnica", description: "Avaliação rigorosa de processos produtivos, escolha de materiais e limitações de engenharia mecânica.", Icon: Cog },
-    { title: "Mitigação de Riscos", description: "Identificação antecipada de gargalos técnicos e barreiras comerciais que podem travar o desenvolvimento.", Icon: ShieldCheck },
-    { title: "Relatório Estratégico", description: "Documentação completa com o veredito claro e direcionamentos técnicos para os próximos passos.", Icon: FileText },
+    { title: "Redução de riscos técnicos e financeiros", description: "Identificamos e quantificamos os principais riscos para mitigar impactos antes da execução.", Icon: TrendingUp },
+    { title: "Análise clara de custos e recursos", description: "Estimativas detalhadas de custos, materiais e recursos necessários para executar o projeto.", Icon: FileText },
+    { title: "Maior segurança na tomada de decisão", description: "Entregamos dados e recomendações que permitem decisões baseadas em evidência, não em suposições.", Icon: ShieldCheck },
+    { title: "Identificação de limitações e oportunidades", description: "Detectamos restrições técnicas e oportunidades de melhoria ou inovação no conceito.", Icon: Cog },
+    { title: "Planejamento mais estratégico do projeto", description: "Definimos cenários, prioridades e caminhos para execução com maior previsibilidade.", Icon: TrendingUp },
   ],
-  headingLine1: "VAMOS",
-  headingLine2: "VALIDAR SUA IDEIA?",
-  formSubtitle: "Fale com nossos engenheiros e descubra se o seu projeto está pronto para sair do papel de forma segura.",
+  headingLine1: "TOME DECISÕES SEGURAS",
+  headingLine2: "FALE CONOSCO!",
+  formSubtitle: "Decida analisando dados reais, não suposições. Fale com a Cromo e tenha a segurança técnica e financeira para avançar com seu projeto.",
 };
 
 export const metadata: Metadata = {

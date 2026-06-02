@@ -38,7 +38,7 @@ export default function Footer() {
               {/* Colocamos a altura responsiva em uma div em volta dela */}
             <div className="h-6 sm:h-8 flex items-center">
               <Image
-                src="/assets/logo/logo-cromo.png"
+                src="/assets/logo/vprincipal/logo-branca.svg"
                 alt="Cromo Consultoria"
                 width={140}
                 height={40}

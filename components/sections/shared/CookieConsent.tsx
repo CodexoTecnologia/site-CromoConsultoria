@@ -6,35 +6,44 @@ import Link from "next/link";
 declare global {
   interface Window {
     dataLayer: any[];
+    gtag: (...args: any[]) => void;
   }
 }
 
 export default function CookieConsent() {
   const [isVisible, setIsVisible] = useState(false);
 
+  // Atualiza o Consent Mode de verdade + avisa o GTM
+  const updateConsent = (status: "granted" | "denied") => {
+    if (typeof window === "undefined" || typeof window.gtag !== "function") return;
+
+    window.gtag("consent", "update", {
+      ad_storage: status,
+      analytics_storage: status,
+      ad_user_data: status,
+      ad_personalization: status,
+      personalization_storage: status,
+      // security_storage permanece 'granted' (definido no default, não se mexe)
+    });
+
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({ event: "cookie_consent_update" });
+  };
+
   useEffect(() => {
-    // Verifica se o usuário já respondeu antes
     const consent = localStorage.getItem("cromo-cookie-consent");
     if (!consent) {
       setIsVisible(true);
+    } else {
+      // Replay: re-aplica a escolha salva em toda visita
+      updateConsent(consent as "granted" | "denied");
     }
   }, []);
 
   const handleConsent = (status: "granted" | "denied") => {
-    // Salva a decisão no navegador
     localStorage.setItem("cromo-cookie-consent", status);
     setIsVisible(false);
-
-    // MÁGICA: Envia a decisão para o Google Tag Manager
-    if (typeof window !== "undefined") {
-      window.dataLayer = window.dataLayer || [];
-      window.dataLayer.push({
-        event: "cookie_consent_update",
-        analytics_storage: status,
-        ad_storage: status,
-        personalization_storage: status,
-      });
-    }
+    updateConsent(status);
   };
 
   return (
