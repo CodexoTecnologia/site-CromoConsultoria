@@ -119,7 +119,7 @@ export default function PortfolioGrid({ projects }: { projects: PortfolioProject
               </div>
 
               {/* CONTEÚDO DO CARD (LIMITADO PARA TODOS TEREM A MESMA ALTURA) */}
-              <div className="p-6 md:p-8 flex flex-col flex-grow relative z-10">
+              <div className="p-6 md:p-8 flex flex-col flex-grow relative z-10 bg-zinc-900 -mt-px">
                 <p className="body-text text-zinc-400 text-sm line-clamp-5 mb-6">
                   {project.shortDescription}
                 </p>
