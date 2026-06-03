@@ -6,18 +6,18 @@ export interface Feedback {
 
 export const feedbacks: Feedback[] = [
   {
-    name: "Ricardo Mendes",
-    role: "Diretor Industrial | EMaster",
-    content: "A Cromo transformou a nossa linha de montagem. O rigor técnico da UTFPR aplicado à nossa realidade trouxe uma eficiência que não esperávamos.",
+    name: "Flávio Fornasier",
+    role: "Gerente de Marketing",
+    content: "Bacana não é apenas o resultado do projeto, mas também a forma de como ele foi conduzido. Impressão de estarmos trabalhando com profissionais com anos de experiência.",
   },
   {
-    name: "Ana Silva",
-    role: "Proprietária | Ekorama",
-    content: "Profissionais excepcionais. O projeto da nossa máquina de jogos sustentável foi entregue com perfeição, superando todas as expectativas de inovação.",
-  },
-  {
-    name: "Carlos Eduardo",
-    role: "Engenheiro de Processos",
-    content: "A agilidade da Cromo é o seu maior diferencial. Conseguimos validar nossa patente com um suporte técnico que raramente encontramos no mercado.",
+    name: "José Henrique Silva",
+    role: "Diretor da Alimentar Terapia Nutricional",
+    content: "Equipe profissional e ágil. Também destacando o excelente custo benefício em comparação às outras empresas, tornando muito bom para start-ups como a nossa.",
   }
+  // {
+  //   name: "Carlos Eduardo",
+  //   role: "Engenheiro de Processos",
+  //   content: "A agilidade da Cromo é o seu maior diferencial. Conseguimos validar nossa patente com um suporte técnico que raramente encontramos no mercado.",
+  // }
 ];

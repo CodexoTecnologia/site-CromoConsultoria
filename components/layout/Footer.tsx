@@ -69,9 +69,9 @@ export default function Footer() {
           </div>
 
           <div className="space-y-4 sm:space-y-5 md:space-y-6">
-            <h1 className="text-cromo font-bold text-[9px] sm:text-[10px] uppercase tracking-[0.35em] sm:tracking-[0.4em]">
+            <div className="text-cromo font-bold text-[9px] sm:text-[10px] uppercase tracking-[0.35em] sm:tracking-[0.4em]">
               Mapa do Site
-            </h1>
+            </div>
             <ul className="space-y-2 sm:space-y-3">
               {navLinks.map((link) => (
                 <li key={link.name}>
@@ -85,9 +85,9 @@ export default function Footer() {
           </div>
 
           <div className="space-y-4 sm:space-y-5 md:space-y-6 text-left lg:text-right">
-            <h2 className="text-cromo font-bold text-[9px] sm:text-[10px] uppercase tracking-[0.35em] sm:tracking-[0.4em]">
+            <div className="text-cromo font-bold text-[9px] sm:text-[10px] uppercase tracking-[0.35em] sm:tracking-[0.4em]">
               Canais Oficiais
-            </h2>
+            </div>
             <div className="space-y-3 sm:space-y-4">
               <div>
                 <p className="text-zinc-400 text-[9px] sm:text-[10px] uppercase tracking-widest">E-mail</p>

@@ -34,16 +34,16 @@ export default function SimplifiedService() {
         <div className="text-center max-w-3xl mx-auto mb-16">
           <div className="inline-flex items-center gap-3 justify-center mb-4">
             <div className="w-8 h-[2px] bg-cromo" />
-            <span className="text-cromo font-bold tracking-widest text-[10px] uppercase">
-              Nossas Especialidades
-            </span>
+            <h2 className="text-cromo font-bold tracking-widest text-[10px] uppercase">
+              Nossas Especialidades em Engenharia
+            </h2>
             <div className="w-8 h-[2px] bg-cromo" />
           </div>
           
           {/* Classe global .subtitle */}
-          <h2 className="subtitle text-white mb-6">
+          <div className="subtitle text-white mb-6">
             Atuamos em diversas áreas da engenharia para <span className="text-transparent bg-clip-text bg-gradient-to-r from-cromo to-yellow-600">impulsionar sua indústria</span>
-          </h2>
+          </div>
         </div>
 
         {/* Grid de Serviços */}
@@ -55,9 +55,7 @@ export default function SimplifiedService() {
                 key={index}
                 className="group bg-zinc-900/40 border border-zinc-800 rounded-2xl p-8 hover:border-cromo/50 transition-all duration-300 relative overflow-hidden flex flex-col"
               >
-                {/* O TOQUE ROXO: 
-                  No hover, a borda do ícone fica roxa e ganha um glow roxo super elegante!
-                */}
+                {/* O TOQUE ROXO*/}
                 <div className="w-14 h-14 bg-zinc-950 border border-zinc-800 group-hover:border-cromo-purple group-hover:shadow-[0_0_20px_rgba(90,35,109,0.5)] rounded-xl flex items-center justify-center mb-6 transition-all duration-500 relative z-10">
                   <Icon className="w-7 h-7 text-cromo" strokeWidth={1.5} />
                 </div>

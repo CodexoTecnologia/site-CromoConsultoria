@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import { Star, Quote } from "lucide-react";
-import { feedbacks } from "@/content/feedbacks"; // Importando os dados
+import { feedbacks } from "@/content/feedbacks";
 
 export default function Feedbacks() {
   return (
@@ -10,13 +10,21 @@ export default function Feedbacks() {
       <div className="container mx-auto px-4 sm:px-6 relative z-10">
         
         <div className="text-center mb-16">
-          <h2 className="subtitle text-white mb-4">
+          <div className="inline-flex items-center gap-3 justify-center mb-4">
+            <div className="w-8 h-[2px] bg-cromo" />
+            <h2 className="text-cromo font-bold tracking-widest text-[10px] uppercase">
+              Feedbacks Reais
+            </h2>
+            <div className="w-8 h-[2px] bg-cromo" />
+          </div>
+          <div className="subtitle text-white mb-4">
             O que nossos <span className="text-transparent bg-clip-text bg-gradient-to-r from-cromo to-yellow-600">parceiros dizem</span>
-          </h2>
+          </div>
           <p className="body-text text-zinc-400">Resultados que validam a nossa dedicação técnica.</p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        {/* TROCAMOS O GRID PELO FLEX COM JUSTIFY-CENTER */}
+        <div className="flex flex-col md:flex-row flex-wrap justify-center gap-6">
           {feedbacks.map((t, index) => (
             <motion.div 
               key={index}
@@ -32,7 +40,8 @@ export default function Feedbacks() {
               
               <div className="flex items-center justify-between mt-auto border-t border-zinc-800 pt-6">
                 <div>
-                  <h3 className="text-white font-bold text-sm">{t.name}</h3>
+                  {/* TAG <p> NO NOME DO CLIENTE PARA GABARITAR O SEO */}
+                  <p className="text-white font-bold text-sm">{t.name}</p>
                   <p className="text-cromo text-[10px] uppercase tracking-widest font-bold">{t.role}</p>
                 </div>
                 <div className="flex gap-1">

@@ -177,7 +177,6 @@ export default function PortfolioGrid({ projects }: { projects: PortfolioProject
                       animate={scale === 1 ? { scale: 1, x: 0, y: 0 } : { scale }}
                       className={`relative w-full h-full ${scale > 1 ? 'cursor-grab active:cursor-grabbing' : ''}`}
                     >
-                      {/* AJUSTE APLICADO AQUI: Priority na imagem do modal pra ficar nota 100 no Google */}
                       <Image 
                         src={activeImages[currentIndex]} 
                         alt={`${selectedProject.title} - Imagem`}

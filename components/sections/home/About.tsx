@@ -14,15 +14,15 @@ export default function About() {
           <div className="space-y-5 md:space-y-6">
             <div className="inline-flex items-center gap-3">
               <div className="w-8 h-[2px] bg-cromo"></div>
-              <span className="text-cromo font-bold tracking-widest text-[10px] uppercase">
-                Quem Somos
-              </span>
+              <h2 className="text-cromo font-bold tracking-widest text-[10px] uppercase">
+                O que é a Cromo Consultoria?
+              </h2>
             </div>
             
             {/* Título */}
-            <h2 className="subtitle text-white">
+            <div className="subtitle text-white">
               A ponte entre a <span className="text-transparent bg-clip-text bg-gradient-to-r from-cromo to-yellow-600">pesquisa de ponta</span> e a indústria.
-            </h2>
+            </div>
             
             {/* Texto descritivo */}
             <p className="body-text text-zinc-400 max-w-lg">

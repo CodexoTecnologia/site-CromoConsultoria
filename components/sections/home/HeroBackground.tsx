@@ -1,5 +1,4 @@
 // src/components/sections/home/HeroBackground.tsx
-// REMOVEMOS O "use client". Agora é Server Component!
 import Image from "next/image";
 
 export default function HeroBackground() {

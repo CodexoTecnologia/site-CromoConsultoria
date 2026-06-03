@@ -3,10 +3,10 @@ import { useEffect, useRef } from "react";
 import { motion, useInView, animate } from "framer-motion";
 
 const metrics = [
-  { label: "Projetos Entregues", to: 150, prefix: "+", suffix: "" },
-  { label: "CSAT (Satisfação)", to: 98, prefix: "", suffix: "%" },
-  { label: "Anos de Experiência", to: 10, prefix: "+", suffix: "" },
-  { label: "Ranking PR Inovação", to: 5, prefix: "Top ", suffix: "" },
+  { label: "Projetos Entregues", to: 110, prefix: "+", suffix: "" },
+  { label: "CSAT (Satisfação)", to: 83, prefix: "", suffix: "%" },
+  { label: "Anos de Experiência", to: 10, prefix: "", suffix: "" },
+  { label: "Maior Empresa Jr. do Paraná", to: 4, prefix: "Top ", suffix: "" },
 ];
 
 function AnimatedCounter({ to, prefix, suffix }: { to: number; prefix: string; suffix: string }) {
@@ -49,7 +49,7 @@ export default function SocialProof() {
               className="flex flex-col items-center justify-center text-center px-2 sm:px-4"
             >
               {/* Número com animação */}
-              <span className="text-4xl sm:text-5xl lg:text-6xl font-black text-cromo tracking-tighter mb-2 drop-shadow-[0_0_15px_rgba(90,35,109,0.4)]">
+              <span className="text-4xl sm:text-5xl lg:text-6xl font-black text-cromo tracking-tight mb-2 drop-shadow-[0_0_15px_rgba(90,35,109,0.4)]">
                 <AnimatedCounter 
                   to={metric.to} 
                   prefix={metric.prefix} 

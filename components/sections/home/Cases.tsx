@@ -40,12 +40,12 @@ export default function Cases() {
           <div className="max-w-2xl">
             <div className="inline-flex items-center gap-3 mb-3">
               <div className="w-8 h-[2px] bg-cromo"></div>
-              <span className="text-cromo font-bold tracking-widest text-[10px] uppercase">Resultados Comprovados</span>
+              <h2 className="text-cromo font-bold tracking-widest text-[10px] uppercase">Resultados Comprovados</h2>
             </div>
             
-            <h2 className="subtitle text-white">
+            <div className="subtitle text-white">
               Confira o nosso <span className="text-transparent bg-clip-text bg-gradient-to-r from-cromo to-yellow-600">Portfólio</span>
-            </h2>
+            </div>
             
             <p className="body-text text-zinc-400 mt-3 max-w-lg">
               Projetos reais desenvolvidos pela nossa equipe de engenharia para solucionar desafios complexos da indústria.
