@@ -12,9 +12,9 @@ export const site = {
   contact: {
     email: "contato@cromoconsultoria.com.br",
     phone: {
-      display: "(41) 8728-8213",
+      display: "(41) 9 8728-8213",
       e164: "+5541987288213", // formato internacional limpo
-      whatsappLink: "https://wa.me/554187288213",
+      whatsappLink: "https://wa.me/5541987288213",
       whatsappMessage: "Olá, gostaria de saber mais sobre a Cromo Consultoria!",
     },
   },

@@ -6,38 +6,15 @@ import { Lightbulb, ClipboardList, ShieldCheck, Settings, Cpu, } from "lucide-re
 import Cases from "@/components/sections/home/Cases";
 import ContactForm from "@/components/sections/shared/ContactForm";
 
-const pageTitle = "Serviços de Engenharia";
-const pageDescription = "Conheça nossas soluções em engenharia mecânica, mecatrônica e patentes.";
 const pageUrl = "https://www.cromoconsultoria.com.br/servicos";
 
 export const metadata: Metadata = {
-  title: pageTitle,
-  description: pageDescription,
+  title: "Serviços de Engenharia em Curitiba",
+  description: "Desenvolvimento de produto, prototipagem, patentes e otimização de processos. Soluções em engenharia mecânica e mecatrônica em Curitiba.",
+  keywords: ["Serviços de Engenharia", "Consultoria Mecânica", "Mecatrônica", "Patentes", "Prototipagem", "Curitiba"],
   alternates: {
-    canonical: pageUrl,
-  },
-  openGraph: {
-    type: "website",
-    locale: "pt_BR",
-    url: pageUrl,
-    title: pageTitle,
-    description: pageDescription,
-    siteName: "Cromo Consultoria",
-    images: [
-      {
-        url: "/assets/images/og-image-default.png",
-        width: 1200,
-        height: 628,
-        alt: "Cromo Consultoria - Serviços de Engenharia",
-      },
-    ],
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: pageTitle,
-    description: pageDescription,
-    images: ["/assets/images/og-image-default.png"],
-  },
+    canonical: "/servicos",
+  }
 };
 
 const servicesList = [
@@ -52,7 +29,7 @@ const servicesList = [
   {
     name: "Estudo de Viabilidade",
     slug: "estudodeviabilidade",
-    desc: "Avaliamos a viabilidade técnica e econômica do seu projeto, analisando custos, riscos e potencial de retorno. Assim, você toma decisões mais seguras antes de investir tempo e recursos..",
+    desc: "Avaliamos a viabilidade técnica e econômica do seu projeto, analisando custos, riscos e potencial de retorno. Assim, você toma decisões mais seguras antes de investir tempo e recursos.",
     Icon: ClipboardList,
     heroImage: "/assets/images/servicos/viabilidade/hero-viabilidade.png",
     heroAlt: "Hero de estudo de viabilidade",
@@ -60,7 +37,7 @@ const servicesList = [
   {
     name: "Formulação de Patentes",
     slug: "formulacaodepatentes",
-    desc: "Auxiliamos na estruturação técnica da sua patente, organizando informações e garantindo clareza na documentação. Isso aumenta a qualidade do processo e fortalece a proteção da sua inovação..",
+    desc: "Auxiliamos na estruturação técnica da sua patente, organizando informações e garantindo clareza na documentação. Isso aumenta a qualidade do processo e fortalece a proteção da sua inovação.",
     Icon: ShieldCheck,
     heroImage: "/assets/images/servicos/formulacao-de-patentes/hero-banner-patente.jpg",
     heroAlt: "Hero de formulação de patentes",
@@ -68,7 +45,7 @@ const servicesList = [
   {
     name: "Otimização de Processo",
     slug: "otimizacaodeprocesso",
-    desc: "Analisamos seus processos para identificar falhas, gargalos e desperdícios. Aplicamos melhorias que aumentam a eficiência, reduzem custos e tornam sua operação mais produtiva e competitiva..",
+    desc: "Analisamos seus processos para identificar falhas, gargalos e desperdícios. Aplicamos melhorias que aumentam a eficiência, reduzem custos e tornam sua operação mais produtiva e competitiva.",
     Icon: Settings,
     heroImage: "/assets/images/servicos/otimizacao-de-processo/hero-otimizacao-cr.jpg",
     heroAlt: "Hero de otimização de processo",
@@ -121,18 +98,20 @@ export default function ServicosHome() {
             </p>
           </header>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto">
+          {/* <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto"> */}
+          <div className="flex flex-wrap justify-center gap-6 max-w-7xl mx-auto">  
             {servicesList.map((service, index) => {
               const Icon = service.Icon;
               const number = String(index + 1).padStart(2, '0');
 
               return (
-                <div key={service.slug} className="group relative">
-                  <div className="pointer-events-none absolute -inset-4 rounded-[2rem] bg-cromo-purple/0 blur-3xl opacity-0 transition-all duration-500 group-hover:bg-cromo-purple/20 group-hover:opacity-100" />
+                // <div key={service.slug} className="group relative">
+                <div key={service.slug} className="group relative flex w-full md:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)]">
+                  <div className="pointer-events-none absolute -inset-4 rounded-[2rem] bg-cromo/0 blur-3xl opacity-0 transition-all duration-500 group-hover:bg-black/20 group-hover:opacity-100" />
 
                   <Link
                     href={`/servicos/${service.slug}`}
-                    className="relative flex min-h-[420px] flex-col overflow-hidden rounded-3xl border border-white/8 bg-zinc-950/95 transition-all duration-500 hover:-translate-y-1 hover:border-cromo/30 hover:shadow-[0_20px_60px_rgba(0,0,0,0.45)] focus:outline-none focus:ring-2 focus:ring-cromo"
+                    className="relative w-full h-full flex min-h-[420px] flex-col overflow-hidden rounded-3xl border border-white/8 bg-zinc-950/95 transition-all duration-500 hover:-translate-y-1 hover:border-cromo/30 hover:shadow-[0_20px_60px_rgba(0,0,0,0.45)] focus:outline-none focus:ring-2 focus:ring-cromo"
                   >
                     <div className="absolute inset-0">
                       <Image
@@ -145,7 +124,7 @@ export default function ServicosHome() {
                       <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(255,199,0,0.08),transparent_30%),linear-gradient(180deg,rgba(0,0,0,0.42)_0%,rgba(2,2,4,0.82)_46%,rgba(2,2,4,0.98)_100%)]" />
                     </div>
 
-                    <div className="absolute -top-12 -left-12 h-32 w-32 rounded-full bg-cromo-purple/15 blur-[55px] opacity-40 transition-opacity duration-500 group-hover:opacity-75" />
+                    <div className="absolute -top-12 -left-12 h-32 w-32 rounded-full bg-cromo/15 blur-[55px] opacity-40 transition-opacity duration-500 group-hover:opacity-75" />
 
                     <div className="relative z-10 flex flex-1 flex-col justify-between p-7 sm:p-8">
                       <div className="flex items-start justify-between gap-4">
@@ -157,18 +136,20 @@ export default function ServicosHome() {
                         </span>
                       </div>
 
-                      <div className="mt-auto pt-16">
+                      <div className="mt-auto pt-8 flex flex-col flex-1">
                         <h3 className="mb-3 text-xl font-bold text-white transition-colors duration-300 group-hover:text-cromo">
                           {service.name}
                         </h3>
 
-                        <p className="body-text max-w-md text-zinc-300/85">
+                        <p className="body-text max-w-md text-zinc-300/85 line-clamp-7">
                           {service.desc}
                         </p>
 
-                        <div className="mt-8 flex items-center justify-between border-t border-white/8 pt-5 text-[10px] sm:text-xs font-bold uppercase tracking-[0.2em] text-zinc-400 transition-colors duration-300 group-hover:text-white/90">
-                          <span>Ver detalhes</span>
+                        <div className="mt-auto pt-4">
+                          <div className="mt-8 flex items-center justify-between border-t border-white/8 pt-5 text-[10px] sm:text-xs font-bold uppercase tracking-[0.2em] text-zinc-400 transition-colors duration-300 group-hover:text-white/90">
+                            <span>Ver detalhes</span>
                           <span className="transition-transform duration-300 group-hover:translate-x-2">→</span>
+                        </div>
                         </div>
                       </div>
                     </div>

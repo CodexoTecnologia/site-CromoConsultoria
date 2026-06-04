@@ -56,7 +56,7 @@ export default function SimplifiedService() {
                 className="group bg-zinc-900/40 border border-zinc-800 rounded-2xl p-8 hover:border-cromo/50 transition-all duration-300 relative overflow-hidden flex flex-col"
               >
                 {/* O TOQUE ROXO*/}
-                <div className="w-14 h-14 bg-zinc-950 border border-zinc-800 group-hover:border-cromo-purple group-hover:shadow-[0_0_20px_rgba(90,35,109,0.5)] rounded-xl flex items-center justify-center mb-6 transition-all duration-500 relative z-10">
+                <div className="w-14 h-14 bg-zinc-950 border border-zinc-800 group-hover:border-cromo group-hover:shadow-[0_0_20px_rgba(255,255,255,0.25)] rounded-xl flex items-center justify-center mb-6 transition-all duration-500 relative z-10">
                   <Icon className="w-7 h-7 text-cromo" strokeWidth={1.5} />
                 </div>
 
@@ -70,7 +70,7 @@ export default function SimplifiedService() {
 
                 <Link 
                   href="/servicos" 
-                  className="inline-flex items-center gap-2 text-[10px] font-bold uppercase tracking-widest color:#808089 group-hover:text-white transition-colors relative z-10 w-max"
+                  className="inline-flex items-center gap-2 text-[10px] font-bold uppercase tracking-widest text-zinc-400 group-hover:text-white transition-colors relative z-10 w-max"
                 >
                   Saber mais <ArrowRight className="w-4 h-4 text-cromo group-hover:translate-x-1 transition-transform" />
                 </Link>

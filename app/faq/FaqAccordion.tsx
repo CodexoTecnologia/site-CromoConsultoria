@@ -42,9 +42,9 @@ export function FaqAccordion({ faqs }: { faqs: FAQItem[] }) {
               className="w-full flex items-center justify-between p-6 md:p-8 text-left focus:outline-none"
               aria-expanded={isOpen}
             >
-              <h3 className={`text-lg md:text-xl font-bold transition-colors ${isOpen ? "text-cromo" : "text-white"}`}>
+              <h2 className={`text-lg md:text-xl font-bold transition-colors ${isOpen ? "text-cromo" : "text-white"}`}>
                 {faq.question}
-              </h3>
+              </h2>
               
               <motion.div
                 animate={{ rotate: isOpen ? 180 : 0 }}
@@ -119,9 +119,9 @@ export function FaqAccordion({ faqs }: { faqs: FAQItem[] }) {
                       onClick={() => toggleFAQ(globalIndex)}
                       className="w-full flex items-center justify-between p-6 md:p-8 text-left focus:outline-none"
                     >
-                      <h3 className={`text-lg md:text-xl font-bold transition-colors ${isOpen ? "text-cromo" : "text-white"}`}>
+                      <h2 className={`text-lg md:text-xl font-bold transition-colors ${isOpen ? "text-cromo" : "text-white"}`}>
                         {faq.question}
-                      </h3>
+                      </h2>
                       
                       <motion.div
                         animate={{ rotate: isOpen ? 180 : 0 }}

@@ -26,6 +26,9 @@ export async function generateMetadata({
       description: post.excerpt,
       images: [{ url: post.image }],
     },
+    alternates: {
+      canonical: `/conteudos/blog/${post.slug}`,
+    },
   };
 }
 
@@ -178,7 +181,7 @@ export default async function BlogPostPage({
                 <Link
                   key={related.slug}
                   href={`/conteudos/blog/${related.slug}`}
-                  className="group bg-zinc-900 border border-zinc-800 hover:border-cromo/40 rounded-xl overflow-hidden transition-colors flex flex-col"
+                  className="group bg-zinc-900 border border-zinc-800 hover:border-cromo/40 hover:shadow-[0_0_5px_rgba(255,255,255,0.15)] rounded-xl overflow-hidden transition-colors flex flex-col"
                 >
                   <div className="relative aspect-video w-full overflow-hidden">
                     <Image

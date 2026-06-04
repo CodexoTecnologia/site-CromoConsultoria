@@ -4,9 +4,14 @@ import BlogList from "@/components/sections/blog/BlogList";
 import ContactForm from "@/components/sections/shared/ContactForm";
 
 export const metadata: Metadata = {
-  title: "Blog",
-  description:
-    "Artigos sobre engenharia mecânica, mecatrônica, patentes e inovação. Conteúdo produzido por especialistas da Cromo Consultoria.",
+  title: "Blog de Engenharia Mecânica e Inovação",
+  description:     "Artigos sobre engenharia mecânica, mecatrônica, patentes e inovação. Conteúdo produzido por especialistas da Cromo Consultoria.",
+  
+  keywords: ["Blog", "Engenharia", "Empresa Júnior", "UTFPR", "Curitiba", "Mecânica", "Mecatrônica"],
+
+  alternates: {
+    canonical: "/conteudos/blog",
+  }
 };
 
 export default function BlogPage() {

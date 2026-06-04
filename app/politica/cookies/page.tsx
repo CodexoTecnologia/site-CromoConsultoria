@@ -2,7 +2,17 @@ import { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Política de Cookies",
-  description: "Saiba como e por que a Cromo Consultoria utiliza cookies em seu ecossistema digital.",
+  description: "Saiba como a Cromo Consultoria utiliza cookies para melhorar sua experiência, personalizar conteúdo e medir o desempenho do site. Gerencie suas preferências.",
+  
+  keywords: ["Política de Cookies", "Engenharia", "Empresa Júnior", "UTFPR", "Curitiba", "LGPD", "Cookies"],
+
+  robots: {
+    index: false,
+    follow: false,
+  },
+  alternates: {
+    canonical: "/politica/cookies",
+  }
 };
 
 export default function CookiesPolicy() {

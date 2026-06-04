@@ -35,7 +35,7 @@ export default function SocialProof() {
   return (
     <section className="py-16 md:py-20 bg-zinc-950 relative border-y border-zinc-800/50 overflow-hidden">
       
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[300px] bg-cromo-purple/10 rounded-full blur-[150px] pointer-events-none" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[300px] bg-cromo/5 rounded-full blur-[150px] pointer-events-none" />
 
       <div className="container mx-auto px-4 sm:px-6 relative z-10">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-y-10 gap-x-4 md:gap-4 divide-x divide-zinc-800/50">
@@ -49,7 +49,7 @@ export default function SocialProof() {
               className="flex flex-col items-center justify-center text-center px-2 sm:px-4"
             >
               {/* Número com animação */}
-              <span className="text-4xl sm:text-5xl lg:text-6xl font-black text-cromo tracking-tight mb-2 drop-shadow-[0_0_15px_rgba(90,35,109,0.4)]">
+              <span className="text-4xl sm:text-5xl lg:text-6xl font-black text-cromo tracking-tight mb-2 drop-shadow-[0_0_15px_rgba(255,255,255,0.25)]">
                 <AnimatedCounter 
                   to={metric.to} 
                   prefix={metric.prefix} 

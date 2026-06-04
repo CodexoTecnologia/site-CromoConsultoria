@@ -152,17 +152,17 @@ export default function Contact({
             >
               <div className="inline-flex items-center gap-3 mb-4">
                 <div className="w-8 h-[2px] bg-cromo" />
-                <span className="text-cromo font-bold tracking-widest text-[10px] uppercase">
+                <h2 className="text-cromo font-bold tracking-widest text-[10px] uppercase">
                   Contato Cromo
-                </span>
+                </h2>
               </div>
 
-              <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-white leading-[1.1]">
+              <div className="text-4xl md:text-5xl lg:text-6xl font-black text-white leading-[1.1]">
                 {headingLine1}<br />
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-cromo to-yellow-600">
                   {headingLine2}
                 </span>
-              </h2>
+              </div>
             </motion.div>
 
             <div className="space-y-6">

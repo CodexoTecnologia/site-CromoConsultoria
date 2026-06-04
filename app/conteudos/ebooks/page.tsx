@@ -1,15 +1,25 @@
-"use client";
-
-import { useState } from "react";
+import { Metadata } from "next";
 import Hero from "@/components/sections/shared/Hero";
-import EbookCard from "@/components/sections/ebooks/EbookCard";
-import DownloadModal from "@/components/sections/ebooks/DownloadModal";
-import { ebooksData, type Ebook } from "@/content/ebooks";
 import ContactForm from "@/components/sections/shared/ContactForm";
+import EbooksCatalog from "@/components/sections/ebooks/EbooksCatalog";
+
+export const metadata: Metadata = {
+  // O template do RootLayout vai colocar o " | Cromo Consultoria" no final
+  title: "E-books Gratuitos de Engenharia Mecânica", 
+  description: "Baixe e-books técnicos gratuitos sobre engenharia, viabilidade e proteção de inovação. Conhecimento aprofundado direto da Cromo Consultoria.",
+  keywords: [
+    "E-books Engenharia", 
+    "Download Gratuito", 
+    "Estudo de Viabilidade", 
+    "Inovação", 
+    "Patentes"
+  ],
+  alternates: {
+    canonical: "/conteudos/ebooks",
+  },
+};
 
 export default function EbooksPage() {
-  const [selectedEbook, setSelectedEbook] = useState<Ebook | null>(null);
-
   return (
     <main className="min-h-screen bg-zinc-950 relative z-10 w-full">
       <Hero
@@ -22,26 +32,13 @@ export default function EbooksPage() {
       />
 
       <section className="container mx-auto px-4 sm:px-6 relative z-10 pt-16 md:pt-24 pb-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
-          {ebooksData.map((ebook, i) => (
-            <EbookCard 
-              key={i} 
-              ebook={ebook} 
-              onDownloadClick={setSelectedEbook} 
-            />
-          ))}
-        </div>
+        {/* Aqui entra o Client Component que criamos no Passo 2 */}
+        <EbooksCatalog />
       </section>
       
-      <section id="contato" className="relative z-10">
+      <section id="contato" className="relative z-10 border-t border-zinc-900">
         <ContactForm />
       </section>
-      
-      <DownloadModal 
-        ebook={selectedEbook} 
-        isOpen={!!selectedEbook} 
-        onClose={() => setSelectedEbook(null)} 
-      />
     </main>
   );
 }

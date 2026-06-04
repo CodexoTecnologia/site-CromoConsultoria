@@ -35,7 +35,7 @@ export const metadata: Metadata = {
     default: "Engenharia Mecânica e Mecatrônica em Curitiba | Cromo Consultoria",
     template: "%s | Cromo Consultoria"
   },
-  description: "Transformamos desafios técnicos em produtos reais com engenharia, estratégia e segurança intelectual.",
+  description: "Cromo Consultoria transforma desafios técnicos em produtos reais com engenharia mecânica, mecatrônica, formulação de patentes e prototipagem em Curitiba.",
   openGraph: {
     type: "website",
     locale: "pt_BR",
@@ -43,7 +43,7 @@ export const metadata: Metadata = {
     siteName: "Cromo Consultoria",
     images: [
       {
-        url: "/assets/images/og-image-default.png", 
+        url: "https://www.cromoconsultoria.com.br/assets/images/og-image-default.png", 
         width: 1200,
         height: 628,
         alt: "Cromo Consultoria - Inovação e Patentes",
@@ -52,8 +52,17 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    images: ["/assets/images/og-image-default.png"],
+    images: ["https://www.cromoconsultoria.com.br/assets/images/og-image-default.png"],
   },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+    },
+  },
+  authors: [{ name: "Cromo Consultoria", url: "https://www.cromoconsultoria.com.br" }],
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

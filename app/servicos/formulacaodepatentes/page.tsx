@@ -5,9 +5,9 @@ import Feedback from "@/components/sections/home/Feedback";
 import ContactForm from "@/components/sections/shared/ContactForm";
 
 const serviceInfo = {
-  title: "Formulação de ",
-  titleHighlight: "Patentes",
-  description: "Proteja sua inovação com documentação técnica precisa e estratégica para o INPI.",
+  title: "Registro e Formulação de ",
+  titleHighlight: "Patentes, INPI",
+  description: "Proteja sua inovação com documentação técnica para o INPI. Elaboramos reivindicações, desenhos técnicos e acompanhamos todo o processo de registro de patentes.",
   heroImage: "/assets/images/servicos/formulacao-de-patentes/hero-banner-patente.jpg",
   heroImageAlt: "Documentação estratégica e registro de patentes",
   copy: {
@@ -30,11 +30,30 @@ const serviceInfo = {
 };
 
 export const metadata: Metadata = {
-  title: "Formulação de Patentes | Cromo Consultoria",
+  title: `${serviceInfo.title}${serviceInfo.titleHighlight}`, 
   description: serviceInfo.description,
+  keywords: [
+    "Formulação de Patentes",
+    "Proteção de Propriedade Intelectual",
+    "INPI",
+    "Curitiba"
+  ],
+  alternates: {
+    canonical: "/servicos/formulacaodepatentes",
+  },
   openGraph: {
-    url: "https://www.cromoconsultoria.com.br/servicos/formulacaodepatentes",
-  }
+    title: `${serviceInfo.title}${serviceInfo.titleHighlight} | Cromo Consultoria`,
+    description: serviceInfo.description,
+    url: "/servicos/formulacaodepatentes",
+    images: [
+      {
+        url: serviceInfo.heroImage,
+        width: 1200,
+        height: 630,
+        alt: serviceInfo.heroImageAlt,
+      },
+    ],
+  },
 };
 
 export default function ServicePage() {
@@ -72,7 +91,7 @@ export default function ServicePage() {
       {/* BENEFÍCIOS (Cards Premium) */}
       <section className="py-16 md:py-24 bg-zinc-950 relative overflow-hidden border-t border-zinc-800/50">
         
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-cromo/5 rounded-full blur-[150px] pointer-events-none" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-cromo-light/5 rounded-full blur-[150px] pointer-events-none" />
 
         <div className="container mx-auto px-4 sm:px-6 relative z-10">
           <header className="text-center mb-16">
@@ -92,16 +111,21 @@ export default function ServicePage() {
             </h2>
           </header>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
+          {/* <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">*/}
+          <div className="flex flex-wrap justify-center gap-6 max-w-7xl mx-auto">
+            
             {serviceInfo.benefits.map((benefit, i) => {
               const Icon = benefit.Icon;
 
               return (
                 <div
                   key={i}
-                  className="bg-zinc-900 border border-zinc-800 p-8 rounded-2xl transition-all duration-500 hover:-translate-y-1 hover:border-cromo-purple/50 hover:shadow-[0_0_30px_rgba(90,35,109,0.15)] group relative overflow-hidden flex flex-col"
+                  //anterior - className="w-full bg-zinc-900 border border-zinc-800 p-8 rounded-2xl transition-all duration-500 hover:-translate-y-1 hover:border-cromo/50 hover:shadow-[0_0_30px_rgba(90,35,109,0.15)] group relative overflow-hidden flex flex-col"
+                  //novo com 3 colunas - className="w-full sm:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)] bg-zinc-900 border border-zinc-800 p-8 rounded-2xl transition-all duration-500 hover:-translate-y-1 hover:border-cromo/50 hover:shadow-[0_0_5px_rgba(255,255,255,0.15)] group relative overflow-hidden flex flex-col"
+                  className="w-full sm:w-[calc(50%-12px)] lg:w-[calc(50%-12px)] bg-zinc-900 border border-zinc-800 p-8 rounded-2xl transition-all duration-500 hover:-translate-y-1 hover:border-cromo/50 hover:shadow-[0_0_5px_rgba(255,255,255,0.15)] group relative overflow-hidden flex flex-col" // novo com 2 colunas            
                 >
-                  <div className="absolute -top-12 -left-12 w-32 h-32 bg-cromo-purple/20 blur-[50px] pointer-events-none transition-opacity duration-500 opacity-0 group-hover:opacity-100" />
+                  
+                  <div className="absolute -top-12 -left-12 w-32 h-32 bg-cromo/10 blur-[50px] pointer-events-none transition-opacity duration-500 opacity-0 group-hover:opacity-100" />
                   
                   <div className="mb-8 flex items-center justify-between relative z-10">
                     <div className="w-12 h-12 rounded-xl bg-zinc-950 border border-zinc-800 flex items-center justify-center text-zinc-400 group-hover:text-cromo group-hover:border-cromo/30 transition-colors duration-300 shadow-inner">

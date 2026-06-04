@@ -11,7 +11,7 @@ import Blog from "@/components/sections/home/Blog";
 import LocalBusinessSchema from "@/components/seo/LocalBusinessSchema";
 
 export const metadata: Metadata = {
-  title: "Engenharia Mecânica e Mecatrônica em Curitiba",
+  title: "Soluções em Engenharia Mecânica Curitiba",
   description: "Desenvolvemos projetos personalizados com qualidade, inovação e custo acessível. A ponte entre a pesquisa de ponta da UTFPR e a indústria.",
   alternates: {
     canonical: "/",

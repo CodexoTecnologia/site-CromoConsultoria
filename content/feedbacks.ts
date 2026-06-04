@@ -7,12 +7,12 @@ export interface Feedback {
 export const feedbacks: Feedback[] = [
   {
     name: "Flávio Fornasier",
-    role: "Gerente de Marketing",
+    role: "CEO e Sócio Fundador - Emaster",
     content: "Bacana não é apenas o resultado do projeto, mas também a forma de como ele foi conduzido. Impressão de estarmos trabalhando com profissionais com anos de experiência.",
   },
   {
     name: "José Henrique Silva",
-    role: "Diretor da Alimentar Terapia Nutricional",
+    role: "Diretor Alimentar Terapia Nutricional",
     content: "Equipe profissional e ágil. Também destacando o excelente custo benefício em comparação às outras empresas, tornando muito bom para start-ups como a nossa.",
   }
   // {

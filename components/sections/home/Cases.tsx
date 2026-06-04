@@ -94,7 +94,7 @@ export default function Cases() {
                 {/* TRANSFORMADO EM LINK: Agora o card inteiro é clicável e leva para /portfolio */}
                 <Link 
                   href="/portfolio" 
-                  className="block h-full bg-zinc-900 border border-zinc-800 rounded-2xl overflow-hidden hover:border-cromo-purple/50 hover:shadow-[0_0_25px_rgba(90,35,109,0.3)] transition-all duration-300 flex flex-col group focus:outline-none focus:ring-2 focus:ring-cromo"
+                  className="block h-full bg-zinc-900 border border-zinc-800 rounded-2xl overflow-hidden hover:border-cromo/50 hover:shadow-[0_0_5px_rgba(255,255,255,0.25)] transition-all duration-300 flex flex-col group focus:outline-none focus:ring-2 focus:ring-cromo"
                 >
                   
                   <div className="relative w-full h-40 sm:h-48 bg-zinc-800 overflow-hidden border-b border-zinc-800">

@@ -2,7 +2,17 @@ import { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Política de Privacidade",
-  description: "Entenda como a Cromo Consultoria coleta, usa e protege seus dados.",
+  description: "Entenda como a Cromo Consultoria coleta, armazena e protege seus dados pessoais em conformidade com a LGPD. Saiba seus direitos e como entrar em contato.",
+  
+  keywords: ["Política de Privacidade", "Engenharia", "Empresa Júnior", "UTFPR", "Curitiba", "LGPD", "Privacidade"],
+
+  robots: {
+    index: false,
+    follow: false,
+  },
+  alternates: {
+    canonical: "/politica/privacidade",
+  }
 };
 
 export default function PrivacyPolicy() {

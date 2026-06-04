@@ -17,7 +17,7 @@ export default function Blog() {
       className="py-16 md:py-20 lg:py-24 bg-zinc-950 relative border-b border-zinc-800/50 overflow-hidden"
     >
       {/* Luz ambiente roxa sutil */}
-      <div className="absolute top-1/2 right-0 w-[500px] h-[500px] bg-cromo-purple/10 rounded-full blur-[150px] pointer-events-none translate-x-1/3 -translate-y-1/2" />
+      <div className="absolute top-1/2 right-0 w-[500px] h-[500px] bg-cromo/10 rounded-full blur-[150px] pointer-events-none translate-x-1/3 -translate-y-1/2" />
 
       <div className="container mx-auto px-4 sm:px-6 relative z-10">
         {/* Cabeçalho */}
@@ -64,7 +64,7 @@ export default function Blog() {
               <Link
                 href={`/conteudos/blog/${post.slug}`}
                 aria-label={`Ler artigo: ${post.title}`}
-                className="block h-full bg-zinc-900 border border-zinc-800 rounded-2xl overflow-hidden hover:border-cromo-purple/50 hover:shadow-[0_0_25px_rgba(90,35,109,0.3)] transition-all duration-300 flex flex-col group focus:outline-none focus:ring-2 focus:ring-cromo"
+                className="block h-full bg-zinc-900 border border-zinc-800 rounded-2xl overflow-hidden hover:border-cromo/50 hover:shadow-[0_0_5px_rgba(255,255,255,0.25)] transition-all duration-300 flex flex-col group focus:outline-none focus:ring-2 focus:ring-cromo"
               >
                 {/* Imagem */}
                 <div className="relative w-full aspect-video bg-zinc-800 overflow-hidden border-b border-zinc-800">
@@ -106,7 +106,7 @@ export default function Blog() {
                   </p>
 
                   {/* CTA "Ler mais" */}
-                  <div className="flex items-center gap-2 text-[10px] font-bold uppercase tracking-widest color:#808089 group-hover:text-cromo transition-colors mt-auto">
+                  <div className="flex items-center gap-2 text-[10px] font-bold uppercase tracking-widest text-zinc-400 group-hover:text-cromo transition-colors mt-auto">
                     Ler artigo
                     <ArrowRight
                       className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform"

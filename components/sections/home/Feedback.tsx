@@ -32,17 +32,17 @@ export default function Feedbacks() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.2 }}
-              className="bg-zinc-900 border border-zinc-800 p-8 rounded-2xl relative hover:border-cromo-purple/50 transition-colors group"
+              className="bg-zinc-900 border border-zinc-800 p-8 rounded-2xl relative hover:border-cromo/50 transition-colors group"
             >
-              <Quote className="w-8 h-8 text-cromo/20 mb-6 group-hover:text-cromo-purple/50 transition-colors" />
+              <Quote className="w-8 h-8 text-cromo/20 mb-6 group-hover:text-cromo/80 transition-colors" />
               
-              <p className="body-text text-zinc-300 mb-8 italic">"{t.content}"</p>
+              <p className="body-text text-zinc-300 group-hover:text-white mb-8 italic">"{t.content}"</p>
               
               <div className="flex items-center justify-between mt-auto border-t border-zinc-800 pt-6">
                 <div>
                   {/* TAG <p> NO NOME DO CLIENTE PARA GABARITAR O SEO */}
-                  <p className="text-white font-bold text-sm">{t.name}</p>
-                  <p className="text-cromo text-[10px] uppercase tracking-widest font-bold">{t.role}</p>
+                  <p className="text-white group-hover:text-cromo font-bold text-sm">{t.name}</p>
+                  <p className="text-cromo group-hover:text-white text-[10px] uppercase tracking-widest font-bold">{t.role}</p>
                 </div>
                 <div className="flex gap-1">
                   {[...Array(5)].map((_, i) => (

@@ -8,8 +8,8 @@ interface EbookCardProps {
 
 export default function EbookCard({ ebook, onDownloadClick }: EbookCardProps) {
   return (
-    <div className="relative group bg-zinc-900 border border-zinc-800 p-8 rounded-2xl flex flex-col items-center text-center transition-all duration-500 hover:-translate-y-1 hover:border-cromo-purple/50 hover:shadow-[0_0_30px_rgba(90,35,109,0.15)] overflow-hidden h-full">
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-48 h-48 bg-cromo-purple/20 blur-[60px] pointer-events-none transition-opacity duration-500 opacity-0 group-hover:opacity-100 z-0" />
+    <div className="relative group bg-zinc-900 border border-zinc-800 p-8 rounded-2xl flex flex-col items-center text-center transition-all duration-500 hover:-translate-y-1 hover:border-cromo/50 hover:shadow-[0_0_10px_rgba(255,255,255,0.15)] overflow-hidden h-full">
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-48 h-48 bg-white/5 blur-[60px] pointer-events-none transition-opacity duration-500 opacity-0 group-hover:opacity-100 z-0" />
 
       {/* Overlay cobrindo o card no desktop para tornar o card clicável; oculto no mobile */}
       <div
@@ -33,9 +33,9 @@ export default function EbookCard({ ebook, onDownloadClick }: EbookCardProps) {
           <div className="absolute inset-0 bg-zinc-950/20 group-hover:bg-transparent transition-colors duration-500 pointer-events-none" />
         </div>
 
-        <h3 className="text-lg font-bold text-white mb-2 group-hover:text-cromo transition-colors duration-300 pointer-events-none min-h-[56px] flex items-center justify-center">
+        <h2 className="text-lg font-bold text-white mb-2 group-hover:text-cromo transition-colors duration-300 pointer-events-none min-h-[56px] flex items-center justify-center">
           {ebook.title}
-        </h3>
+        </h2>
         <p className="text-xs text-zinc-500 uppercase tracking-widest mb-8 font-mono pointer-events-none">
           {ebook.type} • {ebook.size}
         </p>

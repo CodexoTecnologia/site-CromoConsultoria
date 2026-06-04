@@ -75,9 +75,9 @@ export default function PortfolioGrid({ projects }: { projects: PortfolioProject
           return (
             <div
               key={index}
-              className="bg-zinc-900 border border-zinc-800 rounded-2xl transition-all duration-500 hover:-translate-y-1 hover:border-cromo-purple/50 hover:shadow-[0_0_30px_rgba(90,35,109,0.15)] overflow-hidden flex flex-col group relative h-full"
+              className="bg-zinc-900 border border-zinc-800 rounded-2xl transition-all duration-500 hover:-translate-y-1 hover:border-cromo/30 hover:shadow-[0_0_5px_rgba(255,255,255,0.15)] overflow-hidden flex flex-col group relative h-full"
             >
-              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-48 h-48 bg-cromo-purple/10 blur-[60px] pointer-events-none transition-opacity duration-500 opacity-0 group-hover:opacity-100 z-0" />
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-48 h-48 bg-cromo/10 blur-[60px] pointer-events-none transition-opacity duration-500 opacity-0 group-hover:opacity-100 z-0" />
               
               {/* IMAGEM DO CARD */}
               <div 

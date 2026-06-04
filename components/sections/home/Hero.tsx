@@ -36,9 +36,9 @@ export default function Hero() {
       {/* INDICADOR DE SCROLL ANIMADO */}
       <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center z-40">
         <Link href="#sobre" aria-label="Rolar para baixo" className="flex flex-col items-center group focus:outline-none">
-          <span className="text-zinc-500 group-hover:text-cromo text-[9px] sm:text-[10px] font-bold uppercase tracking-[0.2em] mb-3 transition-colors">
+          {/* <span className="text-zinc-500 group-hover:text-cromo text-[9px] sm:text-[10px] font-bold uppercase tracking-[0.2em] mb-3 transition-colors">
             Rolar
-          </span>
+          </span> */}
           <div className="hidden md:flex w-6 h-10 border-2 border-zinc-500 group-hover:border-cromo rounded-full justify-center pt-2 transition-colors">
             <div className="w-1 h-2 bg-zinc-500 group-hover:bg-cromo rounded-full animate-bounce transition-colors" />
           </div>

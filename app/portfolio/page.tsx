@@ -7,8 +7,14 @@ import PortfolioGrid from "@/components/sections/portfolio/PortfolioGrid";
 import { portfolioProjects } from "@/content/portfolio";
 
 export const metadata: Metadata = {
-  title: "Portfólio | Cromo Consultoria",
-  description: "Conheça os projetos reais desenvolvidos pela Cromo Consultoria em Engenharia.",
+  title: "Portfólio de Projetos em Engenharia Mecânica",
+  description: "Conheça os projetos reais de engenharia mecânica e mecatrônica desenvolvidos pela Cromo Consultoria para empresas e indústrias em Curitiba.",
+  
+  keywords: ["Portfólio", "Engenharia", "Empresa Júnior", "UTFPR", "Curitiba", "Mecânica", "Mecatrônica"],
+
+  alternates: {
+    canonical: "/portfolio",
+  }
 };
 
 export default function PortfolioPage() {

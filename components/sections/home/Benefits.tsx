@@ -82,7 +82,7 @@ export default function Benefits() {
                 >
                   <div className="flex flex-col sm:flex-row gap-5 items-start">
                     
-                    <div className="flex-shrink-0 w-12 h-12 bg-zinc-950 border border-zinc-800 rounded-xl flex items-center justify-center group-hover:border-cromo transition-colors shadow-sm">
+                    <div className="flex-shrink-0 w-12 h-12 bg-zinc-950 border border-zinc-800 rounded-xl flex items-center justify-center group-hover:border-cromo transition-colors shadow-sm"> 
                       <Icon className="w-6 h-6 text-cromo" aria-hidden="true" />
                     </div>
 
