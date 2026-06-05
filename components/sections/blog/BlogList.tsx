@@ -65,13 +65,15 @@ export default function BlogList() {
               <Link
                 key={post.slug}
                 href={`/conteudos/blog/${post.slug}`}
-                className="group bg-zinc-900 border border-zinc-800 hover:border-cromo/40 rounded-2xl overflow-hidden shadow-lg flex flex-col transition-colors"
+                className="group bg-zinc-900 border border-zinc-800 hover:border-cromo/40 hover:shadow-[0_0_5px_rgba(255,255,255,0.15)] rounded-2xl overflow-hidden shadow-lg flex flex-col transition-colors"
               >
                 <div className="relative aspect-video w-full overflow-hidden">
                   <Image
                     src={post.image}
                     alt={post.title}
                     fill
+                    sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                    loading="eager"
                     className="object-cover group-hover:scale-105 transition-transform duration-500"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-zinc-900/80 via-transparent to-transparent" />

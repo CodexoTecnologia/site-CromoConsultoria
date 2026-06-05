@@ -1,16 +1,21 @@
-// src/app/layout.tsx
 import type { Metadata } from "next";
 import { Poppins, Bebas_Neue } from "next/font/google";
+import Script from "next/script";
+import dynamic from "next/dynamic"; // 1. Importe o dynamic
 import "./globals.css";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
-import WhatsAppButton from "@/components/sections/shared/WhatsAppButton";
 import TextureBackground from "@/components/layout/TextureBackground";
+
+// 2. Transforme os itens "acessórios" em carregamento assíncrono
+const WhatsAppButton = dynamic(() => import("@/components/sections/shared/WhatsAppButton"));
+const CookieConsent = dynamic(() => import("@/components/sections/shared/CookieConsent"));
+const GlobalSpotlight = dynamic(() => import("@/components/ui/GlobalSpotlight"));
 
 const poppins = Poppins({
   variable: "--font-poppins",
   subsets: ["latin"],
-  weight: ["400", "600", "700"],
+  weight: ["400", "500", "600", "700", "900"],
   display: "swap",
 });
 
@@ -22,53 +27,119 @@ const bebasNeue = Bebas_Neue({
 });
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.cromoconsultoria.com.br';
+const gtmId = process.env.NEXT_PUBLIC_GTM_ID || '';
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
     default: "Engenharia Mecânica e Mecatrônica em Curitiba | Cromo Consultoria",
-    template: "%s | Cromo Consultoria"},
-  description: "Transformamos ideias em produtos reais com engenharia, estratégia e segurança.",
+    template: "%s | Cromo Consultoria"
+  },
+  description: "Cromo Consultoria transforma desafios técnicos em produtos reais com engenharia mecânica, mecatrônica, formulação de patentes e prototipagem em Curitiba.",
   openGraph: {
     type: "website",
     locale: "pt_BR",
     url: siteUrl,
-    title: "Cromo Consultoria | Engenharia Mecânica e Mecatrônica em Curitiba",
-    description: "Transformamos ideias em produtos reais com engenharia, estratégia e segurança.",
     siteName: "Cromo Consultoria",
     images: [
       {
-        // O caminho da imagem que vai aparecer no WhatsApp/LinkedIn
-        url: "/assets/images/og-image-default.png", 
+        url: "https://www.cromoconsultoria.com.br/assets/images/og-image-default.png", 
         width: 1200,
         height: 628,
         alt: "Cromo Consultoria - Inovação e Patentes",
       },
     ],
   },
-  
   twitter: {
     card: "summary_large_image",
-    title: "Cromo Consultoria | Engenharia Mecânica e Mecatrônica em Curitiba",
-    description: "Transformamos ideias em produtos reais com engenharia, estratégia e segurança.",
-    images: ["/assets/images/og-image-default.png"],
+    images: ["https://www.cromoconsultoria.com.br/assets/images/og-image-default.png"],
   },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+    },
+  },
+  authors: [{ name: "Cromo Consultoria", url: "https://www.cromoconsultoria.com.br" }],
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="pt-BR" className={`${poppins.variable} ${bebasNeue.variable} antialiased scroll-smooth`}>
-      <body className="flex flex-col min-h-screen bg-zinc-950 text-zinc-50 overflow-x-hidden">
+    <html
+      lang="pt-BR"
+      className={`${poppins.variable} ${bebasNeue.variable} scroll-smooth`}
+      data-scroll-behavior="smooth"
+    >
+      <head>
+        {/* 1. CONSENT MODE DEFAULT — roda ANTES de tudo */}
+        <script
+          id="google-consent-default"
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+
+              gtag('consent', 'default', {
+                'ad_storage': 'denied',
+                'analytics_storage': 'denied',
+                'ad_user_data': 'denied',
+                'ad_personalization': 'denied',
+                'personalization_storage': 'denied',
+                'security_storage': 'granted',
+                'wait_for_update': 500
+              });
+
+              gtag('set', 'url_passthrough', true);
+              gtag('set', 'ads_data_redaction', true);
+            `,
+          }}
+        />
+
+        {/* 2. GTM — depois do default */}
+        {gtmId && (
+          <Script
+            id="google-tag-manager"
+            strategy="lazyOnload" // Carrega o GTM de forma otimizada, sem bloquear a renderização
+            dangerouslySetInnerHTML={{
+              __html: `
+                (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+                new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+                j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+                'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+                })(window,document,'script','dataLayer', '${gtmId}');
+              `,
+            }}
+          />
+        )}
+      </head>
+      
+      <body className="flex flex-col min-h-screen bg-zinc-950 text-zinc-50 overflow-x-hidden selection:bg-cromo selection:text-zinc-950">
         
+        {/* NOSCRIPT DO GTM (Garante o funcionamento se o JS falhar/demorar) */}
+        {gtmId && (
+          <noscript>
+            <iframe
+              src={`https://www.googletagmanager.com/ns.html?id=${gtmId}`}
+              height="0"
+              width="0"
+              style={{ display: "none", visibility: "hidden" }}
+            />
+          </noscript>
+        )}
+
+        <GlobalSpotlight />
         <TextureBackground />
         <Navbar />
-        <main className="flex-grow w-full">
+        
+        <main className="flex-grow w-full relative z-10">
           {children}
         </main>
 
         <Footer />
-
         <WhatsAppButton />
+        <CookieConsent />
       </body>
     </html>
   );

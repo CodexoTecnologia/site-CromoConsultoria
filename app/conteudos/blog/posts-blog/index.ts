@@ -18,18 +18,18 @@ export interface BlogPost {
   sections: ContentSection[];
 }
 
-import futuroMecatronica from "./futuro-da-mecatronica-industria-4-0";
 import protegerPatentes from "./como-proteger-sua-invencao-com-patentes";
 import otimizacaoProcessos from "./otimizacao-de-processos-guia-gestores";
 import prototipagem from "./prototipagem-rapida-validacao-produto";
-import estudoViabilidade from "./estudo-viabilidade-tecnica-financeira";
-import engineeringStartups from "./engenharia-mecanica-aplicada-startups";
+import estudoViabilidade from "./estudo-de-viabilidade";
+import desenvolvimentoProdutos from "./desenvolvimento-de-produtos";
+import engenhariaNacional from "./engenharia-reversa-nacionalizacao-pecas-reduzir-custos";
 
 export const blogPosts: BlogPost[] = [
-  futuroMecatronica,
   protegerPatentes,
   otimizacaoProcessos,
   prototipagem,
   estudoViabilidade,
-  engineeringStartups,
+  desenvolvimentoProdutos,
+  engenhariaNacional,
 ];

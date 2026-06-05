@@ -3,7 +3,6 @@ import { MetadataRoute } from 'next';
 export default function sitemap(): MetadataRoute.Sitemap {
   const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.cromoconsultoria.com.br';
 
-  //Verificar antes do deploy quais rotas realmente existem e ajustar aqui.
   const routes = [
     '', 
     '/servicos', 
@@ -15,14 +14,26 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/sobre', 
     '/portfolio', 
     '/faq', 
-    '/conteudos/blog'
+    '/conteudos/blog',
+    '/conteudos/ebooks',
+    '/politica/privacidade',
+    '/politica/cookies',
   ];
 
-  return routes.map((route) => ({
-    url: `${siteUrl}${route}`,
-    lastModified: new Date(),
-    changeFrequency: 'monthly',
-    // Lógica simples: A Home tem prioridade 1. Serviços prioridade 0.9. Resto 0.8.
-    priority: route === '' ? 1 : route.includes('/servicos') ? 0.9 : 0.8,
-  }));
+  return routes.map((route) => {
+    // Lógica corrigida para o Google entender os números decimais perfeitamente
+    let routePriority = 0.8;
+    if (route === '') {
+      routePriority = 1.0;
+    } else if (route.includes('/servicos')) {
+      routePriority = 0.9;
+    }
+
+    return {
+      url: `${siteUrl}${route}`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: routePriority,
+    };
+  });
 }

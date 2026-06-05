@@ -4,8 +4,14 @@ import Hero from "@/components/sections/shared/Hero";
 import ContactForm from "@/components/sections/shared/ContactForm";
 
 export const metadata: Metadata = {
-  title: "Dúvidas Frequentes | Cromo Consultoria",
+  title: "FAQ sobre Engenharia Mecânica e Patentes",
   description: "Tire suas dúvidas sobre desenvolvimento de máquinas, projetos de engenharia mecânica e adequação a normas com a Cromo Consultoria (UTFPR).",
+  
+  keywords: ["Engenharia", "Empresa Júnior", "UTFPR", "Curitiba", "Mecânica", "Mecatrônica"],
+
+  alternates: {
+    canonical: "/faq",
+  }
 };
 
 // Centralizando as 23 perguntas para o Schema e para o Front-end
@@ -130,12 +136,13 @@ export default function FAQPage() {
       />
 
       <Hero
-        imageSrc="https://images.unsplash.com/photo-1503387762-592deb58ef4e?q=80&w=2000"
+        imageSrc="/assets/images/faq/hero-faq.png"
         imageAlt="Consultoria em Engenharia e Desenvolvimento"
         label="Central de Ajuda"
         title="Dúvidas"
         titleHighlight="Frequentes"
         description="Nossa transparência é o primeiro passo para o sucesso do seu projeto. Encontre respostas sobre desenvolvimento e engenharia."
+        imagePosition="object-[center_25%]"
       />
 
       <section id="perguntas" className="relative -mt-6 md:-mt-12 pt-8 md:pt-12 pb-16 md:pb-24 scroll-mt-20 z-20">
@@ -145,7 +152,7 @@ export default function FAQPage() {
             <div className="absolute top-0 left-1/2 -translate-x-1/2 w-1/2 md:w-1/3 h-px bg-gradient-to-r from-transparent via-cromo/30 to-transparent"></div>
 
             <div className="text-center mb-8 md:mb-16 relative z-10">
-              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-2 md:mb-4">Ainda tem dúvidas?</h2>
+              <div className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-2 md:mb-4">Ainda tem dúvidas?</div>
               <p className="text-zinc-400 text-sm md:text-lg">Selecione o tópico abaixo para expandir a resposta.</p>
             </div>
 
