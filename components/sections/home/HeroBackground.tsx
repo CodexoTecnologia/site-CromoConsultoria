@@ -5,15 +5,16 @@ export default function HeroBackground() {
   return (
     <div className="absolute inset-0 overflow-hidden bg-zinc-950 z-0">
       
-      {/* 1. A SUA FOTO OTIMIZADA */}
+      {/* 1. A SUA FOTO OTIMIZADA PARA LCP (Largest Contentful Paint) */}
       <div className="absolute inset-0 z-0">
         <Image
           src="/assets/images/home/bg-project.png"
           alt="Projeto de engenharia mecânica e mecatrônica em Curitiba"
           fill
           priority
-          quality={50} // Mesmo com qualidade reduzida, o "sizes" abaixo garante que o Next envie um arquivo menor para telas menores, otimizando ainda mais a performance
-          sizes="(max-width: 640px) 50vw, 100vw" // Para telas até 640px, a imagem ocupará metade da largura da tela (50vw), e para telas maiores, ocupará a largura total (100vw). Isso ajuda o Next a escolher a melhor versão da imagem para cada dispositivo.
+          fetchPriority="high" // O SEGREDO: Força o navegador a baixar a imagem antes de qualquer outra coisa
+          quality={50} 
+          sizes="100vw" // CORRIGIDO: Como é background full-screen, tem que ser 100vw em todas as telas
           className="object-cover object-[30%_50%] md:object-center opacity-40"
         />
       </div>
