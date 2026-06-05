@@ -74,7 +74,7 @@ export default function BlogList() {
                     fill
                     sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                     loading="eager"
-                    className="object-cover group-hover:scale-105 transition-transform duration-500"
+                    className="object-cover md:grayscale group-hover:scale-105 transition-transform duration-500"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-zinc-900/80 via-transparent to-transparent" />
                   <span className="absolute top-3 left-3 text-[10px] font-bold text-cromo uppercase tracking-widest bg-zinc-950/80 backdrop-blur-sm px-2.5 py-1 rounded-md border border-cromo/20">
