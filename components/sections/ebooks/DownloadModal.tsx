@@ -71,7 +71,8 @@ export default function DownloadModal({ ebook, isOpen, onClose }: DownloadModalP
       });
 
       if (response.ok) {
-        // Se deu sucesso, abre o PDF e fecha o modal
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        (window as any).dataLayer?.push({ event: 'ebook_form_submit', ebook_title: ebook.title });
         if (ebook.driveUrl) {
           window.open(ebook.driveUrl, "_blank");
         }

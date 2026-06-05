@@ -116,10 +116,12 @@ export default function Contact({
       });
 
       if (response.ok) {
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        (window as any).dataLayer?.push({ event: 'contact_form_submit', page_path: window.location.pathname });
         setSubmitStatus('success');
         form.reset();
         setPhoneValue(undefined);
-        setMessageLength(0); // AJUSTE 1: Zera o contador de caracteres
+        setMessageLength(0);
         setTimeout(() => setSubmitStatus('idle'), 5000);
       } else {
         setSubmitStatus('error');
