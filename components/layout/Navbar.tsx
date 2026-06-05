@@ -179,7 +179,7 @@ export default function Navbar() {
             </nav>
 
             <div className="flex items-center gap-3 sm:gap-4 md:gap-6">
-              <Link href="#contact" className="hidden sm:block">
+              <Link href="#contato" className="hidden sm:block">
                 <motion.button
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.98 }}
