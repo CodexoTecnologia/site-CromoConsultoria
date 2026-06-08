@@ -6,7 +6,8 @@ import ContactForm from "@/components/sections/shared/ContactForm";
 
 const serviceInfo = {
   title: "Estudo de ",
-  titleHighlight: "Viabilidade Técnica e Econômica",
+  titleHighlight: "Viabilidade",
+  metadataTitle: "Estudo de Viabilidade Técnica e Econômica",
   description: "Avaliamos a viabilidade técnica, econômica e comercial do seu projeto antes da execução. Tome decisões seguras com base em dados reais e análise de riscos.",
   heroImage: "/assets/images/servicos/viabilidade/hero-viabilidade.png",
   heroImageAlt: "Análise de Viabilidade Técnica e Econômica com gráficos e relatórios",
@@ -31,7 +32,7 @@ const serviceInfo = {
 };
 
 export const metadata: Metadata = {
-  title: `${serviceInfo.title}${serviceInfo.titleHighlight}`, 
+  title: serviceInfo.metadataTitle, 
   description: serviceInfo.description,
   keywords: [
     "Estudo de Viabilidade",
@@ -44,7 +45,7 @@ export const metadata: Metadata = {
     canonical: "/servicos/estudodeviabilidade",
   },
   openGraph: {
-    title: `${serviceInfo.title}${serviceInfo.titleHighlight} | Cromo Consultoria`,
+    title: `${serviceInfo.metadataTitle} | Cromo Consultoria`,
     description: serviceInfo.description,
     url: "/servicos/estudodeviabilidade",
     images: [
@@ -60,7 +61,9 @@ export const metadata: Metadata = {
 
 export default function ServicePage() {
   return (
-    <main className="min-h-screen bg-zinc-950 relative z-10 w-full">
+    // <main className="min-h-screen bg-zinc-950 relative z-10 w-full">
+    <main className="min-h-screen bg-zinc-950">
+
 
       <Hero
         imageSrc={serviceInfo.heroImage}

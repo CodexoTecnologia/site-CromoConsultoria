@@ -5,8 +5,9 @@ import Feedback from "@/components/sections/home/Feedback";
 import ContactForm from "@/components/sections/shared/ContactForm";
 
 const serviceInfo = {
-  title: "Registro e Formulação de ",
-  titleHighlight: "Patentes, INPI",
+  title: "Formulação de ",
+  titleHighlight: "Patentes",
+  metadataTitle: "Registro e Formulação de Patentes, INPI",
   description: "Proteja sua inovação com documentação técnica para o INPI. Elaboramos reivindicações, desenhos técnicos e acompanhamos todo o processo de registro de patentes.",
   heroImage: "/assets/images/servicos/formulacao-de-patentes/hero-banner-patente.jpg",
   heroImageAlt: "Documentação estratégica e registro de patentes",
@@ -30,7 +31,7 @@ const serviceInfo = {
 };
 
 export const metadata: Metadata = {
-  title: `${serviceInfo.title}${serviceInfo.titleHighlight}`, 
+  title: serviceInfo.metadataTitle, 
   description: serviceInfo.description,
   keywords: [
     "Formulação de Patentes",
@@ -42,7 +43,7 @@ export const metadata: Metadata = {
     canonical: "/servicos/formulacaodepatentes",
   },
   openGraph: {
-    title: `${serviceInfo.title}${serviceInfo.titleHighlight} | Cromo Consultoria`,
+    title: `${serviceInfo.metadataTitle} | Cromo Consultoria`,
     description: serviceInfo.description,
     url: "/servicos/formulacaodepatentes",
     images: [

@@ -6,7 +6,7 @@ import ContactForm from "@/components/sections/shared/ContactForm";
 
 const serviceInfo = {
   title: "Otimização de ",
-  titleHighlight: "Processos, Curitiba",
+  titleHighlight: "Processos",
   description: "Identificamos e eliminamos gargalos operacionais com análise de processos, padronização e melhoria contínua para aumentar produtividade e reduzir custos.",
   heroImage: "/assets/images/servicos/otimizacao-de-processo/hero-otimizacao-cr.jpg",
   heroImageAlt: "Engenheiros otimizando processos em chão de fábrica",
