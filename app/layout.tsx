@@ -15,7 +15,7 @@ const GlobalSpotlight = dynamic(() => import("@/components/ui/GlobalSpotlight"))
 const poppins = Poppins({
   variable: "--font-poppins",
   subsets: ["latin"],
-  weight: ["900", "700", "400", "500", "600"],
+  weight: ["900", "700", "400"],
   display: "swap",
 });
 
