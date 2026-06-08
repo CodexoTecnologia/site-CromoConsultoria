@@ -63,7 +63,7 @@ export default function Contact({
     if (typeof window !== 'undefined' && !document.querySelector('link[href*="react-phone-number-input"]')) {
       const link = document.createElement('link');
       link.rel = 'stylesheet';
-      link.href = 'https://unpkg.com/react-phone-number-input@3.4.14/style.css';
+      link.href = 'https://unpkg.com/react-phone-number-input@3.4.16/style.css';
       link.media = 'print';
       link.onload = () => { link.media = 'all' };
       document.head.appendChild(link);

@@ -15,7 +15,7 @@ const GlobalSpotlight = dynamic(() => import("@/components/ui/GlobalSpotlight"))
 const poppins = Poppins({
   variable: "--font-poppins",
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700", "900"],
+  weight: ["900", "700", "400", "500", "600"],
   display: "swap",
 });
 
@@ -73,6 +73,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       data-scroll-behavior="smooth"
     >
       <head>
+        {/* Preconnect para recursos críticos de terceiros */}
+        <link rel="preconnect" href="https://www.googletagmanager.com" />
+        <link rel="dns-prefetch" href="https://purecatamphetamine.github.io" />
+
         {/* 1. CONSENT MODE DEFAULT — roda ANTES de tudo */}
         <script
           id="google-consent-default"
