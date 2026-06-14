@@ -26,7 +26,7 @@ export default function Hero({
   imagePosition = "object-center",
 }: HeroProps) {
   return (
-    <section className="relative w-full h-[55vh] min-h-[380px] max-h-[560px] overflow-hidden">
+    <section className="relative w-full min-h-[420px] overflow-hidden">
       <Image
         src={imageSrc}
         alt={imageAlt}
@@ -39,7 +39,7 @@ export default function Hero({
       <div className="absolute inset-0 bg-gradient-to-t from-zinc-950 via-zinc-950/60 to-zinc-950/20" />
       <div className="absolute inset-0 bg-gradient-to-r from-zinc-950/80 to-transparent" />
 
-      <div className="relative h-full flex items-center pt-16 md:pt-20">
+      <div className="relative pt-28 sm:pt-32 md:pt-36 pb-14 md:pb-16">
         <div className="container mx-auto px-4 sm:px-6">
           {backLink && (
             <Link
@@ -52,7 +52,7 @@ export default function Hero({
           <span className="text-cromo font-bold text-[10px] uppercase tracking-[0.3em] inline-flex items-center gap-2 mb-4">
             <span className="w-8 h-px bg-cromo" /> {label}
           </span>
-          <h1 className="text-5xl md:text-6xl lg:text-7xl font-black text-white leading-tight mb-4">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black text-white leading-tight mb-4">
             {title}
             {titleHighlight && (
               <>

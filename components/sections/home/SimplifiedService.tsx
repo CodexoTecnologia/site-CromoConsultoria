@@ -64,13 +64,13 @@ export default function SimplifiedService() {
                   {service.title}
                 </h3>
                 
-                <p className="body-text text-sm text-zinc-400 mb-8 flex-grow relative z-10 line-clamp-3">
+                <p className="body-text text-sm text-zinc-300 mb-8 flex-grow relative z-10 line-clamp-3">
                   {service.description}
                 </p>
 
                 <Link 
                   href="/servicos" 
-                  className="inline-flex items-center gap-2 text-[10px] font-bold uppercase tracking-widest text-zinc-400 group-hover:text-white transition-colors relative z-10 w-max"
+                  className="inline-flex items-center gap-2 text-[10px] font-bold uppercase tracking-widest text-zinc-300 group-hover:text-white transition-colors relative z-10 w-max"
                 >
                   Saber mais <ArrowRight className="w-4 h-4 text-cromo group-hover:translate-x-1 transition-transform" />
                 </Link>

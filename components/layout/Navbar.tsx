@@ -218,7 +218,7 @@ export default function Navbar() {
               animate={{ opacity: 1, y: 0, scale: 1 }}
               exit={{ opacity: 0, y: -10, scale: 0.95 }}
               transition={{ duration: 0.2 }}
-              className="fixed top-[80px] left-3 right-3 z-[99] lg:hidden max-h-[80vh] overflow-y-auto no-scrollbar"
+              className="fixed top-[84px] md:top-[106px] left-3 right-3 z-[99] lg:hidden max-h-[80vh] overflow-y-auto no-scrollbar"
             >
               <div className="bg-zinc-900 border border-zinc-800 rounded-2xl shadow-2xl overflow-hidden">
                 <nav className="p-2">
@@ -258,7 +258,7 @@ export default function Navbar() {
                                       : link.name,
                                   )
                                 }
-                                className="p-3 text-zinc-400 hover:text-cromo bg-zinc-800/50 rounded-lg ml-2"
+                                className="p-3 text-zinc-300 hover:text-cromo bg-zinc-800/50 rounded-lg ml-2"
                               >
                                 <ChevronDown
                                   size={16}
@@ -281,7 +281,7 @@ export default function Navbar() {
                                         <Link
                                           href={sublink.href}
                                           onClick={closeMobileMenu}
-                                          className="block px-3 py-3 text-[10px] font-bold text-zinc-400 hover:text-cromo transition-colors"
+                                          className="block px-3 py-3 text-[10px] font-bold text-zinc-300 hover:text-cromo transition-colors"
                                         >
                                           {sublink.name}
                                         </Link>

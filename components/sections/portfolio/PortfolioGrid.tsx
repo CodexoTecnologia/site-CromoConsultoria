@@ -7,6 +7,103 @@ import { PortfolioProject } from "@/content/portfolio";
 import { X, ChevronLeft, ChevronRight, Maximize2, Image as ImageIcon, ZoomIn, ZoomOut, ArrowRight } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
+const ROTATION_INTERVAL = 3000;
+
+function PortfolioCardImage({
+  project,
+  onClick,
+}: {
+  project: PortfolioProject;
+  onClick: () => void;
+}) {
+  const images = project.gallery && project.gallery.length > 1 ? project.gallery : [project.image];
+  const hasMultiple = images.length > 1;
+
+  const [activeIdx, setActiveIdx] = useState(0);
+  const [isInView, setIsInView] = useState(false);
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (!hasMultiple) return;
+    const el = containerRef.current;
+    if (!el) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => setIsInView(entry.isIntersecting),
+      { threshold: 0.4 }
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, [hasMultiple]);
+
+  useEffect(() => {
+    if (!hasMultiple || !isInView) return;
+    const id = setInterval(
+      () => setActiveIdx((prev) => (prev + 1) % images.length),
+      ROTATION_INTERVAL
+    );
+    return () => clearInterval(id);
+  }, [hasMultiple, isInView, images.length]);
+
+  return (
+    <div
+      ref={containerRef}
+      className="relative w-full h-56 md:h-64 bg-zinc-900 overflow-hidden shrink-0 z-10 cursor-pointer"
+      onClick={onClick}
+    >
+      {images.map((src, i) => (
+        <Image
+          key={src}
+          src={src}
+          alt={i === activeIdx ? project.title : ""}
+          fill
+          priority={i === 0}
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+          className={`object-cover grayscale-0 md:grayscale md:group-hover:grayscale-0 scale-[1.02] transition-all duration-700 ${
+            i === activeIdx ? "opacity-100" : "opacity-0"
+          }`}
+        />
+      ))}
+
+      <div className="absolute top-4 left-4 bg-zinc-950/80 backdrop-blur-sm border border-zinc-700 px-3 py-1.5 rounded-full z-10">
+        <span className="text-[10px] font-bold tracking-widest text-cromo uppercase">
+          {project.category}
+        </span>
+      </div>
+
+      <div className={`absolute top-4 right-4 bg-cromo text-zinc-950 rounded-full z-10 opacity-100 translate-y-0 md:opacity-0 md:translate-y-2 md:group-hover:opacity-100 md:group-hover:translate-y-0 transition-all duration-300 shadow-lg flex items-center justify-center ${hasMultiple ? "px-3 py-1.5 gap-1.5" : "p-2"}`}>
+        {hasMultiple ? (
+          <>
+            <ImageIcon size={16} />
+            <span className="text-xs font-black leading-none">{images.length}</span>
+          </>
+        ) : (
+          <Maximize2 size={18} />
+        )}
+      </div>
+
+      <div className="absolute inset-0 bg-gradient-to-t from-zinc-950 via-zinc-900/40 to-transparent opacity-90 transition-opacity duration-500 group-hover:opacity-80" />
+
+      <div className="absolute bottom-5 left-6 right-6 z-10 flex flex-col gap-2">
+        <h3 className="text-xl font-bold text-white group-hover:text-cromo transition-colors duration-300 line-clamp-2">
+          {project.title}
+        </h3>
+        {hasMultiple && (
+          <div className="flex gap-1.5 items-center">
+            {images.map((_, i) => (
+              <span
+                key={i}
+                className={`block h-1 rounded-full transition-all duration-500 ${
+                  i === activeIdx ? "w-4 bg-cromo" : "w-1.5 bg-white/40"
+                }`}
+              />
+            ))}
+          </div>
+        )}
+      </div>
+    </div>
+  );
+}
+
 export default function PortfolioGrid({ projects }: { projects: PortfolioProject[] }) {
   const [isMounted, setIsMounted] = useState(false);
   const [selectedProject, setSelectedProject] = useState<PortfolioProject | null>(null);
@@ -69,58 +166,21 @@ export default function PortfolioGrid({ projects }: { projects: PortfolioProject
     <>
       {/* 1. VOLTAMOS PRO GRID PERFEITAMENTE ALINHADO */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
-        {projects.map((project, index) => {
-          const hasGallery = project.gallery && project.gallery.length > 1;
-
-          return (
+        {projects.map((project, index) => (
             <div
               key={index}
               className="bg-zinc-900 border border-zinc-800 rounded-2xl transition-all duration-500 hover:-translate-y-1 hover:border-cromo/30 hover:shadow-[0_0_5px_rgba(255,255,255,0.15)] overflow-hidden flex flex-col group relative h-full"
             >
               <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-48 h-48 bg-cromo/10 blur-[60px] pointer-events-none transition-opacity duration-500 opacity-0 group-hover:opacity-100 z-0" />
-              
-              {/* IMAGEM DO CARD */}
-              <div 
-                className="relative w-full h-56 md:h-64 bg-zinc-900 overflow-hidden shrink-0 z-10 cursor-pointer"
-                onClick={() => { setSelectedProject(project); setCurrentIndex(0); setScale(1); }}
-              >
-                {/* AJUSTE APLICADO AQUI: Priority e Sizes corretos */}
-                <Image 
-                  src={project.image} 
-                  alt={project.title} 
-                  fill 
-                  priority
-                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                  className="object-cover grayscale-0 md:grayscale md:group-hover:grayscale-0 transition-all duration-700 scale-[1.02]"
-                />
-                
-                <div className="absolute top-4 left-4 bg-zinc-950/80 backdrop-blur-sm border border-zinc-700 px-3 py-1.5 rounded-full z-10">
-                  <span className="text-[10px] font-bold tracking-widest text-cromo uppercase">
-                    {project.category}
-                  </span>
-                </div>
 
-                <div className={`absolute top-4 right-4 bg-cromo text-zinc-950 rounded-full z-10 opacity-100 translate-y-0 md:opacity-0 md:translate-y-2 md:group-hover:opacity-100 md:group-hover:translate-y-0 transition-all duration-300 shadow-lg flex items-center justify-center ${hasGallery ? 'px-3 py-1.5 gap-1.5' : 'p-2'}`}>
-                  {hasGallery ? (
-                    <>
-                      <ImageIcon size={16} />
-                      <span className="text-xs font-black leading-none">{project.gallery!.length}</span>
-                    </>
-                  ) : (
-                    <Maximize2 size={18} />
-                  )}
-                </div>
-                
-                <div className="absolute inset-0 bg-gradient-to-t from-zinc-950 via-zinc-900/40 to-transparent opacity-90 transition-opacity duration-500 group-hover:opacity-80" />
-                
-                <h3 className="absolute bottom-5 left-6 right-6 text-xl font-bold text-white group-hover:text-cromo transition-colors duration-300 z-10 line-clamp-2">
-                  {project.title}
-                </h3>
-              </div>
+              <PortfolioCardImage
+                project={project}
+                onClick={() => { setSelectedProject(project); setCurrentIndex(0); setScale(1); }}
+              />
 
               {/* CONTEÚDO DO CARD (LIMITADO PARA TODOS TEREM A MESMA ALTURA) */}
               <div className="p-6 md:p-8 flex flex-col flex-grow relative z-10 bg-zinc-900 -mt-px">
-                <p className="body-text text-zinc-400 text-sm line-clamp-5 mb-6">
+                <p className="body-text text-zinc-300 text-sm line-clamp-5 mb-6">
                   {project.shortDescription}
                 </p>
                 
@@ -133,8 +193,8 @@ export default function PortfolioGrid({ projects }: { projects: PortfolioProject
                 </div>
               </div>
             </div>
-          );
-        })}
+          )
+        )}
       </div>
 
       {/* 2. O NOVO MODAL (TELA DIVIDIDA) */}

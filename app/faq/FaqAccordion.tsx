@@ -69,7 +69,7 @@ export function FaqAccordion({ faqs }: { faqs: FAQItem[] }) {
                   exit={{ height: 0, opacity: 0 }}
                   transition={{ duration: 0.3, ease: "easeInOut" }}
                 >
-                  <div className="px-6 md:px-8 pb-6 md:pb-8 text-zinc-400 leading-relaxed">
+                  <div className="px-6 md:px-8 pb-6 md:pb-8 text-zinc-300 leading-relaxed">
                     <p>{faq.answer}</p>
                   </div>
                 </motion.div>
@@ -146,7 +146,7 @@ export function FaqAccordion({ faqs }: { faqs: FAQItem[] }) {
                           exit={{ height: 0, opacity: 0 }}
                           transition={{ duration: 0.3 }}
                         >
-                          <div className="px-6 md:px-8 pb-6 md:pb-8 text-zinc-400 leading-relaxed">
+                          <div className="px-6 md:px-8 pb-6 md:pb-8 text-zinc-300 leading-relaxed">
                             <p>{faq.answer}</p>
                           </div>
                         </motion.div>

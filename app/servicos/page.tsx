@@ -93,20 +93,31 @@ export default function ServicosHome() {
               </span>
             </h2>
             
-            <p className="body-text text-zinc-400 mt-5 max-w-xl mx-auto">
+            <p className="body-text text-zinc-300 mt-5 max-w-xl mx-auto">
               Selecione uma das nossas áreas de atuação para descobrir como podemos transformar o seu desafio técnico em resultado real.
             </p>
           </header>
 
-          {/* <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto"> */}
-          <div className="flex flex-wrap justify-center gap-6 max-w-7xl mx-auto">  
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-6 max-w-7xl mx-auto">
             {servicesList.map((service, index) => {
               const Icon = service.Icon;
               const number = String(index + 1).padStart(2, '0');
+              const total = servicesList.length;
+
+              const lgRemainder = total % 3;
+              const isLgLastRow = lgRemainder !== 0 && index >= total - lgRemainder;
+              let lgColClass = "lg:col-span-4";
+              if (isLgLastRow) {
+                if (lgRemainder === 1) lgColClass = "lg:col-span-4 lg:col-start-5";
+                else if (index === total - 2) lgColClass = "lg:col-span-4 lg:col-start-3";
+                else lgColClass = "lg:col-span-4 lg:col-start-7";
+              }
+
+              const isMdOrphan = total % 2 !== 0 && index === total - 1;
+              const mdColClass = isMdOrphan ? "md:col-span-2" : "";
 
               return (
-                // <div key={service.slug} className="group relative">
-                <div key={service.slug} className="group relative flex w-full md:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)]">
+                <div key={service.slug} className={`group relative flex ${lgColClass} ${mdColClass}`}>
                   <div className="pointer-events-none absolute -inset-4 rounded-[2rem] bg-cromo/0 blur-3xl opacity-0 transition-all duration-500 group-hover:bg-black/20 group-hover:opacity-100" />
 
                   <Link
@@ -146,7 +157,7 @@ export default function ServicosHome() {
                         </p>
 
                         <div className="mt-auto pt-4">
-                          <div className="mt-8 flex items-center justify-between border-t border-white/8 pt-5 text-[10px] sm:text-xs font-bold uppercase tracking-[0.2em] text-zinc-400 transition-colors duration-300 group-hover:text-white/90">
+                          <div className="mt-8 flex items-center justify-between border-t border-white/8 pt-5 text-[10px] sm:text-xs font-bold uppercase tracking-[0.2em] text-zinc-300 transition-colors duration-300 group-hover:text-white/90">
                             <span>Ver detalhes</span>
                           <span className="transition-transform duration-300 group-hover:translate-x-2">→</span>
                         </div>

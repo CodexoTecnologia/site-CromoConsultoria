@@ -35,7 +35,7 @@ const PhoneInput = dynamic(() => import('react-phone-number-input').then(mod => 
   ssr: false,
   loading: () => (
     <div className="w-full h-[46px] sm:h-[50px] bg-zinc-900 border border-white/10 rounded-lg flex items-center px-4">
-      <div className="w-full text-zinc-500 text-[10px]">Carregando...</div>
+      <div className="w-full text-zinc-400 text-[10px]">Carregando...</div>
     </div>
   ),
 });
@@ -168,16 +168,16 @@ export default function Contact({
             </motion.div>
 
             <div className="space-y-6">
-              <p className="body-text text-zinc-400 max-w-sm border-l-2 border-cromo pl-4 md:pl-5">
+              <p className="body-text text-zinc-300 max-w-sm border-l-2 border-cromo pl-4 md:pl-5">
                 {subtitle}
               </p>
 
               <div className="p-6 md:p-8 bg-zinc-900/60 backdrop-blur-sm border border-zinc-800 rounded-2xl space-y-4 shadow-xl relative overflow-hidden group max-w-sm">
                 <div className="absolute top-0 right-0 w-24 h-24 bg-cromo/5 blur-[30px] group-hover:bg-cromo/10 transition-colors pointer-events-none" />
-                <p className="text-[10px] font-bold tracking-[0.2em] text-zinc-400 uppercase">Canais Oficiais:</p>
+                <p className="text-[10px] font-bold tracking-[0.2em] text-zinc-300 uppercase">Canais Oficiais:</p>
                 <div className="space-y-2 text-sm sm:text-base font-medium">
                   <p className="text-zinc-300 hover:text-cromo transition-colors cursor-pointer break-all">contato@cromoconsultoria.com.br</p>
-                  <p className="text-zinc-400 font-mono">(41) 98728-8213</p>
+                  <p className="text-zinc-300 font-mono">(41) 98728-8213</p>
                 </div>
               </div>
             </div>
@@ -197,19 +197,19 @@ export default function Contact({
               >
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div className="space-y-2">
-                    <label htmlFor="contact-name" className="text-[10px] font-bold text-zinc-400 uppercase tracking-widest ml-1">Nome *</label>
+                    <label htmlFor="contact-name" className="text-[10px] font-bold text-zinc-300 uppercase tracking-widest ml-1">Nome *</label>
                     <input
                       type="text"
                       id="contact-name"
                       name="name"
                       placeholder="Seu nome"
                       required
-                      className="w-full bg-black/50 border border-zinc-700 p-3.5 text-xs sm:text-sm text-white outline-none focus:border-cromo transition-all rounded-xl placeholder:text-zinc-600"
+                      className="w-full bg-black/50 border border-zinc-700 p-3.5 text-xs sm:text-sm text-white outline-none focus:border-cromo transition-all rounded-xl placeholder:text-zinc-400"
                     />
                   </div>
 
                   <div className="space-y-2">
-                    <label htmlFor="contact-phone" className="text-[10px] font-bold text-zinc-400 uppercase tracking-widest ml-1">
+                    <label htmlFor="contact-phone" className="text-[10px] font-bold text-zinc-300 uppercase tracking-widest ml-1">
                       Telefone * {!isPhoneValid && <span className="text-red-500 ml-2 animate-pulse text-[10px]">{phoneValue ? 'INVÁLIDO' : 'INFORME DDD + NÚMERO'}</span>}
                     </label>
                     <div className={`codexo-phone-wrapper transition-colors rounded-xl overflow-hidden border ${!isPhoneValid ? 'border-red-500/50' : 'border-zinc-700 focus-within:border-cromo'}`}>
@@ -233,22 +233,22 @@ export default function Contact({
                 </div>
 
                 <div className="space-y-2">
-                  <label htmlFor="contact-email" className="text-[10px] font-bold text-zinc-400 uppercase tracking-widest ml-1">E-mail</label>
+                  <label htmlFor="contact-email" className="text-[10px] font-bold text-zinc-300 uppercase tracking-widest ml-1">E-mail</label>
                   <input
                     type="email"
                     id="contact-email"
                     name="email"
                     placeholder="exemplo@empresa.com.br"
-                    className="w-full bg-black/50 border border-zinc-700 p-3.5 text-xs sm:text-sm text-white outline-none focus:border-cromo transition-all rounded-xl placeholder:text-zinc-600"
+                    className="w-full bg-black/50 border border-zinc-700 p-3.5 text-xs sm:text-sm text-white outline-none focus:border-cromo transition-all rounded-xl placeholder:text-zinc-400"
                   />
                 </div>
 
                 <div className="space-y-2 flex-grow">
                   <div className="flex justify-between items-center ml-1">
-                    <label htmlFor="contact-message" className="text-[10px] font-bold text-zinc-400 uppercase tracking-widest">
+                    <label htmlFor="contact-message" className="text-[10px] font-bold text-zinc-300 uppercase tracking-widest">
                       Descrição do Projeto *
                     </label>
-                    <span className={`text-[9px] font-mono font-bold tracking-widest uppercase ${messageLength >= MAX_CHARS ? 'text-cromo animate-pulse' : 'text-zinc-500'}`}>
+                    <span className={`text-[9px] font-mono font-bold tracking-widest uppercase ${messageLength >= MAX_CHARS ? 'text-cromo animate-pulse' : 'text-zinc-400'}`}>
                       {messageLength} / {MAX_CHARS}
                     </span>
                   </div>
@@ -261,7 +261,7 @@ export default function Contact({
                     required
                     maxLength={MAX_CHARS}
                     onChange={(e) => setMessageLength(e.target.value.length)}
-                    className="w-full min-h-[120px] md:min-h-[150px] bg-black/50 border border-zinc-700 p-3.5 text-xs sm:text-sm text-white outline-none focus:border-cromo transition-all resize-none rounded-xl placeholder:text-zinc-600 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none] break-words"
+                    className="w-full min-h-[120px] md:min-h-[150px] bg-black/50 border border-zinc-700 p-3.5 text-xs sm:text-sm text-white outline-none focus:border-cromo transition-all resize-none rounded-xl placeholder:text-zinc-400 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none] break-words"
                   />
                 </div>
 

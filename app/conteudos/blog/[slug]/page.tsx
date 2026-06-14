@@ -42,7 +42,7 @@ function ArticleSection({ section }: { section: ContentSection }) {
       );
     case "paragraph":
       return (
-        <p className="text-zinc-400 leading-relaxed mb-5 text-base">
+        <p className="text-zinc-300 leading-relaxed mb-5 text-base">
           {section.text}
         </p>
       );
@@ -50,7 +50,7 @@ function ArticleSection({ section }: { section: ContentSection }) {
       return (
         <ul className="mb-6 space-y-3">
           {section.items?.map((item, i) => (
-            <li key={i} className="flex gap-3 text-zinc-400 text-base leading-relaxed">
+            <li key={i} className="flex gap-3 text-zinc-300 text-base leading-relaxed">
               <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-cromo shrink-0" />
               {item}
             </li>
@@ -111,7 +111,7 @@ export default async function BlogPostPage({
           </h1>
 
           {/* Metadados do Blog alinhados visualmente com a description da Hero Global */}
-          <div className="flex flex-wrap items-center gap-4 text-sm text-zinc-400">
+          <div className="flex flex-wrap items-center gap-4 text-sm text-zinc-300">
             <span className="font-medium text-zinc-300">{post.author}</span>
             <span className="w-1 h-1 bg-zinc-600 rounded-full" />
             <span>{post.date}</span>
@@ -131,7 +131,7 @@ export default async function BlogPostPage({
           {post.tags.map((tag) => (
             <span
               key={tag}
-              className="inline-flex items-center gap-1.5 text-[10px] font-bold uppercase tracking-wider text-zinc-500 bg-zinc-800/60 border border-zinc-700 px-3 py-1 rounded-full"
+              className="inline-flex items-center gap-1.5 text-[10px] font-bold uppercase tracking-wider text-zinc-400 bg-zinc-800/60 border border-zinc-700 px-3 py-1 rounded-full"
             >
               <Tag size={9} /> {tag}
             </span>
@@ -153,9 +153,9 @@ export default async function BlogPostPage({
         {/* Rodapé do artigo */}
         <div className="mt-16 pt-10 border-t border-zinc-800 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
           <div>
-            <p className="text-xs text-zinc-600 uppercase tracking-widest font-bold mb-1">Autor</p>
+            <p className="text-xs text-zinc-400 uppercase tracking-widest font-bold mb-1">Autor</p>
             <p className="text-zinc-300 font-medium">{post.author}</p>
-            <p className="text-zinc-600 text-sm">{post.date}</p>
+            <p className="text-zinc-400 text-sm">{post.date}</p>
           </div>
           <Link
             href="/conteudos/blog"
@@ -201,9 +201,9 @@ export default async function BlogPostPage({
                       {related.title}
                     </h3>
                     <div className="flex items-center gap-2 mt-auto pt-3">
-                      <span className="text-[9px] text-zinc-600 font-mono">{related.date}</span>
+                      <span className="text-[9px] text-zinc-400 font-mono">{related.date}</span>
                       <span className="w-0.5 h-0.5 bg-zinc-700 rounded-full" />
-                      <span className="text-[9px] text-zinc-600 flex items-center gap-1">
+                      <span className="text-[9px] text-zinc-400 flex items-center gap-1">
                         <Clock size={9} /> {related.readTime}
                       </span>
                     </div>

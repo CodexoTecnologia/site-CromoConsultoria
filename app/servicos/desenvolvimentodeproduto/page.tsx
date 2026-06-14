@@ -85,7 +85,7 @@ export default function ServicePage() {
             <div className="space-y-6 border-l-2 border-zinc-800 pl-6 md:pl-8">
               {serviceInfo.copy.paragraphs.map((p, i) => (
                 
-                <p key={i} className="body-text text-zinc-400">
+                <p key={i} className="body-text text-zinc-300">
                   {p}
                 </p>
               ))}
@@ -133,7 +133,7 @@ export default function ServicePage() {
                   <div className="absolute -top-12 -left-12 w-32 h-32 bg-cromo/10 blur-[50px] pointer-events-none transition-opacity duration-500 opacity-0 group-hover:opacity-100" />
                   
                   <div className="mb-8 flex items-center justify-between relative z-10">
-                    <div className="w-12 h-12 rounded-xl bg-zinc-950 border border-zinc-800 flex items-center justify-center text-zinc-400 group-hover:text-cromo group-hover:border-cromo/30 transition-colors duration-300 shadow-inner">
+                    <div className="w-12 h-12 rounded-xl bg-zinc-950 border border-zinc-800 flex items-center justify-center text-zinc-300 group-hover:text-cromo group-hover:border-cromo/30 transition-colors duration-300 shadow-inner">
                       <Icon size={24} strokeWidth={1.5} />
                     </div>
                     
@@ -144,7 +144,7 @@ export default function ServicePage() {
                   </h3>
                   
                   {/* Aplicado a classe .body-text */}
-                  <p className="body-text text-zinc-400 flex-grow relative z-10">
+                  <p className="body-text text-zinc-300 flex-grow relative z-10">
                     {benefit.description}
                   </p>
                 </div>

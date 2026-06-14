@@ -74,6 +74,11 @@ export const portfolioProjects: PortfolioProject[] = [
       "Desenho em cores e 3D entregue ao cliente, pronto para referência de fabricação.",
     image: "/assets/images/portfolio/brose/cavaleira.jpg",
     imageAlt: "Modelo 3D da bancada de laboratório industrial desenvolvida para BROSE",
+    gallery: [
+      "/assets/images/portfolio/brose/cavaleira.jpg",
+      "/assets/images/portfolio/brose/frente.jpg",
+      "/assets/images/portfolio/brose/tras.jpg",
+    ]
   },
   {
     client: "Setor Esportivo",
@@ -88,6 +93,11 @@ export const portfolioProjects: PortfolioProject[] = [
       "Suporte em impressão 3D entregue com tamanho proporcional e compatível ao impacto do esporte praticado.",
     image: "/assets/images/portfolio/case-crossfit/case-crossfit-aberto.png",
     imageAlt: "Protótipo 3D do case para sensor de performance no Crossfit",
+    gallery: [
+      "/assets/images/portfolio/case-crossfit/case-crossfit-aberto.png",
+      "/assets/images/portfolio/case-crossfit/case-crossfit-fechado.png",
+      "/assets/images/portfolio/case-crossfit/case-crossfit-pronto.png",
+    ]
   },
   {
     client: "Setor Alimentício",
@@ -102,6 +112,10 @@ export const portfolioProjects: PortfolioProject[] = [
       "Documentação técnica necessária para o cliente realizar o pedido de patente da máquina entregue com sucesso.",
     image: "/assets/images/portfolio/maquina-pastel/maquina-pastel-ampla.png",
     imageAlt: "Projeto conceitual da máquina de pastel automatizada com sistema de moldagem em letras",
+    gallery: [
+      "/assets/images/portfolio/maquina-pastel/maquina-pastel-ampla.png",
+      "/assets/images/portfolio/maquina-pastel/maquina-pastel-letras.png",
+    ]
   },
   {
     client: "Setor Alimentício",
@@ -116,6 +130,10 @@ export const portfolioProjects: PortfolioProject[] = [
       "O projeto atingiu sua entrega final integrando as lógicas e mecânicas estipuladas. Foram repassados aos responsáveis o Memorial de Cálculos, Manual do Usuário, Manuais de Montagem e Manual de automação, deixando a tecnologia estruturada e pronta para as próximas fases de produção.",    
     image: "/assets/images/portfolio/abate-tilapia/abate-tilapia-desenho.png",
     imageAlt: "Máquina de abate de tilápias",
+    gallery: [
+      "/assets/images/portfolio/abate-tilapia/abate-tilapia-desenho.png",
+      "/assets/images/portfolio/abate-tilapia/abate-tilapia-desenho2.png",
+    ]
   },
   {
     client: "Inovatech",

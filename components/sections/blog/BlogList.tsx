@@ -31,26 +31,26 @@ export default function BlogList() {
           <div className="relative group">
             <Search
               size={16}
-              className="absolute left-4 top-1/2 -translate-y-1/2 text-zinc-500 group-focus-within:text-cromo transition-colors pointer-events-none"
+              className="absolute left-4 top-1/2 -translate-y-1/2 text-zinc-400 group-focus-within:text-cromo transition-colors pointer-events-none"
             />
             <input
               type="text"
               value={query}
               onChange={(e) => setQuery(e.target.value)}
               placeholder="Buscar por título, tema ou palavra-chave..."
-              className="w-full bg-zinc-900 border border-zinc-800 focus:border-cromo rounded-xl pl-11 pr-4 py-3.5 text-sm text-white placeholder:text-zinc-600 outline-none transition-colors"
+              className="w-full bg-zinc-900 border border-zinc-800 focus:border-cromo rounded-xl pl-11 pr-4 py-3.5 text-sm text-white placeholder:text-zinc-400 outline-none transition-colors"
             />
             {query && (
               <button
                 onClick={() => setQuery("")}
-                className="absolute right-4 top-1/2 -translate-y-1/2 text-zinc-600 hover:text-zinc-300 transition-colors text-xs font-bold uppercase tracking-widest"
+                className="absolute right-4 top-1/2 -translate-y-1/2 text-zinc-400 hover:text-zinc-300 transition-colors text-xs font-bold uppercase tracking-widest"
               >
                 ✕
               </button>
             )}
           </div>
           {query && (
-            <p className="text-zinc-600 text-xs mt-2 ml-1">
+            <p className="text-zinc-400 text-xs mt-2 ml-1">
               {filtered.length === 0
                 ? "Nenhum resultado encontrado."
                 : `${filtered.length} artigo${filtered.length > 1 ? "s" : ""} encontrado${filtered.length > 1 ? "s" : ""}`}
@@ -84,9 +84,9 @@ export default function BlogList() {
 
                 <div className="p-6 flex flex-col flex-grow">
                   <div className="flex items-center gap-3 mb-3">
-                    <span className="text-[10px] text-zinc-500 font-mono">{post.date}</span>
+                    <span className="text-[10px] text-zinc-400 font-mono">{post.date}</span>
                     <span className="w-1 h-1 bg-zinc-700 rounded-full" />
-                    <span className="text-[10px] text-zinc-500 flex items-center gap-1">
+                    <span className="text-[10px] text-zinc-400 flex items-center gap-1">
                       <Clock size={10} />
                       {post.readTime} de leitura
                     </span>
@@ -96,7 +96,7 @@ export default function BlogList() {
                     {post.title}
                   </h2>
 
-                  <p className="text-zinc-500 text-sm leading-relaxed mb-6 flex-grow line-clamp-3">
+                  <p className="text-zinc-400 text-sm leading-relaxed mb-6 flex-grow line-clamp-3">
                     {post.excerpt}
                   </p>
 
@@ -105,7 +105,7 @@ export default function BlogList() {
                       {post.tags.slice(0, 2).map((tag) => (
                         <span
                           key={tag}
-                          className="text-[9px] font-bold uppercase tracking-wider text-zinc-600 bg-zinc-800 px-2 py-0.5 rounded"
+                          className="text-[9px] font-bold uppercase tracking-wider text-zinc-400 bg-zinc-800 px-2 py-0.5 rounded"
                         >
                           {tag}
                         </span>
@@ -121,7 +121,7 @@ export default function BlogList() {
           </div>
         ) : (
           <div className="text-center py-20">
-            <p className="text-zinc-600 text-sm">Nenhum artigo encontrado para &quot;{query}&quot;.</p>
+            <p className="text-zinc-400 text-sm">Nenhum artigo encontrado para &quot;{query}&quot;.</p>
             <button
               onClick={() => setQuery("")}
               className="mt-4 text-cromo text-xs font-bold uppercase tracking-widest hover:underline"

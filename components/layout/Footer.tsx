@@ -48,7 +48,7 @@ export default function Footer() {
               />
             </div>
             </Link>
-            <p className="max-w-[280px] sm:max-w-sm md:max-w-md text-zinc-400 text-xs sm:text-sm leading-relaxed border-l-2 border-cromo pl-4 sm:pl-5 md:pl-6 italic">
+            <p className="max-w-[280px] sm:max-w-sm md:max-w-md text-zinc-300 text-xs sm:text-sm leading-relaxed border-l-2 border-cromo pl-4 sm:pl-5 md:pl-6 italic">
               Transformamos desafios técnicos de engenharia em soluções inovadoras, garantindo viabilidade e propriedade intelectual para a sua indústria.
             </p>
             
@@ -60,7 +60,7 @@ export default function Footer() {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={`Visite nosso perfil no ${social.name}`}
-                  className="w-11 h-11 sm:w-12 sm:h-12 border border-zinc-800 bg-zinc-900 flex items-center justify-center text-zinc-400 hover:text-black hover:border-cromo hover:bg-cromo transition-all duration-300 rounded-lg text-sm sm:text-base group shadow-sm"
+                  className="w-11 h-11 sm:w-12 sm:h-12 border border-zinc-800 bg-zinc-900 flex items-center justify-center text-zinc-300 hover:text-black hover:border-cromo hover:bg-cromo transition-all duration-300 rounded-lg text-sm sm:text-base group shadow-sm"
                 >
                   {social.icon}
                 </a>
@@ -90,17 +90,17 @@ export default function Footer() {
             </div>
             <div className="space-y-3 sm:space-y-4">
               <div>
-                <p className="text-zinc-400 text-[9px] sm:text-[10px] uppercase tracking-widest">E-mail</p>
+                <p className="text-zinc-300 text-[9px] sm:text-[10px] uppercase tracking-widest">E-mail</p>
                 <a href="mailto:contato@cromoconsultoria.com.br" className="text-zinc-300 hover:text-cromo transition-colors font-bold text-xs sm:text-sm break-all lg:break-normal">
                   contato@cromoconsultoria.com.br
                 </a>
               </div>
               <div>
-                <p className="text-zinc-400 text-[9px] sm:text-[10px] uppercase tracking-widest">Telefone / WhatsApp</p>
+                <p className="text-zinc-300 text-[9px] sm:text-[10px] uppercase tracking-widest">Telefone / WhatsApp</p>
                 <p className="text-zinc-300 font-mono text-xs sm:text-sm">(41) 8728-8213</p>
               </div>
               <div>
-                 <p className="text-zinc-400 text-[9px] sm:text-[10px] uppercase tracking-widest mt-4">Localização</p>
+                 <p className="text-zinc-300 text-[9px] sm:text-[10px] uppercase tracking-widest mt-4">Localização</p>
                  <p className="text-zinc-300 text-xs mt-1 lg:ml-auto lg:max-w-[180px]">UTFPR - Câmpus Curitiba, Paraná - Brasil</p>
               </div>
             </div>
@@ -109,12 +109,12 @@ export default function Footer() {
 
         <div className="flex flex-col md:flex-row justify-between items-center pt-6 sm:pt-8 md:pt-10 border-t border-zinc-800 gap-4 sm:gap-5 md:gap-6">
           <div className="flex items-center gap-3 sm:gap-4">
-             <p className="text-[8px] sm:text-[9px] text-zinc-400 font-bold uppercase tracking-[0.2em] sm:tracking-[0.25em] text-center md:text-left">
+             <p className="text-[8px] sm:text-[9px] text-zinc-300 font-bold uppercase tracking-[0.2em] sm:tracking-[0.25em] text-center md:text-left">
                © {new Date().getFullYear()} Cromo Consultoria. Todos os direitos reservados.
              </p>
           </div>
           <div className="flex flex-col items-center md:items-end">
-            <span className="text-[8px] sm:text-[9px] text-zinc-400 font-bold uppercase tracking-[0.2em]">
+            <span className="text-[8px] sm:text-[9px] text-zinc-300 font-bold uppercase tracking-[0.2em]">
               Desenvolvido por
             </span>
             <a 

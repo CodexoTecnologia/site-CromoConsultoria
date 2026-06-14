@@ -55,7 +55,7 @@ export default function Benefits() {
               </div>
               
               {/* Aplicada a classe global .body-text */}
-              <p className="body-text text-zinc-400">
+              <p className="body-text text-zinc-300">
                 Não entregamos apenas projetos no papel. Entregamos soluções de engenharia que reduzem custos, otimizam processos e geram inovação palpável para o seu negócio.
               </p>
 
@@ -90,7 +90,7 @@ export default function Benefits() {
                       <h3 className="text-lg md:text-xl font-bold text-white mb-2 group-hover:text-cromo transition-colors">
                         {benefit.title}
                       </h3>
-                      <p className="text-zinc-400 text-sm md:text-base leading-relaxed">
+                      <p className="text-zinc-300 text-sm md:text-base leading-relaxed">
                         {benefit.desc}
                       </p>
                     </div>

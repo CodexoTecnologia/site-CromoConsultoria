@@ -21,12 +21,14 @@ export default function About() {
             
             {/* Título */}
             <div className="subtitle text-white">
-              A ponte entre a <span className="text-transparent bg-clip-text bg-gradient-to-r from-cromo to-yellow-600">pesquisa de ponta</span> e a indústria.
+              {/* A ponte entre a <span className="text-transparent bg-clip-text bg-gradient-to-r from-cromo to-yellow-600">pesquisa de ponta</span> e a indústria. */}
+              A ponte entre a <span className="text-transparent bg-clip-text bg-gradient-to-r from-cromo to-yellow-600">universidade</span> e a <span className="text-transparent bg-clip-text bg-gradient-to-r from-cromo to-yellow-600">indústria</span>            
             </div>
             
             {/* Texto descritivo */}
-            <p className="body-text text-zinc-400 max-w-lg">
-              Somos a Cromo Consultoria, uma empresa júnior formada por estudantes de engenharia mecânica e mecatrônica da <strong>UTFPR Curitiba</strong>. 
+            <p className="body-text text-zinc-200 max-w-lg">
+              {/* Somos a Cromo Consultoria, uma empresa júnior formada por estudantes de engenharia mecânica e mecatrônica da <strong>UTFPR Curitiba</strong>.  */}
+              Somos a Cromo Consultoria, uma empresa júnior formada por estudantes de engenharia mecânica, mecatrônica e de produção da <strong>UTFPR Curitiba</strong>.               
               Nosso objetivo é desenvolver soluções inovadoras e acessíveis, ao mesmo tempo em que formamos profissionais capacitados para o mercado.
             </p>
             
@@ -36,7 +38,7 @@ export default function About() {
                 'Foco em inovação e metodologias modernas', 
                 'Equipe altamente qualificada e rigor acadêmico'
               ].map((item, i) => (
-                <li key={i} className="flex items-center gap-3 text-zinc-300 font-medium body-text">
+                <li key={i} className="flex items-center gap-3 text-zinc-200 font-medium body-text">
                   <div className="w-5 h-5 rounded-full bg-cromo/10 flex items-center justify-center text-cromo text-xs shrink-0" aria-hidden="true">
                     ✓
                   </div>

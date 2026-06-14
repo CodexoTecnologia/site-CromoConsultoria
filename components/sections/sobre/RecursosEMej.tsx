@@ -26,7 +26,7 @@ export default function RecursosMej() {
                     <span className="text-cromo font-bold text-lg pt-1" aria-hidden="true">{number}</span>
                     <div>
                       <h3 className="text-white font-bold mb-2">{item.title}</h3>
-                      <p className="body-text text-zinc-500">{item.description}</p>
+                      <p className="body-text text-zinc-300">{item.description}</p>
                     </div>
                   </li>
                 );
@@ -46,19 +46,19 @@ export default function RecursosMej() {
               <span className="text-cromo font-black text-[10px] uppercase tracking-[0.3em] block mb-4">Conexão MEJ</span>
               <h2 id="mej-title" className="text-2xl font-bold text-white">Movimento Empresa Júnior</h2>
             </header>
-            <p className="body-text text-zinc-400 mb-8">
+            <p className="body-text text-zinc-300 mb-8">
               Fazemos parte do maior movimento de empreendedorismo jovem do mundo. Na Cromo, isso se traduz em projetos de alto impacto, desenvolvimento de lideranças e evolução profissional contínua.
             </p>
             
             <div className="mt-auto pt-8 border-t border-zinc-800/60">
-              <span className="block text-[10px] text-zinc-500 font-bold uppercase tracking-widest mb-4">Conecte-se com a gente</span>
+              <span className="block text-[10px] text-zinc-300 font-bold uppercase tracking-widest mb-4">Conecte-se com a gente</span>
               <div className="flex items-center justify-center gap-4">
                 
                 <Link 
                   href="https://www.instagram.com/cromoconsultoria" 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="p-3.5 rounded-full bg-zinc-950 border border-zinc-800 text-zinc-400 hover:text-cromo hover:border-cromo/50 hover:-translate-y-1 transition-all shadow-inner"
+                  className="p-3.5 rounded-full bg-zinc-950 border border-zinc-800 text-zinc-300 hover:text-cromo hover:border-cromo/50 hover:-translate-y-1 transition-all shadow-inner"
                   aria-label="Instagram da Cromo Consultoria"
                 >
                   <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -72,7 +72,7 @@ export default function RecursosMej() {
                   href="https://br.linkedin.com/company/cromoconsultoria" 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="p-3.5 rounded-full bg-zinc-950 border border-zinc-800 text-zinc-400 hover:text-cromo hover:border-cromo/50 hover:-translate-y-1 transition-all shadow-inner"
+                  className="p-3.5 rounded-full bg-zinc-950 border border-zinc-800 text-zinc-300 hover:text-cromo hover:border-cromo/50 hover:-translate-y-1 transition-all shadow-inner"
                   aria-label="LinkedIn da Cromo Consultoria"
                 >
                   <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -86,7 +86,7 @@ export default function RecursosMej() {
                   href="https://web.facebook.com/CromoConsultoria" 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="p-3.5 rounded-full bg-zinc-950 border border-zinc-800 text-zinc-400 hover:text-cromo hover:border-cromo/50 hover:-translate-y-1 transition-all shadow-inner"
+                  className="p-3.5 rounded-full bg-zinc-950 border border-zinc-800 text-zinc-300 hover:text-cromo hover:border-cromo/50 hover:-translate-y-1 transition-all shadow-inner"
                   aria-label="Facebook da Cromo Consultoria"
                 >
                   <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
