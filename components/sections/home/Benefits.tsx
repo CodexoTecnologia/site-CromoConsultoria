@@ -60,11 +60,11 @@ export default function Benefits() {
               </p>
 
               <div className="relative w-full aspect-video rounded-2xl overflow-hidden border border-zinc-800 shadow-2xl group">
-                <Image
-                  src="/assets/images/home/cromo-benefits.png"
-                  alt="Dados de performance em projetos de engenharia"
-                  fill
-                  sizes="(max-width: 1024px) calc(100vw - 2rem), 42vw"
+                <Image 
+                  src="/assets/images/home/cromo-benefits.png" 
+                  alt="Dados de performance em projetos de engenharia" 
+                  fill 
+                  sizes="(max-width: 1024px) 100vw, 50vw"
                   className="object-cover group-hover:scale-105 transition-transform duration-700" 
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-zinc-950/90 via-zinc-950/20 to-transparent pointer-events-none" />
