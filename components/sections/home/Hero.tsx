@@ -15,7 +15,7 @@ export default function Hero() {
         <h1 className="text-[2.50rem] sm:text-5xl lg:text-6xl font-black text-white/95 leading-[1.18] sm:leading-[1.12] lg:leading-[1.08] max-w-4xl tracking-tight mb-6">
           Soluções em engenharia <br className="hidden md:block" />
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-white/95 to-zinc-400">
-            mecânica, mecatrônica e produção em Curitiba
+            mecânica, mecatrônica e de produção em Curitiba
           </span>
         </h1>
         
