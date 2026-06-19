@@ -31,7 +31,7 @@ export default function Cultura() {
                   
                   <header className="flex items-center justify-between mb-8 relative z-10">
                     <span className="w-12 h-12 rounded-full bg-zinc-900 flex items-center justify-center border border-zinc-800 group-hover:border-cromo/50 transition-colors" aria-hidden="true">
-                      <Icon className="w-5 h-5 text-zinc-400 group-hover:text-cromo" />
+                      <Icon className="w-5 h-5 text-cromo md:text-zinc-400 md:group-hover:text-cromo" />
                     </span>
                     <span className="text-zinc-300 font-black text-2xl group-hover:text-zinc-700 transition-colors" aria-hidden="true">
                       0{index + 1}

@@ -1,4 +1,3 @@
-import ExpandableImage from "@/components/ui/ExpandableImage";
 import { Rocket, Target } from "lucide-react";
 
 const mission = { title: "Missão", description: "Projetar sonhos que diminuam o distanciamento tecnológico existente entre a comunidade e a universidade enfrentando desafios que gerem evolução pessoal e profissional aos nossos clientes internos e externos.", icon: Target };
@@ -15,36 +14,24 @@ export default function Identidade() {
           <p className="body-text text-zinc-300 max-w-2xl mx-auto">Gerando aprendizado prático para os membros e valor concreto e mensurável para os nossos clientes.</p>
         </header>
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
-          <figure className="m-0 relative group lg:col-span-5">
-            <div className="absolute inset-0 bg-cromo/20 blur-[100px] opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" aria-hidden="true" />
-            <ExpandableImage
-              src="/assets/images/sobre/cultura.jpg"
-              alt="Planejamento técnico e estratégico da equipe Cromo"
-              className="w-full aspect-[4/3] lg:aspect-[1/1] rounded-[2rem] border border-zinc-800 shadow-2xl relative z-10 object-cover"
-              // gallery={["/assets/images/sobre/cultura.jpg"]}
-            />
-          </figure>
-
-          <ul className="grid grid-cols-1 sm:grid-cols-2 gap-6 list-none p-0 self-center lg:col-span-7">
-            {[mission, vision].map((item) => {
-              const Icon = item.icon;
-              return (
-                <li key={item.title}>
-                  <article className="bg-zinc-900/50 border border-zinc-800 p-8 rounded-3xl h-full transition-colors hover:border-cromo/50">
-                    <header className="flex items-center gap-4 mb-4">
-                      <span className="w-12 h-12 rounded-xl bg-zinc-950 flex items-center justify-center border border-zinc-800" aria-hidden="true">
-                        <Icon className="w-5 h-5 text-cromo" />
-                      </span>
-                      <h3 className="text-xl font-bold text-white">{item.title}</h3>
-                    </header>
-                    <p className="body-text text-zinc-300">{item.description}</p>
-                  </article>
-                </li>
-              );
-            })}
-          </ul>
-        </div>
+        <ul className="grid grid-cols-1 sm:grid-cols-2 gap-8 list-none p-0 max-w-4xl mx-auto">
+          {[mission, vision].map((item) => {
+            const Icon = item.icon;
+            return (
+              <li key={item.title}>
+                <article className="bg-zinc-900/50 border border-zinc-800 p-10 rounded-3xl h-full transition-all duration-300 hover:border-cromo/50 hover:bg-zinc-900 hover:-translate-y-1 hover:shadow-xl hover:shadow-cromo/5">
+                  <header className="flex items-center gap-4 mb-6">
+                    <span className="w-14 h-14 rounded-2xl bg-zinc-950 flex items-center justify-center border border-zinc-800 shrink-0" aria-hidden="true">
+                      <Icon className="w-6 h-6 text-cromo" />
+                    </span>
+                    <h3 className="text-2xl font-bold text-white">{item.title}</h3>
+                  </header>
+                  <p className="body-text text-zinc-300 leading-relaxed">{item.description}</p>
+                </article>
+              </li>
+            );
+          })}
+        </ul>
       </div>
     </section>
   );
